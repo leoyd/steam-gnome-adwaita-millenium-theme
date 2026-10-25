@@ -2,56 +2,56 @@
 
 # Adw Lite
 
-**Steam aux couleurs de GNOME / libadwaita — client *et* pages web.**
+**Steam in GNOME / libadwaita style — the client *and* the web pages.**
 
-Un thème [Millennium](https://steambrew.app) qui applique le design system Adwaita
-à toute l'application : bibliothèque, amis, réglages, dialogues, mais aussi le
-magasin, la communauté, le marché, l'inventaire, le Workshop et les forums.
+A [Millennium](https://steambrew.app) theme that brings the Adwaita design system
+to the whole app: library, friends, settings and dialogs, but also the store,
+community, market, inventory, Workshop and forums.
 
-[![Millennium](https://img.shields.io/badge/Millennium-thème-6b5cff?style=flat-square)](https://steambrew.app)
+[![Millennium](https://img.shields.io/badge/Millennium-theme-6b5cff?style=flat-square)](https://steambrew.app)
 [![GNOME](https://img.shields.io/badge/GNOME-libadwaita-4a86cf?style=flat-square&logo=gnome&logoColor=white)](https://gnome.pages.gitlab.gnome.org/libadwaita/)
-[![Licence MIT](https://img.shields.io/badge/licence-MIT-2ec27e?style=flat-square)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-2ec27e?style=flat-square)](LICENSE)
 [![Version](https://img.shields.io/badge/version-4.4--lite.3-lightgrey?style=flat-square)](skin.json)
 
-![Bibliothèque](docs/screenshots/library.png)
+![Library](docs/screenshots/library.png)
 
 </div>
 
-## Aperçu
+## Preview
 
-| Magasin | Discussions |
+| Store | Discussions |
 |:-:|:-:|
-| ![Magasin](docs/screenshots/store.png) | ![Discussions](docs/screenshots/discussions.png) |
+| ![Store](docs/screenshots/store.png) | ![Discussions](docs/screenshots/discussions.png) |
 
-## Points forts
+## Highlights
 
-- 🎨 **Adwaita partout** : couleurs, rayons, boutons, champs, onglets, cartes, spinner
-  et flèches de carrousel de libadwaita, dans le client comme sur les pages web.
-- 🌗 **Clair, sombre ou système**, palette GNOME 48+ ou gris neutres, et les
-  **9 couleurs d'accent** de GNOME qui remplacent le bleu Steam partout.
-- 🧩 **Composants uniques et réutilisables** : un seul bouton, une seule carte, une
-  seule pagination, un seul pouce « recommandé »… déclinés par variables CSS.
-- 🖼️ **Avatars carrés** avec leurs cadres de profil, fonds de profil personnalisés
-  conservés et rendus lisibles.
-- 📚 **Bibliothèque repensée** : grande illustration arrondie, panneau translucide
-  avec le bouton Jouer, barre compacte qui reste visible au défilement.
-- ⚡ **Rapide** : aucun `:has()` dans la fenêtre principale (converti à la
-  compilation), polices système, pas de police ni d'image téléchargée.
-  La page d'un jeu se stabilise en ~0,6 s, contre ~3,8 s avec la feuille d'origine.
+- 🎨 **Adwaita everywhere**: libadwaita colors, radii, buttons, entries, tabs, cards,
+  spinner and carousel arrows, in the client as well as on the web pages.
+- 🌗 **Light, dark or system** color scheme, GNOME 48+ or neutral gray palette, and
+  GNOME's **9 accent colors**, which replace Steam blue everywhere.
+- 🧩 **Single, reusable components**: one button, one card, one pagination, one
+  "recommended" thumb… each one adjusted through CSS variables.
+- 🖼️ **Square avatars** with their profile frames; custom profile backgrounds are
+  kept and stay readable.
+- 📚 **Redesigned library**: large rounded hero image, translucent panel holding the
+  Play button, compact bar that stays visible while scrolling.
+- ⚡ **Fast**: no `:has()` in the main window (converted at build time), system fonts,
+  no downloaded fonts or images. A game page settles in ~0.6 s, versus ~3.8 s with
+  the original stylesheet.
 
 ## Installation
 
-### 1. Installer Millennium
+### 1. Install Millennium
 
-Le thème a besoin de **[Millennium](https://steambrew.app)**, le gestionnaire de
-thèmes et de plugins pour Steam. Suivez les instructions d'installation de son
-site pour votre système (Windows ou Linux), puis lancez Steam une fois.
+The theme requires **[Millennium](https://steambrew.app)**, the theme and plugin
+manager for Steam. Follow the installation instructions on its website for your
+system (Windows or Linux), then start Steam once.
 
-### 2. Ajouter le thème
+### 2. Add the theme
 
-**Avec Git (recommandé, mises à jour faciles)**
+**With Git (recommended, easy updates)**
 
-Clonez le dépôt dans le dossier des thèmes de Millennium :
+Clone the repository into Millennium's themes folder:
 
 ```sh
 # Linux
@@ -65,88 +65,89 @@ cd "C:\Program Files (x86)\Steam\millennium\themes"
 git clone https://github.com/leoyd/steam-gnome-adwaita-millenium-theme.git
 ```
 
-**Sans Git**
+**Without Git**
 
-1. Téléchargez l'archive : **Code → Download ZIP** sur cette page.
-2. Décompressez-la dans le dossier `millennium/themes` de votre dossier Steam.
+1. Download the archive: **Code → Download ZIP** on this page.
+2. Extract it into the `millennium/themes` folder of your Steam directory.
 
 > [!NOTE]
-> Le dossier des thèmes se trouve dans le dossier d'installation de Steam :
-> `millennium/themes`. Sur Linux, c'est en général
-> `~/.local/share/Steam/millennium/themes` (ou `~/.steam/steam/millennium/themes`).
-> Les fichiers compilés sont inclus : il n'y a rien à construire.
+> The themes folder lives in your Steam installation directory:
+> `millennium/themes`. On Linux this is usually
+> `~/.local/share/Steam/millennium/themes` (or `~/.steam/steam/millennium/themes`).
+> The compiled files are included: there is nothing to build.
 
-### 3. Activer le thème
+### 3. Enable the theme
 
-1. Ouvrez Steam, puis le menu **Millennium** (menu ☰ en haut à droite → *Millennium*).
-2. Dans **Thèmes**, choisissez **Adw Lite**.
-3. Redémarrez Steam quand Millennium le propose.
+1. Open Steam, then the **Millennium** menu (☰ menu at the top right → *Millennium*).
+2. Under **Themes**, select **Adw Lite**.
+3. Restart Steam when Millennium asks you to.
 
-### Mettre à jour
+### Updating
 
 ```sh
 cd ~/.local/share/Steam/millennium/themes/steam-gnome-adwaita-millenium-theme
 git pull
 ```
 
-Puis redémarrez Steam (les pages web se mettent à jour dès la navigation
-suivante, le client au redémarrage).
+Then restart Steam (web pages pick up changes on the next navigation, the client
+after a restart).
 
 ## Options
 
-Toutes les options se règlent dans **Millennium → Thèmes → Adw Lite**.
+All options are set in **Millennium → Themes → Adw Lite**. Option names are shown
+in French in Millennium; their meaning is given below.
 
-| Option | Choix (défaut en gras) |
-|---|---|
-| Mode de couleur | **Sombre**, Clair, Système |
-| Palette | **GNOME 48+**, Gris neutre (avant GNOME 48) |
-| Couleur d'accent | **Bleu**, Turquoise, Vert, Jaune, Orange, Rouge, Rose, Violet, Ardoise |
-| Boutons de fenêtre | **GNOME (fermer)**, Réduire / agrandir / fermer, À gauche (macOS), Pantheon |
-| Étagère Nouveautés | **Afficher**, Masquer |
-| Liste des jeux | **Toujours visible**, Au survol |
-| Icônes carrées | **Oui**, Non |
-| Listes limitées à 6 | **Oui** (amis, activité, contenu de la communauté par 6 + « Voir plus »), Non |
-| Illustrations de fond | **Masquées**, Affichées (fonds des fiches de jeu ; les fonds de profil restent affichés) |
-| Adresse des pages | **Masquée**, Affichée |
-| Mini-bandes-annonces | **Désactivées** (non téléchargées : plus léger), Activées |
-| QR code de connexion | **Afficher**, Au survol, Masquer |
+| Option | Meaning | Choices (default in bold) |
+|---|---|---|
+| Mode de couleur | Color scheme | **Sombre** (dark), Clair (light), Système (system) |
+| Palette | Gray palette | **GNOME 48+**, Gris neutre (neutral gray, before GNOME 48) |
+| Couleur d'accent | Accent color | **Bleu** (blue), Turquoise, Vert (green), Jaune (yellow), Orange, Rouge (red), Rose (pink), Violet (purple), Ardoise (slate) |
+| Boutons de fenêtre | Window buttons | **GNOME (close only)**, Minimize / maximize / close, Left side (macOS), Pantheon |
+| Étagère Nouveautés | "What's New" shelf | **Show**, Hide |
+| Liste des jeux | Game list sidebar | **Always visible**, On hover |
+| Icônes carrées | Square game icons | **Yes**, No |
+| Listes limitées à 6 | Lists limited to 6 | **Yes** (friends, activity and community content by 6 + "Show more" button), No |
+| Illustrations de fond | Background artwork | **Hidden**, Shown (game page backgrounds; profile backgrounds are always shown) |
+| Adresse des pages | Page URL bar | **Hidden**, Shown |
+| Mini-bandes-annonces | Micro-trailers | **Disabled** (not downloaded: lighter), Enabled |
+| QR code de connexion | Login QR code | **Show**, On hover, Hide |
 
-## Conseils de performance
+## Performance tips
 
-- Laissez **Mini-bandes-annonces** sur *Désactivées* et **Listes limitées à 6** sur *Oui* :
-  moins de vidéos et d'éléments à charger dans le magasin et la bibliothèque.
-- Dans **Steam → Paramètres → Bibliothèque**, le *mode faible bande passante* et le
-  *mode performances réduites* allègent encore l'affichage.
+- Keep **Micro-trailers** *disabled* and **Lists limited to 6** set to *Yes*: fewer
+  videos and elements to load in the store and library.
+- In **Steam → Settings → Library**, *Low bandwidth mode* and *Low performance mode*
+  lighten the display even more.
 
-## Limites connues
+## Known limitations
 
-- Les menus déroulants restent rectangulaires : sur certains systèmes (Linux /
-  Wayland), les fenêtres de menu de Steam ne sont pas transparentes, et des coins
-  arrondis y apparaîtraient en noir. Les éléments des menus, eux, sont arrondis.
-- Steam change parfois ses noms de classes lors de ses mises à jour : un élément
-  peut alors perdre son style jusqu'à la mise à jour du thème.
+- Drop-down menus stay rectangular: on some systems (Linux / Wayland), Steam's menu
+  windows are not transparent, so rounded corners would show up black. Menu items
+  themselves are rounded.
+- Steam sometimes renames its CSS classes in updates: an element may lose its style
+  until the theme is updated.
 
-## Développement
+## Development
 
-Le thème est écrit en CSS modulaire dans `src/` puis assemblé et minifié par
-`build.py` :
+The theme is written as modular CSS in `src/`, then bundled and minified by
+`build.py`:
 
 ```sh
-npm install        # une fois : outils de conversion des :has()
-python3 build.py   # régénère millennium/*.css, millennium/has.js et webkit/webkit.min.css
+npm install        # once: tooling that converts :has() selectors
+python3 build.py   # regenerates millennium/*.css, millennium/has.js and webkit/webkit.min.css
 ```
 
-Architecture, composants, performances et maintenance après une mise à jour de
-Steam : voir **[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)**.
+Architecture, components, performance notes and maintenance after a Steam update:
+see **[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)** (in French).
 
-## Crédits
+## Credits
 
-- [Adwaita-for-Steam](https://github.com/tkashkin/Adwaita-for-Steam) de **tkashkin**
-  — base du thème client (MIT).
-- [libadwaita](https://gnome.pages.gitlab.gnome.org/libadwaita/) et le
+- [Adwaita-for-Steam](https://github.com/tkashkin/Adwaita-for-Steam) by **tkashkin**
+  — base of the client theme (MIT).
+- [libadwaita](https://gnome.pages.gitlab.gnome.org/libadwaita/) and the
   [GNOME Human Interface Guidelines](https://developer.gnome.org/hig/) — design system.
-- [Millennium](https://steambrew.app) — chargement des thèmes dans Steam.
+- [Millennium](https://steambrew.app) — theme loading in Steam.
 
-## Licence
+## License
 
-[MIT](LICENSE). Ce thème n'est affilié ni à Valve, ni au projet GNOME.
+[MIT](LICENSE). This theme is not affiliated with Valve or the GNOME project.
