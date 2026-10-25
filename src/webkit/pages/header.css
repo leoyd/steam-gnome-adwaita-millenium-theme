@@ -1,6 +1,6 @@
-/* En-têtes : barre globale Steam (hors client) et barre de navigation du magasin */
+/* Headers: Steam global bar (outside the client) and store navigation bar */
 
-/* Barre globale = headerbar Adwaita */
+/* Global bar = Adwaita headerbar */
 #global_header,
 .responsive_header,
 #global_header .content
@@ -71,7 +71,7 @@
 	text-decoration: none !important;
 }
 
-/* Bouton « Installer Steam » : bouton suggéré */
+/* “Install Steam” button: suggested button */
 .header_installsteam_btn,
 .header_installsteam_btn_green
 {
@@ -87,7 +87,7 @@
 	background: none !important;
 }
 
-/* Portefeuille / notifications dans l'en-tête */
+/* Wallet / notifications in the header */
 #header_wallet_balance,
 .header_notification_btn,
 #header_notification_link,
@@ -113,7 +113,7 @@
 	border-radius: 9999px !important;
 }
 
-/* ───────────── Barre de navigation du magasin ───────────── */
+/* ───────────── Store navigation bar ───────────── */
 
 #store_header,
 .store_header,
@@ -193,7 +193,7 @@
 	padding-right: 0 !important;
 }
 
-/* Chevron des menus déroulants façon Adwaita */
+/* Adwaita-style dropdown menu chevron */
 .store_nav .tab.pulldown > span::after
 {
 	content: "";
@@ -213,7 +213,7 @@
 	display: none !important;
 }
 
-/* Barre de recherche du magasin : entrée de recherche Adwaita */
+/* Store search bar: Adwaita search entry */
 .store_nav .search_area,
 #store_search
 {
@@ -256,7 +256,7 @@
 	filter: light-dark(invert(0.8), none) grayscale(1);
 }
 
-/* Bandeau compte du magasin (liste de souhaits, panier) */
+/* Store account strip (wishlist, cart) */
 #cart_status_data .store_header_btn_green,
 .store_header_btn_green,
 #store_header_cart_btn
@@ -290,7 +290,7 @@
 	font-weight: 700 !important;
 }
 
-/* Résultats de recherche instantanée */
+/* Instant search results */
 #search_suggestion_contents .match,
 .search_suggest .match
 {

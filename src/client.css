@@ -1,6 +1,6 @@
-/* Adw Lite — feuille du client Steam (fenêtres, bibliothèque, amis, réglages…)
- * Base : Adwaita-for-Steam (tkashkin, MIT), voir src/adwaita/VERSION.
- * Toute la personnalisation propre à Adw Lite vit dans src/lite/. */
+/* Adw Lite — Steam client stylesheet (windows, library, friends, settings…)
+ * Base: Adwaita-for-Steam (tkashkin, MIT), see src/adwaita/VERSION.
+ * All Adw Lite-specific customization lives in src/lite/. */
 
 @import "adwaita/base.css";
 @import "adwaita/main.css";

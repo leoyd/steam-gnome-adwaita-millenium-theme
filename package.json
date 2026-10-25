@@ -1,7 +1,7 @@
 {
 	"name": "adwlite-build",
 	"private": true,
-	"description": "Outils de build d'Adw Lite (facultatifs : seulement pour régénérer la feuille de la fenêtre principale)",
+	"description": "Adw Lite build tools (optional: only needed to regenerate the main window stylesheet)",
 	"devDependencies": {
 		"postcss": "^8.4.0",
 		"postcss-selector-parser": "^7.0.0"

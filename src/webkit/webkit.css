@@ -1,13 +1,13 @@
-/* Adw Lite — pages web affichées dans Steam (magasin, communauté, compte, aide)
+/* Adw Lite — web pages shown in Steam (store, community, account, help)
  *
- * Organisation :
- *   tokens.css        jetons de couleur, rayons, icônes (partagés avec le client)
- *   base.css          fond, typographie, liens, barres de défilement
- *   components/       un fichier par composant ; chaque composant est défini
- *                     une seule fois et se décline par variables (--btn-*,
+ * Layout:
+ *   tokens.css        color, radius and icon tokens (shared with the client)
+ *   base.css          background, typography, links, scrollbars
+ *   components/       one file per component; each component is defined
+ *                     only once and is customized through variables (--btn-*,
  *                     --card-*, --badge-*, --tab-*…)
- *   pages/            mise en page propre à chaque écran, rien de visuel
- *                     qui ne passe par un composant */
+ *   pages/            per-screen layout, nothing visual
+ *                     that doesn't go through a component */
 
 @import "tokens.css";
 @import "base.css";

@@ -1,28 +1,28 @@
-/* Bibliothèque, page d'un jeu : complément CSS de millennium/limits.js */
+/* Library, game page: CSS companion to millennium/limits.js */
 
-/* Ce qui dépasse la limite. :not(#adw) donne le poids d'un identifiant : les
- * lignes du thème imposent display: flex !important avec des sélecteurs longs. */
+/* Whatever exceeds the limit. :not(#adw) gives the weight of an ID: the
+ * theme's rows force display: flex !important with long selectors. */
 [data-adw-overflow]:not(#adw)
 {
 	display: none !important;
 }
 
-/* Tant que des éléments chargés restent masqués, Steam ne doit pas en
- * charger d'autres : son capteur de visibilité (dernier enfant de la grille,
- * après les rangées) et son indicateur de chargement sont retirés. */
+/* As long as loaded items remain hidden, Steam must not load more:
+ * its visibility sensor (last child of the grid, after the rows)
+ * and its loading indicator are removed. */
 div.A6G1leLXs7Vqw45hoXg-l[data-adw-has-more] div._3Uy7tGY-DstlA3jV6dGEfB > :not(._1I55h8ejmOddwvE4LFbSEq) /* CommunityContentContainer InnerContainer > ≠ AppOverviewRow */
 {
 	display: none !important;
 }
 
-/* Activité : le bouton Steam « Charger plus » laisse la place à « Voir plus »
- * tant qu'il reste des éléments déjà chargés à afficher */
+/* Activity: Steam's "Load more" button gives way to "Show more"
+ * as long as already loaded items remain to be shown */
 body.DesktopUI div._3yTl3RiWfo-Itg-xp967wP[data-adw-has-more] button._39ZurKJQex6v69aXzvc_nj._39ZurKJQex6v69aXzvc_nj /* FetchMoreContainer */
 {
 	display: none !important;
 }
 
-/* Bouton « Voir plus » : même composant que « Charger plus d'activité » */
+/* "Show more" button: same component as "Load more activity" */
 body.DesktopUI button.adw-more
 {
 	display: flex !important;
@@ -52,7 +52,7 @@ body.DesktopUI button.adw-more[hidden]
 	display: none !important;
 }
 
-/* Amis : la dernière ligne visible garde les coins arrondis du bas */
+/* Friends: the last visible row keeps the rounded bottom corners */
 body.DesktopUI div.qGJMO0uQwngYsOvMwgGWa div[data-adw-last]:not(#adw)
 {
 	border-bottom-left-radius: var(--adw-card-radius) !important;

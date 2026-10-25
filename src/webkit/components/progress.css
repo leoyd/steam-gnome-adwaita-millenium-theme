@@ -1,11 +1,11 @@
-/* ═══ Composant : barre de progression ═════════════════════════════════
- * Rail 8px à 15 %, remplissage d'accent, extrémités rondes.
- *   --progress-color : accent par défaut */
+/* ═══ Component: progress bar ══════════════════════════════════════════
+ * 8px track at 15 %, accent fill, rounded ends.
+ *   --progress-color: accent by default */
 
 :where(
 	.achieveBar, .progress_bar, .progressbar, .badge_progress_bar, .achievement_progress_bar_ctn,
 	.workshopItemProgress, .apphub_ProgressBarBG, .profile_xp_block_remaining_bar,
-	div._1Ni5Kqn_Pbfd6nOEYoVE4J                                  /* TimelineBar (lecteur vidéo) */
+	div._1Ni5Kqn_Pbfd6nOEYoVE4J                                  /* TimelineBar (video player) */
 )
 {
 	box-sizing: border-box;
@@ -32,9 +32,9 @@
 	border-radius: 9999px !important;
 }
 
-/* ═══ Composant : spinner (chargement) ═════════════════════════════════
- * Anneau Adwaita qui tourne. Le throbber Steam (barres bleues, gif) est
- * masqué et remplacé par le pseudo-élément. --spinner-size : 32px. */
+/* ═══ Component: spinner (loading) ═════════════════════════════════════
+ * Spinning Adwaita ring. The Steam throbber (blue bars, gif) is
+ * hidden and replaced by the pseudo-element. --spinner-size: 32px. */
 :where(.LoadingThrobber, .throbber, .apphub_GetMoreContentWait, .LoadingWrapper > .LoadingThrobber,
        .loading_throbber, div[class*="throbber_"])
 {
@@ -66,10 +66,10 @@
 	border: 3px solid color-mix(in srgb, var(--adw-window-fg) 15%, transparent);
 	border-top-color: var(--adw-window-fg);
 	animation: adw-spin 0.9s linear infinite;
-	/* hérite de la visibilité du throbber : masqué = arrêté */
+	/* inherits the throbber's visibility: hidden = stopped */
 }
 
-/* Chargement infini des hubs : le spinner suffit, la barre est masquée */
+/* Hub infinite loading: the spinner is enough, the bar is hidden */
 :where(.apphub_GetMoreContentWait) :where(.apphub_ProgressBarBG)
 {
 	display: none !important;
@@ -80,8 +80,8 @@
 	--spinner-size: 28px;
 }
 
-/* Steam mesure cette zone pour déclencher le chargement suivant : on ne
- * touche pas à sa taille, on place juste le spinner en haut. */
+/* Steam measures this area to trigger the next load: its size is left
+ * untouched, the spinner is just placed at the top. */
 :where(.apphub_GetMoreContentWait)::after
 {
 	top: 24px;

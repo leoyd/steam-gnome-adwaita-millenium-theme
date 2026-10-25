@@ -1,5 +1,5 @@
-/* Polices système uniquement : rien n'est téléchargé ni embarqué.
- * Adwaita Sans/Mono sont livrées avec GNOME 48+, Cantarell sert de repli. */
+/* System fonts only: nothing is downloaded or embedded.
+ * Adwaita Sans/Mono ship with GNOME 48+, Cantarell is the fallback. */
 :root
 {
 	--adw-text-font-primary: "Adwaita Sans", "Cantarell";

@@ -1,6 +1,6 @@
-/* ═══ Composant : popover / menu ═══════════════════════════════════════
- * Surface flottante Adwaita (rayon 12px, marge interne 6px) et éléments de
- * menu (rayon 9px, 32px de haut, survol 7 %). */
+/* ═══ Component: popover / menu ════════════════════════════════════════
+ * Adwaita floating surface (12px radius, 6px padding) and menu
+ * items (9px radius, 32px tall, 7 % hover). */
 
 :where(
 	.popup_block, .popup_block_new, .popup_block_new .popup_body, .popup_body.popup_menu,
@@ -8,7 +8,7 @@
 	.submenu_store, .submenu_community, .submenu_username,
 	#search_suggestion_contents, .search_suggest, .dropcontainer ul, .dropdownmenu,
 	.popup_ctn, .group_dropdown,
-	div._2GxMhpm7OC2WWXN_wjgA78, div.SdFPqnbn0yI-       /* Suggestions de recherche (module / SSR) */
+	div._2GxMhpm7OC2WWXN_wjgA78, div.SdFPqnbn0yI-       /* Search suggestions (module / SSR) */
 )
 {
 	background: var(--adw-popover-bg) !important;
@@ -28,7 +28,7 @@
 	padding: 6px !important;
 }
 
-/* Les pointes des popups Steam n'existent pas dans Adwaita */
+/* Steam popup arrows do not exist in Adwaita */
 :where(.popup_block_new .popup_body)::before,
 :where(.popup_menu_arrow, .supernav_container .arrow, .popup_block .arrow,
        #global_hover .hover_arrow, #hover_app_ctn .hover_arrow, .hover_arrow_left, .hover_arrow_right)
@@ -36,7 +36,7 @@
 	display: none !important;
 }
 
-/* Élément de menu */
+/* Menu item */
 :where(
 	.popup_menu_item, .submenu_store a, .submenu_community a, .submenu_username a,
 	.supernav_content a.submenuitem, .dropcontainer ul li a, .dropdownmenu a, .search_suggest .match,
@@ -76,7 +76,7 @@
 	border-color: var(--w-border) !important;
 }
 
-/* Résultats de recherche instantanée : vignette + titre + prix */
+/* Instant search results: thumbnail + title + price */
 :where(#search_suggestion_contents .match, .search_suggest .match)
 {
 	min-height: 48px;
@@ -88,7 +88,7 @@
 	color: var(--w-dim) !important;
 }
 
-/* ═══ Composant : infobulle ════════════════════════════════════════════ */
+/* ═══ Component: tooltip ═══════════════════════════════════════════════ */
 :where(
 	.tooltip:not(.copyright, .review_award_aggregated, .review_award, .general_btn),
 	.community_tooltip, .store_tooltip, .economy_item_popup, .miniprofile_hover,
@@ -117,7 +117,7 @@
 	color: #ffffff !important;
 }
 
-/* ═══ Composant : dialogue ═════════════════════════════════════════════ */
+/* ═══ Component: dialog ════════════════════════════════════════════════ */
 :where(.newmodal_background, .modal_background, #modalBG)
 {
 	background: var(--w-dimmer) !important;
@@ -160,7 +160,7 @@
 	gap: 12px;
 }
 
-/* Bouton de fermeture rond, comme les contrôles de fenêtre GNOME */
+/* Round close button, like GNOME window controls */
 :where(.newmodal_close)
 {
 	width: 24px !important;

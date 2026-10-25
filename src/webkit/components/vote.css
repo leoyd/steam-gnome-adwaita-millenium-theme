@@ -1,12 +1,12 @@
-/* ═══ Composant : vote / recommandation ════════════════════════════════
- * Un seul pouce partout (évaluations du magasin, de la communauté, des
- * cartes d'activité, du Workshop) : pastille ronde verte (recommandé) ou
- * rouge (non recommandé) avec l'icône symbolique Adwaita.
- *   --vote-size : 32px dans les en-têtes d'évaluation, 24px ailleurs. */
+/* ═══ Component: vote / recommendation ═════════════════════════════════
+ * A single thumb everywhere (store, community, activity card and
+ * Workshop reviews): round green (recommended) or red (not
+ * recommended) badge with the Adwaita symbolic icon.
+ *   --vote-size: 32px in review headers, 24px elsewhere. */
 
-/* En-tête d'évaluation : [pouce] Recommandé   x heures */
+/* Review header: [thumb] Recommended   x hours */
 :where(.reviewInfo, .review_box .vote_header, .vote_header .reviewInfo,
-       div.HGCiCZ2mhusHJku7z15Nw)                               /* ReviewInfoHeader (magasin React) */
+       div.HGCiCZ2mhusHJku7z15Nw)                               /* ReviewInfoHeader (React store) */
 {
 	display: flex !important;
 	align-items: center;
@@ -19,7 +19,7 @@
 }
 
 :where(.reviewInfo, .review_box) .thumb,
-div._1pk8MT_nsrwd0kif6cppyD                                    /* ThumbIcon (magasin React) */
+div._1pk8MT_nsrwd0kif6cppyD                                    /* ThumbIcon (React store) */
 {
 	--vote-size: 32px;
 	position: static !important;
@@ -38,8 +38,8 @@ div._1pk8MT_nsrwd0kif6cppyD::before
 	content: none;
 }
 
-/* L'image Steam est remplacée par le pouce Adwaita (content: url() sur
- * <img>, sans :has() qui coûtait un recalcul de style permanent) */
+/* The Steam image is replaced with the Adwaita thumb (content: url() on
+ * <img>, without :has(), which caused constant style recalculation) */
 :where(.reviewInfo, .review_box) .thumb img
 {
 	display: block !important;
@@ -58,7 +58,7 @@ div._1pk8MT_nsrwd0kif6cppyD::before
 	background: none !important;
 }
 
-/* Magasin React : l'icône est un SVG, la variante « Down » une classe */
+/* React store: the icon is an SVG, the "Down" variant a class */
 div._1pk8MT_nsrwd0kif6cppyD > svg
 {
 	display: none !important;
@@ -92,8 +92,8 @@ div._1pk8MT_nsrwd0kif6cppyD._1yQUzR4jghsMyIgpY_Ay7f /* ThumbIcon.Down */
 	font-size: 13px;
 }
 
-/* Boutons de vote (Utile / Pas utile / Drôle / Récompense) : boutons
- * compacts identiques, icône symbolique à la place du sprite Steam. */
+/* Vote buttons (Helpful / Not helpful / Funny / Award): identical compact
+ * buttons, symbolic icon instead of the Steam sprite. */
 :where(.apphub_CardRatingButtons, .vote_bar_ctn, .workshopItemControls, .ratingBar + .voteControls)
 {
 	display: flex !important;
@@ -116,7 +116,7 @@ div._1pk8MT_nsrwd0kif6cppyD._1yQUzR4jghsMyIgpY_Ay7f /* ThumbIcon.Down */
 	display: none !important;
 }
 
-/* Pouces : 1er bouton = utile, 2e = pas utile (Steam y met un sprite <i>) */
+/* Thumbs: 1st button = helpful, 2nd = not helpful (Steam puts an <i> sprite there) */
 :where(.apphub_CardRatingButtons a:nth-child(1), .apphub_CardRatingButtons a:nth-child(2), #VoteUpBtn, #VoteDownBtn,
        .general_btn.voteUp, .general_btn.voteDown)::before
 {
@@ -133,7 +133,7 @@ div._1pk8MT_nsrwd0kif6cppyD._1yQUzR4jghsMyIgpY_Ay7f /* ThumbIcon.Down */
 	-webkit-mask-image: var(--w-icon-thumb-down);
 }
 
-/* Compteur de votes des cartes (rateUp / rateDown) : pastille + nombre */
+/* Card vote counter (rateUp / rateDown): badge + number */
 :where(.apphub_CardRating.rateUp, .apphub_CardRating.rateDown)
 {
 	display: inline-flex !important;
@@ -145,7 +145,7 @@ div._1pk8MT_nsrwd0kif6cppyD._1yQUzR4jghsMyIgpY_Ay7f /* ThumbIcon.Down */
 	font-weight: 700;
 }
 
-/* Même pastille que l'en-tête des évaluations du magasin (--w-vote-up/down) */
+/* Same badge as the store review header (--w-vote-up/down) */
 :where(.apphub_CardRating.rateUp, .apphub_CardRating.rateDown)::before
 {
 	content: "";
@@ -165,7 +165,7 @@ div._1pk8MT_nsrwd0kif6cppyD._1yQUzR4jghsMyIgpY_Ay7f /* ThumbIcon.Down */
 	background-image: var(--w-vote-down);
 }
 
-/* Boutons Oui / Non / Drôle / Récompense des évaluations du magasin */
+/* Yes / No / Funny / Award buttons of store reviews */
 div._22edD6e1Rd44stPirbVhB2 /* VoteButtons */
 {
 	display: flex !important;

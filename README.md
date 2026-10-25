@@ -94,23 +94,22 @@ after a restart).
 
 ## Options
 
-All options are set in **Millennium → Themes → Adw Lite**. Option names are shown
-in French in Millennium; their meaning is given below.
+All options are set in **Millennium → Themes → Adw Lite**.
 
-| Option | Meaning | Choices (default in bold) |
-|---|---|---|
-| Mode de couleur | Color scheme | **Sombre** (dark), Clair (light), Système (system) |
-| Palette | Gray palette | **GNOME 48+**, Gris neutre (neutral gray, before GNOME 48) |
-| Couleur d'accent | Accent color | **Bleu** (blue), Turquoise, Vert (green), Jaune (yellow), Orange, Rouge (red), Rose (pink), Violet (purple), Ardoise (slate) |
-| Boutons de fenêtre | Window buttons | **GNOME (close only)**, Minimize / maximize / close, Left side (macOS), Pantheon |
-| Étagère Nouveautés | "What's New" shelf | **Show**, Hide |
-| Liste des jeux | Game list sidebar | **Always visible**, On hover |
-| Icônes carrées | Square game icons | **Yes**, No |
-| Listes limitées à 6 | Lists limited to 6 | **Yes** (friends, activity and community content by 6 + "Show more" button), No |
-| Illustrations de fond | Background artwork | **Hidden**, Shown (game page backgrounds; profile backgrounds are always shown) |
-| Adresse des pages | Page URL bar | **Hidden**, Shown |
-| Mini-bandes-annonces | Micro-trailers | **Disabled** (not downloaded: lighter), Enabled |
-| QR code de connexion | Login QR code | **Show**, On hover, Hide |
+| Option | Choices (default in bold) |
+|---|---|
+| Color scheme | **Dark**, Light, System |
+| Palette | **GNOME 48+**, Neutral gray (before GNOME 48) |
+| Accent color | **Blue**, Teal, Green, Yellow, Orange, Red, Pink, Purple, Slate |
+| Window buttons | **GNOME (close only)**, Minimize / maximize / close, Left side (macOS), Pantheon |
+| What's New shelf | **Show**, Hide |
+| Game list | **Always visible**, On hover |
+| Square icons | **Yes**, No |
+| Lists limited to 6 | **Yes** (friends, activity and community content by 6 + "Show more" button), No |
+| Background artwork | **Hidden**, Shown (game page backgrounds; profile backgrounds are always shown) |
+| Page address | **Hidden**, Shown |
+| Micro-trailers | **Disabled** (not downloaded: lighter), Enabled |
+| Login QR code | **Show**, On hover, Hide |
 
 ## Performance tips
 
@@ -138,7 +137,7 @@ python3 build.py   # regenerates millennium/*.css, millennium/has.js and webkit/
 ```
 
 Architecture, components, performance notes and maintenance after a Steam update:
-see **[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)** (in French).
+see **[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)**.
 
 ## Credits
 

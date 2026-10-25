@@ -1,7 +1,7 @@
-/* ═══ Composant : média (vignettes, captures, avatars) ═════════════════
- *   --media-radius : 6px pour les vignettes, 12px pour les grands visuels
- * Les avatars sont carrés, comme dans Steam : les cadres de profil
- * (personnalisation) s'y ajustent exactement. */
+/* ═══ Component: media (thumbnails, screenshots, avatars) ══════════════
+ *   --media-radius: 6px for thumbnails, 12px for large visuals
+ * Avatars are square, as in Steam: profile frames
+ * (customization) fit them exactly. */
 
 :where(
 	.game_header_image_full, .game_header_image_ctn img, .highlight_strip_item img,
@@ -26,7 +26,7 @@
 	overflow: hidden;
 }
 
-/* Fonds noirs Steam derrière les vignettes */
+/* Steam black backgrounds behind thumbnails */
 :where(.highlight_strip_item, .screenshot.capsule_screenshot_load, video.sale_capsule_video,
        a.communitylink_points_shop_item, div._1u7tlq5OcUVR8p7-ic_ZVw,
        .market_listing_item_img_container, .itemHolder .item, .inventory_page .item, .trade_slot)
@@ -36,8 +36,8 @@
 	border-color: transparent !important;
 }
 
-/* Vignette sélectionnable : anneau d'accent dessiné à l'intérieur (pas de
- * débordement coupé par le conteneur) */
+/* Selectable thumbnail: accent ring drawn inside (no overflow
+ * clipped by the container) */
 :where(.highlight_strip_item)
 {
 	border: none !important;
@@ -70,7 +70,7 @@
 	background-image: none !important;
 }
 
-/* Contour de statut (en ligne / en jeu / hors ligne) : liseré de 2px */
+/* Status outline (online / in game / offline): 2px border */
 :where(.playerAvatar, .avatarIcon, .avatarMedium, .avatarFull, .friend_block_avatar,
        .commentthread_comment_avatar a, .appHubIconHolder, div.mpKocPQdcN4-)
 {
@@ -97,16 +97,16 @@
 	background: var(--adw-user-offline) !important;
 }
 
-/* Avatar principal d'un profil : souvent un cadre animé, pas de liseré */
+/* Main profile avatar: often an animated frame, no border */
 :where(.playerAvatar.profile_header_size)
 {
 	padding: 0 !important;
 	background: transparent !important;
 }
 
-/* Niveau Steam (cercle) : le nombre est centré en flex. Steam le place avec
- * un line-height fixe calé sur sa police : avec celle du thème il touchait
- * le bas du cercle. */
+/* Steam level (circle): the number is centered with flex. Steam positions it
+ * with a fixed line-height tuned to its own font: with the theme's font it
+ * touched the bottom of the circle. */
 :where(.friendPlayerLevel)
 {
 	box-sizing: border-box;
@@ -114,7 +114,7 @@
 	align-items: center;
 	justify-content: center;
 	vertical-align: middle;
-	width: 32px !important;              /* Steam : 28px + bordure 2px */
+	width: 32px !important;              /* Steam: 28px + 2px border */
 	height: 32px !important;
 	border-radius: 50% !important;
 	font-size: 15px !important;

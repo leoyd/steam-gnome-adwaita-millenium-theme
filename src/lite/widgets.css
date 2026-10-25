@@ -1,8 +1,8 @@
-/* Client : spinner de chargement et avatars */
+/* Client: loading spinner and avatars */
 
 @keyframes adw-lite-spin { to { transform: rotate(360deg); } }
 
-/* Throbber Steam (logo animé) → spinner Adwaita */
+/* Steam throbber (animated logo) → Adwaita spinner */
 div.lYUEjD8Qh3GM_ZrZeLwpI /* Throbber */
 {
 	position: relative !important;
@@ -27,8 +27,8 @@ div.lYUEjD8Qh3GM_ZrZeLwpI /* Throbber */
 		border: 3px solid color-mix(in srgb, var(--adw-window-fg) 15%, transparent);
 		border-top-color: var(--adw-window-fg);
 		animation: adw-lite-spin 0.9s linear infinite;
-		/* pas de « visibility: visible » : un throbber que Steam masque
-		 * doit rester masqué, sinon l'animation tourne en permanence */
+		/* no "visibility: visible": a throbber that Steam hides
+		 * must stay hidden, otherwise the animation runs forever */
 	}
 
 	&._2zbyh5jEDlV5HVD3iUve-k::after /* throbber_small */
@@ -41,10 +41,10 @@ div.lYUEjD8Qh3GM_ZrZeLwpI /* Throbber */
 	}
 }
 
-/* Avatars : carrés, comme dans Steam, avec leur cadre de profil (objet de
- * personnalisation du Points Shop) qu'Adwaita-for-Steam masquait.
- * :is(…, #adw) donne le poids d'un identifiant : les règles d'Adwaita sont
- * imbriquées dans des :not() très spécifiques. */
+/* Avatars: square, as in Steam, with their profile frame (Points Shop
+ * customization item) that Adwaita-for-Steam used to hide.
+ * :is(…, #adw) gives the weight of an ID: Adwaita's rules are
+ * nested inside very specific :not()s. */
 :is(body.DesktopUI, html.client_chat_frame, #adw)
 {
 	div.nibodjvvrm86uCfnnAn4g,                          /* avatarHolder */
@@ -52,7 +52,7 @@ div.lYUEjD8Qh3GM_ZrZeLwpI /* Throbber */
 	div.nibodjvvrm86uCfnnAn4g::before,
 	div._224Jw0OwqNYu37mxX4-K79,                        /* FiltertagAvatarSpacer */
 	div._224Jw0OwqNYu37mxX4-K79 img,
-	div._3nhzM2H8Opkomzs5OG5oux img,                    /* avatar de connexion */
+	div._3nhzM2H8Opkomzs5OG5oux img,                    /* login avatar */
 	div.ChatRoomGroupAvatar,
 	div.ChatRoomGroupAvatar_initials
 	{

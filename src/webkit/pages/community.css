@@ -1,7 +1,7 @@
-/* Communauté : mise en page propre à chaque écran.
- * Les visuels (cartes, boutons, badges, onglets…) viennent des composants. */
+/* Community: per-screen layout.
+ * Visuals (cards, buttons, badges, tabs…) come from the components. */
 
-/* ───────────── Typographie partagée ───────────── */
+/* ───────────── Shared typography ───────────── */
 
 .persona_name, .actual_persona_name, .friend_block_content, .forum_topic_name,
 .commentthread_comment_author a, .commentthread_author_link, .forum_op_author a,
@@ -32,7 +32,7 @@
 	letter-spacing: normal !important;
 }
 
-/* Liens et compteurs : couleur d'accent du thème */
+/* Links and counters: theme accent color */
 .new_items_text, .developer_response, .profile_count_link_total, .apphub_NumInApp,
 .review_award_count, .detailsStatNumChangeNotes, .current_player_workshop_title,
 .workshop_home_panel .headline a, .forum_topic.unread .forum_topic_name
@@ -72,10 +72,10 @@ th
 	border-bottom: 1px solid var(--w-border) !important;
 }
 
-/* ───────────── Accueil communauté / hubs ───────────── */
+/* ───────────── Community home / hubs ───────────── */
 
-/* Le survol Steam affichait le type en bleu par-dessus l'image (et sous le
- * badge Workshop) : on le retire, le titre est affiché sous l'image. */
+/* Steam's hover showed the type in blue over the image (and under the
+ * Workshop badge): removed, the title is shown below the image. */
 .apphub_CardContentTypeContainer
 {
 	display: none !important;
@@ -95,7 +95,7 @@ th
 	text-overflow: ellipsis;
 }
 
-/* Titre des guides (« Jeu : Guide ») */
+/* Guide titles (“Game: Guide”) */
 .apphub_CardContentType.guide, .apphub_CardContentType
 {
 	position: static !important;
@@ -111,8 +111,8 @@ th
 	justify-content: flex-start;
 }
 
-/* Diffusions : image bord à bord, titre et spectateurs sous l'image, auteur
- * en bas. Steam empile tout en absolu dans une carte de hauteur fixe. */
+/* Broadcasts: edge-to-edge image, title and viewers below the image, author
+ * at the bottom. Steam stacks everything absolutely in a fixed-height card. */
 .Broadcast_Card.apphub_Card
 {
 	max-height: none !important;
@@ -163,7 +163,7 @@ th
 	padding: 10px 16px !important;
 }
 
-/* « Retour en haut » des hubs : pilule OSD flottante (Steam : images bleues) */
+/* Hubs' “Back to top”: floating OSD pill (Steam: blue images) */
 .apphub_BackToTop
 {
 	bottom: 16px !important;
@@ -202,7 +202,7 @@ th
 	text-decoration: none !important;
 }
 
-/* Bloc auteur (diffusions et autres cartes) : avatar puis nom, sur une ligne */
+/* Author block (broadcasts and other cards): avatar then name, on one line */
 .apphub_friend_block_container
 {
 	float: none !important;
@@ -232,15 +232,15 @@ th
 	display: none !important;
 }
 
-/* Objets du Workshop : badge « Workshop » à la place du dégradé bleu */
+/* Workshop items: “Workshop” badge instead of the blue gradient */
 .apphub_CardBG.workshop
 {
 	background: var(--adw-thumbnail-bg) !important;
 	background-image: none !important;
 }
 
-/* Sans :has() (trop coûteux) : le badge est porté par le cadre de l'image,
- * frère suivant du fond « workshop » */
+/* Without :has() (too expensive): the badge is carried by the image frame,
+ * next sibling of the “workshop” background */
 .apphub_CardBG.workshop ~ .apphub_CardContentPreviewImageBorder
 {
 	position: relative;
@@ -293,7 +293,7 @@ th
 	color: var(--w-dim) !important;
 }
 
-/* En-tête de l'accueil communauté */
+/* Community home header */
 .community_home_app_shortcuts_list
 {
 	background: transparent !important;
@@ -306,10 +306,10 @@ th
 	gap: 6px;
 }
 
-/* ───────────── Profil ───────────── */
+/* ───────────── Profile ───────────── */
 
-/* En-tête : la grille Steam est conservée (avatar | nom | niveau),
- * on ajoute seulement des marges pour que rien ne touche les bords. */
+/* Header: Steam's grid is kept (avatar | name | level),
+ * we only add margins so nothing touches the edges. */
 .profile_header
 {
 	padding: 24px 12px 12px !important;
@@ -337,8 +337,8 @@ th
 	margin-bottom: 16px !important;
 }
 
-/* « Level 22 » : de l'air avant la carte du badge mis en avant
- * (même sous-bloc que le badge, d'où une marge et pas le gap du parent) */
+/* “Level 22”: some breathing room before the featured badge card
+ * (same sub-block as the badge, hence a margin and not the parent's gap) */
 .profile_header_badgeinfo .persona_level
 {
 	display: flex !important;
@@ -385,14 +385,14 @@ th
 	padding: 0 !important;
 }
 
-/* Bannière de sanction (VAC) : marge interne */
+/* Ban banner (VAC): padding */
 .profile_ban_status
 {
 	padding: 10px 14px !important;
 	margin: 8px 0 12px !important;
 }
 
-/* Compteurs (Jeux 496, Badges 22…) : libellé en blanc, nombre en accent */
+/* Counters (Games 496, Badges 22…): label in white, number in accent */
 .profile_count_link a
 {
 	display: flex;
@@ -407,9 +407,9 @@ th
 	font-weight: 700 !important;
 }
 
-/* Vitrine des succès (rares / favoris) : 6 succès + la case « +N » sur une
- * même ligne de 7 cases égales. Steam calcule en JS une marge gauche par
- * case qui faisait passer la 7e à la ligne. */
+/* Achievement showcase (rare / favorites): 6 achievements + the “+N” tile on a
+ * single row of 7 equal cells. Steam computes a left margin per cell in JS
+ * which pushed the 7th onto a new line. */
 .achievement_showcase > .showcase_content_bg:not(.showcase_stats_row)
 {
 	display: grid !important;
@@ -451,8 +451,8 @@ th
 	font: 700 13px/1 var(--adw-text-font) !important;
 }
 
-/* Aperçu des badges et récompenses : Steam en montre 4, sur une ligne de
- * 4 cases égales (~50px) ; Steam : vignettes flottantes, 3 puis 1 */
+/* Badges and awards preview: Steam shows 4, on a row of
+ * 4 equal cells (~50px); Steam: floating thumbnails, 3 then 1 */
 :is(.profile_badges, .profile_awards) .profile_count_link_preview
 {
 	display: grid !important;
@@ -463,7 +463,7 @@ th
 
 .profile_badges
 {
-	margin-bottom: 16px !important;     /* Steam : 40px de vide sous l'aperçu */
+	margin-bottom: 16px !important;     /* Steam: 40px of empty space below the preview */
 }
 
 :is(.profile_badges, .profile_awards) .profile_count_link_preview > div[style*="clear"]
@@ -498,7 +498,7 @@ th
 	color: var(--adw-user-online) !important;
 }
 
-/* Jeux récents : la zone succès suit la carte (plus de couleur de thème de profil) */
+/* Recent games: achievements area follows the card (no more profile theme color) */
 .recent_game_content
 {
 	padding: 10px !important;
@@ -523,7 +523,7 @@ th
 	color: var(--w-dim) !important;
 }
 
-/* Vitrines (succès, jeux terminés…) */
+/* Showcases (achievements, completed games…) */
 .showcase_content_bg, .showcase_stat, .achievement_showcase, .rarest_achievements
 {
 	background: transparent !important;
@@ -535,7 +535,7 @@ th
 	color: var(--w-dim) !important;
 }
 
-/* ───────────── Amis / groupes ───────────── */
+/* ───────────── Friends / groups ───────────── */
 
 .friends_nav, .friends_nav a, .profile_friends.title_bar, .friends_header_bg
 {
@@ -549,9 +549,9 @@ th
 	text-shadow: none !important;
 }
 
-/* Listes d'amis en colonnes (« amis qui jouent à… », amis d'un profil) :
- * grille au lieu des flottants, ligne à hauteur du contenu (Steam impose
- * 36 px pour trois lignes de texte : la dernière était coupée). */
+/* Friend lists in columns (“friends who play…”, a profile's friends):
+ * grid instead of floats, row height fits content (Steam forces
+ * 36 px for three lines of text: the last one was cut off). */
 .responsive_friendblocks
 {
 	display: grid !important;
@@ -616,7 +616,7 @@ th
 	line-height: normal !important;
 }
 
-/* Niveau dans une carte d'ami (cercle : media.css) */
+/* Level in a friend card (circle: media.css) */
 .friendBlock .friendPlayerLevel
 {
 	flex: none;
@@ -626,7 +626,7 @@ th
 
 /* ───────────── Badges ───────────── */
 
-/* La feuille de badges n'est plus un panneau : chaque badge est une carte */
+/* The badge sheet is no longer a panel: each badge is a card */
 .badges_sheet
 {
 	display: flex !important;
@@ -649,7 +649,7 @@ th
 .badge_title_row
 {
 	display: flex !important;
-	flex-direction: row-reverse; /* Steam place les stats avant le titre */
+	flex-direction: row-reverse; /* Steam puts the stats before the title */
 	align-items: baseline;
 	justify-content: space-between;
 	gap: 12px;
@@ -685,15 +685,15 @@ th
 	color: var(--w-dim) !important;
 }
 
-/* ───────────── Inventaire ───────────── */
+/* ───────────── Inventory ───────────── */
 
-/* Le cadre de la grille garde la marge Steam (sinon la grille déborde) */
+/* The grid frame keeps Steam's margin (otherwise the grid overflows) */
 #inventories.trade_item_box, .trade_item_box
 {
 	--card-pad: 6px 0 0 6px;
 }
 
-/* Objet sélectionné : anneau intérieur (n'est plus coupé dans les coins) */
+/* Selected item: inner ring (no longer clipped at the corners) */
 .itemHolder
 {
 	background: transparent !important;
@@ -718,13 +718,13 @@ a.inventory_item_link
 	box-shadow: none !important;
 }
 
-/* Onglet de jeu sélectionné : pas d'ombre */
+/* Selected game tab: no shadow */
 .games_list_tab, .games_list_tab.active
 {
 	box-shadow: none !important;
 }
 
-/* Sélecteur « Tous les objets Steam » : liste déroulante normale */
+/* “All Steam items” selector: regular dropdown */
 #contextselect_trigger
 {
 	font-size: 15px !important;
@@ -744,7 +744,7 @@ a.inventory_item_link
 	gap: 8px;
 }
 
-/* ───────────── Marché ───────────── */
+/* ───────────── Market ───────────── */
 
 #BG_top
 {
@@ -768,7 +768,7 @@ a.inventory_item_link
 	margin: 0 !important;
 }
 
-/* Solde du porte-monnaie : bouton posé dans l'en-tête, plus de bloc en absolu */
+/* Wallet balance: button placed in the header, no more absolute block */
 #BG_top > .user_info, .market_header .user_info, .user_info
 {
 	position: static !important;
@@ -788,7 +788,7 @@ a.inventory_item_link
 	color: var(--adw-accent) !important;
 }
 
-/* Onglets du marché : largeur au contenu (Steam impose 195px) */
+/* Market tabs: content width (Steam forces 195px) */
 .market_tab_well_tab_contents
 {
 	min-width: 0 !important;
@@ -827,7 +827,7 @@ a.inventory_item_link
 	display: none !important;
 }
 
-/* Colonne de recherche : la carte prend la largeur de sa colonne */
+/* Search column: the card takes its column's width */
 #sideBar > div
 {
 	width: 295px;
@@ -854,8 +854,8 @@ a.inventory_item_link
 	font-size: 13px !important;
 }
 
-/* Recherche (composant React) : le champ lui-même devient l'entrée du thème,
- * ses enveloppes sont transparentes, la loupe est dessinée par le conteneur */
+/* Search (React component): the field itself becomes the theme entry,
+ * its wrappers are transparent, the magnifier is drawn by the container */
 .market_search_sidebar_search_box
 {
 	position: relative;
@@ -914,7 +914,7 @@ a.inventory_item_link
 	pointer-events: none;
 }
 
-/* « Afficher les options avancées » : bouton pleine largeur, chevron dedans */
+/* “Show advanced options”: full-width button, chevron inside */
 #market_search_advanced_show
 {
 	width: auto !important;
@@ -937,7 +937,7 @@ a.inventory_item_link
 	margin: 0 !important;
 }
 
-/* Parcourir par jeu : rangées pleine largeur */
+/* Browse by game: full-width rows */
 .market_search_game_button_group
 {
 	margin-top: 0 !important;
@@ -964,7 +964,7 @@ a.inventory_item_link
 	color: var(--adw-window-fg) !important;
 }
 
-/* Steam : hauteur fixe, dégradé + border-image (les fines barres), icône en absolu */
+/* Steam: fixed height, gradient + border-image (the thin bars), absolute icon */
 .market_search_game_button_group .game_button
 {
 	height: auto !important;
@@ -1055,14 +1055,14 @@ h3.my_market_header, .market_listing_table_header
 
 /* ───────────── Workshop ───────────── */
 
-/* Accueil du Workshop : panneaux et tuiles d'applications */
+/* Workshop home: panels and app tiles */
 .workshop_home_panel, .primary_panel_border
 {
 	--card-pad: 16px;
 }
 
-/* La grille d'applications a une largeur fixe chez Steam : pas de marge
- * interne sur la carte, sinon une tuile passe à la ligne */
+/* The app grid has a fixed width on Steam: no padding
+ * on the card, otherwise a tile wraps to a new line */
 .browseApps
 {
 	--card-pad: 0;
@@ -1102,7 +1102,7 @@ h3.my_market_header, .market_listing_table_header
 	display: none !important;
 }
 
-/* Page d'un objet */
+/* Item page */
 .workshopItemDetailsHeader
 {
 	--card-pad: 12px 16px;
@@ -1143,7 +1143,7 @@ h3.my_market_header, .market_listing_table_header
 	padding: 4px 0 !important;
 }
 
-/* Bouton « S'abonner » : icône symbolique + libellé, centrés */
+/* “Subscribe” button: symbolic icon + label, centered */
 #SubscribeItemBtn
 {
 	--btn-height: 36px;
@@ -1179,8 +1179,8 @@ h3.my_market_header, .market_listing_table_header
 	line-height: 1.2 !important;
 }
 
-/* Cartes imbriquées de la page d'un objet : une seule carte, sections
- * séparées par un filet */
+/* Nested cards on an item page: a single card, sections
+ * separated by a hairline */
 .detailBox .detailBox,
 .detailBox .workshopItemDescription,
 .panel .rightDetailsBlock
@@ -1225,7 +1225,7 @@ h3.my_market_header, .market_listing_table_header
 	gap: 12px;
 }
 
-/* Récompenses, favoris, partage : barre d'actions compacte */
+/* Awards, favorites, share: compact action bar */
 .workshopItemControls, #ItemControls
 {
 	display: flex !important;
@@ -1235,7 +1235,7 @@ h3.my_market_header, .market_listing_table_header
 	padding: 8px 0 !important;
 }
 
-/* Parcourir : barre latérale et grille */
+/* Browse: sidebar and grid */
 .workshopItem
 {
 	padding: 8px !important;
@@ -1263,7 +1263,7 @@ h3.my_market_header, .market_listing_table_header
 	margin-bottom: 12px !important;
 }
 
-/* Discussions (accueil des forums) */
+/* Discussions (forums home) */
 .steam_discussions_intro, .steam_discussions_moderationdisclaimer
 {
 	color: var(--w-dim) !important;
@@ -1334,7 +1334,7 @@ h3.my_market_header, .market_listing_table_header
 	letter-spacing: normal !important;
 }
 
-/* Liste des forums : une carte, une rangée par forum */
+/* Forum list: one card, one row per forum */
 .forum_list_ctn
 {
 	display: flex;
@@ -1402,7 +1402,7 @@ h3.my_market_header, .market_listing_table_header
 	font-weight: 700;
 }
 
-/* Icône de forum (enveloppe bleue) : bulle de discussion symbolique */
+/* Forum icon (blue envelope): symbolic chat bubble */
 .discussions_forumlist_icon
 {
 	line-height: 52px !important;
@@ -1423,7 +1423,7 @@ h3.my_market_header, .market_listing_table_header
 	background: var(--w-dim) !important;
 }
 
-/* Forums des jeux récents et forums officiels : avatar, nom, nombre de sujets */
+/* Recent games' forums and official forums: avatar, name, topic count */
 a.recent_game_discussion
 {
 	--card-pad: 8px 12px;
@@ -1460,8 +1460,8 @@ a.recent_game_discussion .recent_game_discussion_name
 	font-size: 13px;
 }
 
-/* Nom et compteur empilés à côté de l'avatar ; les cartes des jeux récents
- * restent côte à côte (en ligne), les forums officiels en liste */
+/* Name and counter stacked next to the avatar; recent games' cards
+ * stay side by side (inline), official forums as a list */
 a.recent_game_discussion
 {
 	display: inline-grid !important;
@@ -1519,7 +1519,7 @@ a.recent_game_discussion .recent_game_discussions_unread_indicator
 	gap: 8px;
 }
 
-/* ───────────── Compte / assistance ───────────── */
+/* ───────────── Account / support ───────────── */
 
 .youraccount_page .account_setting_block, .account_setting_sub_block
 {
@@ -1531,31 +1531,31 @@ a.recent_game_discussion .recent_game_discussions_unread_indicator
 	color: var(--adw-window-fg) !important;
 }
 
-/* Parcourir le Workshop d'un jeu (rendu SSR, noms courts) */
-div._7-YnTYBrWGM- /* fond des aperçus */
+/* Browsing a game's Workshop (SSR render, short names) */
+div._7-YnTYBrWGM- /* preview background */
 {
 	background: var(--adw-thumbnail-bg) !important;
 }
 
-span.IokSIloSPlA- /* compteurs entre parenthèses */
+span.IokSIloSPlA- /* counters in parentheses */
 {
 	color: var(--w-dim) !important;
 }
 
-button.inqz7Zdx9Xg-.a-Dt3-0cU9Y- /* « Voir tout » */
+button.inqz7Zdx9Xg-.a-Dt3-0cU9Y- /* “See all” */
 {
 	color: var(--adw-accent) !important;
 	background: transparent !important;
 }
 
-/* Tri « Les plus populaires / récents » : casse normale */
+/* “Most popular / recent” sort: normal case */
 .community_home_sort_buttons a, .community_home_sort_buttons a span
 {
 	text-transform: none !important;
 	letter-spacing: normal !important;
 }
 
-/* « Un développeur a répondu » : bannière neutre */
+/* “A developer has responded”: neutral banner */
 .developer_response
 {
 	margin: 0 12px 8px;
@@ -1565,7 +1565,7 @@ button.inqz7Zdx9Xg-.a-Dt3-0cU9Y- /* « Voir tout » */
 	color: var(--adw-window-fg) !important;
 }
 
-/* Bouton « Retour en haut » */
+/* “Back to top” button */
 .responsive_back_to_top, #back_to_top, a.back_to_top, .scroll_to_top_btn, .apphub_backToTop
 {
 	background: var(--w-osd-bg) !important;

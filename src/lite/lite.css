@@ -1,6 +1,6 @@
-/* Adw Lite — surcouche du client.
- * Les classes Steam sont hachées : chaque sélecteur est annoté avec son nom
- * d'origine (module_Nom) pour pouvoir le retrouver après une mise à jour. */
+/* Adw Lite — client overlay.
+ * Steam classes are hashed: each selector is annotated with its original
+ * name (module_Name) so it can be found again after an update. */
 
 @import "fonts.css";
 @import "library.css";

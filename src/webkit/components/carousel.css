@@ -1,9 +1,9 @@
-/* ═══ Composant : carrousel ════════════════════════════════════════════
- * Flèches = bouton OSD (button.css), placées hors du contenu à gauche et à
- * droite ; points = indicateurs Adwaita ; bande de vignettes = barre de
- * défilement fine. */
+/* ═══ Component: carousel ══════════════════════════════════════════════
+ * Arrows = OSD button (button.css), placed outside the content on the left
+ * and right; dots = Adwaita indicators; thumbnail strip = thin
+ * scrollbar. */
 
-/* Position des flèches : à l'extérieur, centrées verticalement */
+/* Arrow position: outside, vertically centered */
 :where(.carousel_container .arrow, .store_horizontal_autoslider_ctn .arrow,
        button.carousel__back-button, button.carousel__next-button)
 {
@@ -25,7 +25,7 @@
 	left: auto !important;
 }
 
-/* Grand carrousel « À la une » : flèches posées sur la capsule, toujours visibles */
+/* Large "Featured" carousel: arrows placed over the capsule, always visible */
 :where(.carousel_container.maincap) .arrow
 {
 	display: block !important;
@@ -36,13 +36,13 @@
 :where(.carousel_container.maincap) .arrow.left { left: 16px !important; }
 :where(.carousel_container.maincap) .arrow.right { right: 16px !important; }
 
-/* Changement de capsule : glissé + fondu */
+/* Capsule change: slide + fade */
 :where(.carousel_container.maincap) .store_main_capsule.focus
 {
 	animation: adw-carousel-in 420ms var(--adw-transition-curve) both;
 }
 
-/* Points */
+/* Dots */
 :where(.carousel_thumbs, .carousel_container .carousel_thumbs)
 {
 	display: flex !important;
@@ -89,9 +89,9 @@
 	background: var(--adw-window-fg) !important;
 }
 
-/* ═══ Bande de vignettes défilante (captures de la fiche, Workshop) ═══
- * Rail fin à 15 %, poignée arrondie, petites flèches rondes de part et
- * d'autre. Sert pour le lecteur React (Track/Thumb/Arrow) et l'ancien. */
+/* ═══ Scrolling thumbnail strip (store page screenshots, Workshop) ════
+ * Thin 15 % track, rounded handle, small round arrows on either
+ * side. Used for the React player (Track/Thumb/Arrow) and the legacy one. */
 :where(div._2SBCUqLfy4PgWdonAHX_fR, #highlight_slider, .slider_ctn .slider, .slider_bg) /* Track */
 {
 	height: 6px !important;

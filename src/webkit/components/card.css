@@ -1,11 +1,11 @@
-/* ═══ Composant : carte ════════════════════════════════════════════════
- * Un seul niveau de carte : les blocs de contenu, jamais leurs conteneurs.
- * Variables :
- *   --card-bg        fond (assombri automatiquement sur un fond de profil)
- *   --card-pad       marge interne (0 pour les cartes « média »)
+/* ═══ Component: card ══════════════════════════════════════════════════
+ * A single card level: content blocks, never their containers.
+ * Variables:
+ *   --card-bg        background (automatically darkened on a profile background)
+ *   --card-pad       padding (0 for "media" cards)
  *   --card-radius    12px
- * Variantes : contenu (avec marge), média (image bord à bord), interactive
- * (survol), translucide (posée sur une illustration). */
+ * Variants: content (with padding), media (edge-to-edge image), interactive
+ * (hover), translucent (placed over artwork). */
 
 :root
 {
@@ -13,17 +13,17 @@
 	--card-bg-hover: color-mix(in srgb, var(--adw-card-bg), currentColor 5%);
 }
 
-/* Sur un fond personnalisé (profil, groupe), les cartes sont presque opaques
- * pour rester lisibles quel que soit le fond (clair, chargé…). */
+/* On a custom background (profile, group), cards are nearly opaque
+ * to stay readable whatever the background (light, busy…). */
 :where(.profile_page.has_profile_background, .has_profile_background, .profile_content.has_profile_background)
 {
 	--card-bg: color-mix(in srgb, var(--adw-window-bg) 90%, transparent);
 	--card-bg-hover: color-mix(in srgb, var(--adw-window-bg) 82%, var(--adw-window-fg) 8%);
 }
 
-/* Cartes de contenu : texte, listes, formulaires → marge interne */
+/* Content cards: text, lists, forms → padding */
 :where(
-	/* magasin */
+	/* store */
 	.game_area_purchase_game, .glance_ctn, .game_area_already_owned,
 	.rightcol.game_meta_data > .block, .rightcol.game_meta_data > div > .block,
 	.rightcol.game_meta_data > div > div > .block,
@@ -37,7 +37,7 @@
 	div._1rJdzVWqHHLrXDngd242Qr, div.fSTofplcy-cQt7eO3r665, div._3eE3x6hLZfLx4F6Mkal8p4,
 	div.KahBO3vHzFejyThpZEiB, div._9rDXQjCJPDYQMbin0P6bC, div._2uvK1zucSC4I2mo3PDObGs,
 	div.i-xXuvHLioU-, div.i1XZFikuzME-,
-	/* communauté */
+	/* community */
 	.profile_customization, .profile_rightcol, .profile_header_content,
 	.commentthread_area, .detailBox, .rightDetailsBlock, .workshopItemDescription,
 	.workshopItemDetailsHeader, .forum_op, .group_summary, .group_content_rule, .groupadmin_section,
@@ -50,7 +50,7 @@
 	.discussions_forumlist, .forum_list_ctn .forum_list_right, a.recent_game_discussion:not(.quasi_official_group),
 	.games_list_tabs_ctn, #inventories.trade_item_box, .trade_item_box,
 	.workshop_home_panel, .primary_panel_border, .panel.workshop_section, .browseApps,
-	div._2MixhMbHTxS0qJ2uAefnVy                               /* ItemDescription (inventaire) */
+	div._2MixhMbHTxS0qJ2uAefnVy                               /* ItemDescription (inventory) */
 )
 {
 	box-sizing: border-box;
@@ -63,7 +63,7 @@
 	box-shadow: var(--w-card-shadow) !important;
 }
 
-/* Cartes média : l'image va jusqu'au bord, pas de marge */
+/* Media cards: the image goes to the edge, no padding */
 :where(
 	.store_main_capsule, .carousel_items .store_capsule, .cluster_capsule, .home_marketing_message,
 	.home_area_spotlight, .spotlight_content, .special.dailydeal, .store_capsule.daily_deal,
@@ -74,7 +74,7 @@
 	a.community_recommendation_capsule,
 	div._1gsW0WuP7ZclL1_ScZlsvo, div.tqaXEuWN2wV5_8lmSkMng, a._1MwNf8slOG9lOvAeOshmuu,
 	div.PE-3oq-yIvg-, div._3G65z75zOTQeHrXxszHO4b,
-	div.UNowfeldbNg-, div.tYCWuqm2E-A-                         /* tuiles Workshop (SSR) */
+	div.UNowfeldbNg-, div.tYCWuqm2E-A-                         /* Workshop tiles (SSR) */
 )
 {
 	--card-pad: 0;
@@ -88,7 +88,7 @@
 	overflow: hidden;
 }
 
-/* Cartes interactives : légère surbrillance au survol */
+/* Interactive cards: slight highlight on hover */
 :where(
 	.store_main_capsule, .carousel_items .store_capsule, .cluster_capsule, .home_smallcap, .small_cap,
 	.tab_item, .search_result_row, .apphub_Card, .workshopItem, .friend_block_v2, .friendBlock,
@@ -109,9 +109,9 @@
 	background: var(--card-bg-hover) !important;
 }
 
-/* ═══ Conteneurs neutres ═══════════════════════════════════════════════
- * Les enveloppes de mise en page n'ont jamais de fond : c'est ce qui
- * évitait les cartes empilées (« sous-panneaux inutiles »). */
+/* ═══ Neutral containers ═══════════════════════════════════════════════
+ * Layout wrappers never have a background: this is what avoids
+ * stacked cards ("useless sub-panels"). */
 :where(
 	.page_content_ctn, .page_content, .pagecontent, .maincontent, .store_page_ctn,
 	.home_page_body_ctn, .home_ctn, .home_page_content, .leftcol, .rightcol,
@@ -160,8 +160,8 @@
 	border-color: transparent !important;
 }
 
-/* ═══ Rangée de liste (boxed-list) ═════════════════════════════════════
- * Rangées dans une carte : transparentes, survol 7 %, rayon 9px. */
+/* ═══ List row (boxed-list) ════════════════════════════════════════════
+ * Rows inside a card: transparent, 7 % hover, 9px radius. */
 :where(
 	.game_area_dlc_row, .game_area_details_specs_ctn, a._2xZaMR-NKc0LbkeM50cZq8, a.linkbar,
 	.market_listing_row, .market_recent_listing_row, .tab_filter_control_row, .tab_filter_control,
@@ -194,7 +194,7 @@
 	background: var(--w-selected) !important;
 }
 
-/* Liste de commentaires : chaque commentaire est une rangée séparée */
+/* Comment list: each comment is a separate row */
 :where(.commentthread_comment)
 {
 	padding: 12px !important;
@@ -217,8 +217,8 @@
 	background: var(--w-hover) !important;
 }
 
-/* ═══ Bannière (info / avertissement) ═════════════════════════════════
- * --banner-color : accent par défaut, warning pour les sanctions. */
+/* ═══ Banner (info / warning) ═════════════════════════════════════════
+ * --banner-color: accent by default, warning for penalties. */
 :where(
 	.notice_box_content, .info_box, .lowerbanner, .profile_private_info, #marketBetaNoteCtn,
 	.warning_box, .profile_ban_status, div.DRM_notice, div.parentCollection, div.requiredItem,

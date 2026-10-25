@@ -1,15 +1,15 @@
-/* ═══ Composant : champ de saisie ══════════════════════════════════════
- * Entrée Adwaita : fond 10 %, rayon 9px, anneau de focus d'accent.
- * Variante « recherche » : loupe symbolique à droite (--entry-icon).
- * Variante « cadre » : Steam entoure parfois le vrai champ d'un conteneur
- * (.gray_bevel…) ; le conteneur porte le style, le champ devient transparent. */
+/* ═══ Component: entry ═════════════════════════════════════════════════
+ * Adwaita entry: 10 % background, 9px radius, accent focus ring.
+ * "Search" variant: symbolic magnifier on the right (--entry-icon).
+ * "Frame" variant: Steam sometimes wraps the actual field in a container
+ * (.gray_bevel…); the container carries the style, the field becomes transparent. */
 
 :where(
 	input[type="text"], input[type="password"], input[type="search"], input[type="number"],
 	input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input:not([type]),
 	textarea, select,
 	.gray_bevel, .dynInput, .commentthread_entry_quotebox, .search_text_box, .text_input,
-	form._1KU9eASfov1GnFQRbyLIdR, form._5fxF1NcznNc-  /* SearchForm du menu du magasin (module / SSR) */
+	form._1KU9eASfov1GnFQRbyLIdR, form._5fxF1NcznNc-  /* Store menu SearchForm (module / SSR) */
 )
 {
 	appearance: none !important;
@@ -35,7 +35,7 @@
 	outline-color: color-mix(in srgb, var(--adw-accent) var(--adw-focus-border-opacity), transparent) !important;
 }
 
-/* Champ interne d'un cadre : transparent, sans contour propre */
+/* Inner field of a frame: transparent, no outline of its own */
 :where(.gray_bevel, .commentthread_entry_quotebox, form._1KU9eASfov1GnFQRbyLIdR, form._5fxF1NcznNc-,
        .community_home_search_apps, .community_home_search_players, .searchbox, #store_search .searchbox)
 	:where(input, textarea)
@@ -56,9 +56,9 @@
 	opacity: 1 !important;
 }
 
-/* Variante recherche (même rendu que la recherche du magasin) : le conteneur
- * est transparent, le champ fait 36 px avec de la place pour le placeholder
- * à gauche et pour la loupe, bouton plat, à droite. */
+/* Search variant (same look as the store search): the container
+ * is transparent, the field is 36 px tall with room for the placeholder
+ * on the left and for the magnifier, a flat button, on the right. */
 :where(.appHubSearchTextForm, .community_home_search_apps, .community_home_search_players,
        form.workshopSearchForm, .workshopBrowseSearch, .discussionSearchTextContainer)
 {
@@ -98,7 +98,7 @@
 	outline-color: color-mix(in srgb, var(--adw-accent) var(--adw-focus-border-opacity), transparent) !important;
 }
 
-/* Bouton loupe (input image / submit, ou bouton icône) */
+/* Magnifier button (image / submit input, or icon button) */
 :where(.appHubSearchTextForm, .community_home_search_apps, .community_home_search_players,
        form.workshopSearchForm, .workshopBrowseSearch, .discussionSearchTextContainer)
 	:where(input[type="image"], input[type="submit"], .workshopSearchButton, button, img.discussionSearchTextSubmitImg)
@@ -121,7 +121,7 @@
 	-webkit-mask: var(--w-icon-search) center / 16px no-repeat;
 }
 
-/* Boutons recherche du menu du magasin (icône seule) */
+/* Store menu search buttons (icon only) */
 :where(button._1Yo-ZsBr-KbVMyAMXEYszd, button.et-RRc3JMu8-)
 {
 	background: transparent !important;
@@ -129,8 +129,8 @@
 	border-radius: 0 !important;
 }
 
-/* ═══ Liste déroulante ═════════════════════════════════════════════════
- * <select> natif et « dselect » de Steam : bouton avec chevron à droite. */
+/* ═══ Dropdown ═════════════════════════════════════════════════════════
+ * Native <select> and Steam's "dselect": button with a chevron on the right. */
 :where(select, .dselect_container .trigger, #inventory_more_trigger, #contextselect_trigger)
 {
 	--btn-pad: 0 34px 0 12px;
@@ -165,13 +165,13 @@ select option
 	color: var(--adw-popover-fg);
 }
 
-/* Cases à cocher natives */
+/* Native checkboxes */
 :where(input[type="checkbox"], input[type="radio"])
 {
 	accent-color: var(--adw-accent-bg);
 }
 
-/* Cases à cocher Steam en <span> (filtres de recherche) */
+/* Steam <span> checkboxes (search filters) */
 :where(.tab_filter_control_checkbox)
 {
 	width: 14px !important;

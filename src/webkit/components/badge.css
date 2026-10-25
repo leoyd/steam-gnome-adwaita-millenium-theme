@@ -1,12 +1,12 @@
-/* ═══ Composant : badge ════════════════════════════════════════════════
- * Petite pastille d'information. Variables :
- *   --badge-bg / --badge-fg   couleur (neutre par défaut)
- *   --badge-radius            6px (étiquette) ou 9999px (pilule)
- * Variantes : neutre, accent (nouveau, liste de souhaits), succès (remise),
- * destructif (direct), pilule cliquable (tags). */
+/* ═══ Component: badge ═════════════════════════════════════════════════
+ * Small information badge. Variables:
+ *   --badge-bg / --badge-fg   color (neutral by default)
+ *   --badge-radius            6px (label) or 9999px (pill)
+ * Variants: neutral, accent (new, wishlist), success (discount),
+ * destructive (live), clickable pill (tags). */
 
 :where(
-	/* remises */
+	/* discounts */
 	.discount_pct, .search_discount span, .bundle_base_discount, div.discount_icon,
 	div._2lQxRlo1DQ1PN08TYTil2L, div._2wlqkq-0fkggDE-Kll8Rwd, div.rsMD9WnTopA-,
 	div._1kSDZm0Cg9anUkTfWFtwdN, div._12oL_Na-4ZnfDriQ80BEBc,
@@ -14,11 +14,11 @@
 	span.lX3GvxrkYaEqKJRpIhPsk, div.ds_flag, div.dlc_highlight_reason, div.znNVIhFP6KdJlUS2p2B7q,
 	div._2qnY9VZwgA2qx1ydmUlsUm._1f8WQvpQv-I5pqCmscp6iV, span.BReXgOZvJY6u4htWQn1aF,
 	.notification_count, .header_notification_count, .notification_count_total_ctn,
-	/* succès */
+	/* success */
 	a.kkZ9PsIE60o-,
-	/* destructif */
+	/* destructive */
 	div.broadcast_live_stream_icon,
-	/* neutre */
+	/* neutral */
 	.review_award_aggregated, .review_award, .apphub_CardContentType, .forum_topic_label
 )
 {
@@ -86,7 +86,7 @@
 	fill: currentColor !important;
 }
 
-/* ═══ Tags cliquables (pilules) ═══════════════════════════════════════ */
+/* ═══ Clickable tags (pills) ══════════════════════════════════════════ */
 :where(
 	.app_tag, .popular_tags a, .tag_browse_tag, .top_tag, .search_tag_ctn .searchtag,
 	div.deep_dive_tag, .store_main_capsule .tags span, button.U3ndjc3qoW8-,
@@ -116,7 +116,7 @@
 	background: var(--w-button-bg-hover) !important;
 }
 
-/* Tags en texte simple dans les listes (onglets d'accueil) */
+/* Plain-text tags in lists (home page tabs) */
 :where(.tab_item_top_tags .top_tag)
 {
 	min-height: 0;
@@ -125,7 +125,7 @@
 	color: var(--w-dim) !important;
 }
 
-/* ═══ Évaluations : couleurs sémantiques ══════════════════════════════ */
+/* ═══ Reviews: semantic colors ════════════════════════════════════════ */
 :where(.game_review_summary.positive, .search_review_summary.positive, .user_reviews_summary_row .positive,
        div._2K0QaklF1PPjEzkH9U2Ozt.DVGYJj6Ddo8-TqMXZ8tDa, span._24Z0sYrwo1ALn7WkF98RaU)
 {

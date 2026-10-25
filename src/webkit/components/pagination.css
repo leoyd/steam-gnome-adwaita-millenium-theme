@@ -1,7 +1,7 @@
-/* ═══ Composant : pagination ═══════════════════════════════════════════
- * Même rendu partout (forums, commentaires, recherche, Workshop, marché,
- * inventaire) : numéros en boutons plats 32px, page courante surlignée,
- * « < » et « > » remplacés par des chevrons symboliques. */
+/* ═══ Component: pagination ════════════════════════════════════════════
+ * Same look everywhere (forums, comments, search, Workshop, market,
+ * inventory): numbers as 32px flat buttons, current page highlighted,
+ * "<" and ">" replaced with symbolic chevrons. */
 
 :where(
 	.pagebtn, .pagingPageLink, .commentthread_pagelinks a, .commentthread_pagelinks span,
@@ -38,7 +38,7 @@
 	background: var(--w-hover) !important;
 }
 
-/* Page courante */
+/* Current page */
 :where(
 	.pagingPageLink.active, .pagebtn.active, .commentthread_pagelinks .commentthread_pagelink.active,
 	.search_pagination_right > span, .workshopBrowsePagingControls span:not(.pagebtn),
@@ -48,7 +48,7 @@
 	background: var(--w-selected) !important;
 }
 
-/* Précédent / suivant : chevrons symboliques au lieu de « < » « > » */
+/* Previous / next: symbolic chevrons instead of "<" ">" */
 :where(.pagebtn, #searchResults_btn_prev, #searchResults_btn_next)
 {
 	font-size: 0 !important;
@@ -78,7 +78,7 @@
 	pointer-events: none;
 }
 
-/* Conteneurs : alignement et texte secondaire (« 1 sur 4 », « Affichage 1-15 ») */
+/* Containers: alignment and secondary text ("1 of 4", "Showing 1-15") */
 :where(.commentthread_pagelinks, .forum_paging_controls, .workshopBrowsePagingControls,
        .search_pagination_right, .inventory_page_controls, .pagecontrols)
 {

@@ -1,5 +1,5 @@
-/* Mêmes jetons que le client : les options Millennium (couleurs, accent)
- * s'appliquent donc aussi aux pages web. */
+/* Same tokens as the client: Millennium options (colors, accent)
+ * therefore also apply to the web pages. */
 @import "../adwaita/css/_colors/palette.css";
 @import "../adwaita/css/_colors/default.css";
 @import "../adwaita/css/_colors/derived.css";
@@ -8,16 +8,16 @@
 @import "../adwaita/css/_root/transitions.css";
 @import "../lite/fonts.css";
 
-/* Raccourcis propres aux pages web (valeurs de libadwaita 1.7) */
+/* Web-page-specific shortcuts (libadwaita 1.7 values) */
 :root
 {
-	--w-radius: 12px;          /* cartes, popovers, listes encadrées */
-	--w-radius-button: 9px;    /* boutons, champs, éléments de menu */
-	--w-radius-small: 6px;     /* badges, vignettes */
+	--w-radius: 12px;          /* cards, popovers, boxed lists */
+	--w-radius-button: 9px;    /* buttons, entries, menu items */
+	--w-radius-small: 6px;     /* badges, thumbnails */
 	--w-radius-dialog: 15px;
 
-	/* Texte secondaire : basé sur la couleur de la fenêtre et non sur currentColor,
-	 * sinon un parent déjà atténué atténuait encore ses enfants. */
+	/* Secondary text: based on the window color rather than currentColor,
+	 * otherwise an already dimmed parent dimmed its children again. */
 	--w-dim: color-mix(in srgb, var(--adw-window-fg) var(--adw-dim-label-opacity), transparent);
 	--w-border: color-mix(in srgb, currentColor var(--adw-border-opacity), transparent);
 	--w-hover: color-mix(in srgb, currentColor var(--adw-hover-opacity), transparent);
@@ -33,7 +33,7 @@
 	--w-dialog-shadow: 0 0 0 1px light-dark(rgba(0, 0, 6, 0.05), rgba(0, 0, 6, 0.6)), 0 0 14px 2px rgba(0, 0, 6, 0.03), 0 0 5px 2px rgba(0, 0, 6, 0.1);
 	--w-focus-ring: 0 0 0 2px color-mix(in srgb, var(--adw-accent) var(--adw-focus-border-opacity), transparent);
 
-	--w-avatar-radius: 0;      /* avatars carrés comme Steam : les cadres de profil s'y ajustent */
+	--w-avatar-radius: 0;      /* square avatars like Steam: profile frames adjust to them */
 	--w-osd-bg: rgba(0, 0, 6, 0.65);
 	--w-osd-bg-hover: rgba(0, 0, 6, 0.8);
 	--w-icon-prev: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M10.707 3.293a1 1 0 0 1 0 1.414L7.414 8l3.293 3.293a1 1 0 0 1-1.414 1.414l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 0 1 1.414 0z'/%3E%3C/svg%3E");
@@ -50,14 +50,14 @@
 	--w-icon-thumb-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M7.6 1.2a1 1 0 0 1 1.3-.4C10 1.3 10.5 2.4 10.2 3.6L9.8 5H13a2 2 0 0 1 1.96 2.4l-1 5A2 2 0 0 1 12 14H6V6.2zM1 6h3v8H1z'/%3E%3C/svg%3E");
 	--w-icon-thumb-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M8.4 14.8a1 1 0 0 1-1.3.4C6 14.7 5.5 13.6 5.8 12.4l.4-1.4H3a2 2 0 0 1-1.96-2.4l1-5A2 2 0 0 1 4 2h6v7.8zM15 10h-3V2h3z'/%3E%3C/svg%3E");
 
-	/* Pastilles de vote (vert succès / rouge destructif d'Adwaita) */
+	/* Vote pills (Adwaita success green / destructive red) */
 	--w-vote-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2326a269'/%3E%3Cpath fill='white' transform='translate(8 8)' d='M7.6 1.2a1 1 0 0 1 1.3-.4C10 1.3 10.5 2.4 10.2 3.6L9.8 5H13a2 2 0 0 1 1.96 2.4l-1 5A2 2 0 0 1 12 14H6V6.2zM1 6h3v8H1z'/%3E%3C/svg%3E");
 	--w-vote-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23c01c28'/%3E%3Cpath fill='white' transform='translate(8 8)' d='M8.4 14.8a1 1 0 0 1-1.3.4C6 14.7 5.5 13.6 5.8 12.4l.4-1.4H3a2 2 0 0 1-1.96-2.4l1-5A2 2 0 0 1 4 2h6v7.8zM15 10h-3V2h3z'/%3E%3C/svg%3E");
 
 	--w-tooltip-bg: rgba(0, 0, 6, 0.8);
 	--w-dimmer: rgba(0, 0, 6, 0.4);
 
-	/* « En ligne » suit la couleur d'accent du thème */
+	/* “Online” follows the theme's accent color */
 	--adw-user-online: var(--adw-accent);
 }
 

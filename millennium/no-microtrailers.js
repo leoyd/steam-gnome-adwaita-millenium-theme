@@ -1,7 +1,7 @@
-/* Adw Lite — option « Mini-bandes-annonces : désactivées ».
- * Sur le magasin, les vidéos d'aperçu des capsules ne sont plus téléchargées :
- * leur source est retirée dès leur insertion. Le lecteur principal d'une
- * fiche de jeu (bandes-annonces lancées volontairement) n'est pas touché. */
+/* Adw Lite — "Micro-trailers: disabled" option.
+ * On the store, capsule preview videos are no longer downloaded: their
+ * source is removed as soon as they are inserted. The main player of a
+ * game page (trailers started on purpose) is left untouched. */
 (function () {
   if (!/store\.steampowered\.com$/.test(location.hostname)) return;
   var SEL = '.store_main_capsule video, .capsule video, video.sale_capsule_video, ' +
@@ -18,7 +18,7 @@
       v.load();
     });
   }
-  // Seuls les nœuds ajoutés qui sont (ou contiennent) une vidéo sont examinés
+  // Only added nodes that are (or contain) a video are examined
   new MutationObserver(function (records) {
     for (var i = 0; i < records.length; i++) {
       var added = records[i].addedNodes;

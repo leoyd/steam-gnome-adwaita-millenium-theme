@@ -1,6 +1,6 @@
-/* Adw Lite — feuille légère des fenêtres de menu (Supernav, menus contextuels).
- * Ces petites fenêtres s'ouvrent souvent : elles ne reçoivent que les jetons
- * et les widgets, pas les 400 Ko de la feuille complète. */
+/* Adw Lite — lightweight stylesheet for menu windows (Supernav, context menus).
+ * These small windows open often: they only get the tokens and the
+ * widgets, not the 400 KB of the full stylesheet. */
 
 @import "adwaita/base.css";
 @import "lite/fonts.css";

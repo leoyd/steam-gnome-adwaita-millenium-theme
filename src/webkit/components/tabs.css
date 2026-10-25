@@ -1,10 +1,10 @@
-/* ═══ Composant : onglets (view switcher Adwaita) ══════════════════════
- * Onglets plats, rayon 9px, survol 7 %, onglet actif 10 % + gras.
- * Le compteur éventuel (« Commentaires 45 ») devient un badge discret.
- * Variante « segmentée » (--tabs-linked) : onglets accolés dans un fond
- * commun, pour les petits groupes (systèmes d'exploitation, tri). */
+/* ═══ Component: tabs (Adwaita view switcher) ══════════════════════════
+ * Flat tabs, 9px radius, 7 % hover, active tab 10 % + bold.
+ * An optional counter ("Comments 45") becomes a subtle badge.
+ * "Segmented" variant (--tabs-linked): tabs joined on a shared
+ * background, for small groups (operating systems, sorting). */
 
-/* Barre d'onglets */
+/* Tab bar */
 :where(
 	.sectionTabs, .apphub_sectionTabs, .market_tab_well_tabs, .home_tabs_row, .sysreq_tabs,
 	.profile_tabs, .group_tabs, .grouppage_tabs, .friends_nav, .community_home_sort_buttons,
@@ -22,7 +22,7 @@
 	box-shadow: none !important;
 }
 
-/* Onglet */
+/* Tab */
 :where(
 	.tabs .tab, .sectionTab, .apphub_sectionTab, .market_tab_well_tab, .home_tabs_row .home_tab,
 	.profile_tabs .tab, .workshop_browse_tab, .rightDetailsBlock .tab, .sysreq_tab, .games_list_tab,
@@ -71,7 +71,7 @@
 	box-shadow: none !important;
 }
 
-/* Les morceaux décoratifs des anciens onglets */
+/* Decorative pieces of the legacy tabs */
 :where(.home_tabs_row .home_tab .tab_content, .market_tab_well_tab_contents,
        .market_tab_well_tab_left, .market_tab_well_tab_right, .sectionTab > span, .apphub_sectionTab > span)
 {
@@ -85,7 +85,7 @@
 	font: inherit !important;
 }
 
-/* Compteur dans un onglet */
+/* Counter inside a tab */
 :where(.sectionTab, .apphub_sectionTab, .market_tab_well_tab) :where(.tabCount, .my_market_header_count, .commentthread_count_label)
 {
 	display: inline-flex;
@@ -102,7 +102,7 @@
 	font-weight: 700;
 }
 
-/* Variante segmentée : système (Windows / macOS / Linux) */
+/* Segmented variant: OS (Windows / macOS / Linux) */
 :where(.sysreq_tabs)
 {
 	display: inline-flex !important;

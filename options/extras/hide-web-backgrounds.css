@@ -1,5 +1,5 @@
-/* Masque les illustrations de fond des fiches de jeu (magasin et hubs).
- * Les fonds personnalisés des profils restent affichés. */
+/* Hides the background artwork of game pages (store and hubs).
+ * Custom profile backgrounds stay visible. */
 .game_page_background,
 .game_page_background.game,
 .game_page_background_ctn,

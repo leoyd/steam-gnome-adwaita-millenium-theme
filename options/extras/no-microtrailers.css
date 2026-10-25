@@ -1,4 +1,4 @@
-/* Mini-bandes-annonces du magasin désactivées : l'image fixe reste affichée */
+/* Store micro-trailers disabled: the still image stays displayed */
 .store_main_capsule video,
 .capsule video,
 .microtrailer,
@@ -10,8 +10,8 @@ div._2R6-lF5h4f0SPrOL9B9IAw video /* ScreenshotCrossfade */
 	display: none !important;
 }
 
-/* Steam masque l'image au survol pour laisser place à la vidéo
- * (.microtrailer_active) : sans vidéo, l'image doit rester visible. */
+/* Steam hides the image on hover to make room for the video
+ * (.microtrailer_active): without a video, the image must stay visible. */
 .with_microtrailer.microtrailer_active .sale_capsule_image,
 .with_microtrailer:hover :is(.ds_flag, .broadcast_live_stream_icon)
 {

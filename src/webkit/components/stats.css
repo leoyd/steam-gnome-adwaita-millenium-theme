@@ -1,13 +1,13 @@
-/* ═══ Composant : ligne de méta-données d'une carte ═══════════════════
- * Pied des cartes d'activité / Workshop / guides : à gauche les actions
- * (votes, note), à droite les compteurs (pouce, récompenses, commentaires).
- * Steam ancre ces blocs en bas des cartes (hauteur fixe) ; on garde
- * l'ancrage mais leur contenu passe en flex : rien ne se chevauche et tout
- * est aligné sur la même ligne. */
+/* ═══ Component: card metadata row ════════════════════════════════════
+ * Footer of activity / Workshop / guide cards: actions on the left
+ * (votes, rating), counters on the right (thumb, awards, comments).
+ * Steam anchors these blocks to the bottom of the cards (fixed height); the
+ * anchoring is kept but their content switches to flex: nothing overlaps and
+ * everything is aligned on the same line. */
 
 :where(.apphub_CardMetaData, .UserReviewCardContent_Footer)
 {
-	/* Steam les ancre en bas de la carte (hauteur fixe) : on garde l'ancrage */
+	/* Steam anchors them to the bottom of the card (fixed height): keep the anchoring */
 	left: 0 !important;
 	right: 0 !important;
 	box-sizing: border-box;
@@ -48,7 +48,7 @@
 	right: auto !important;
 }
 
-/* Compteur de commentaires : icône symbolique + nombre */
+/* Comment counter: symbolic icon + number */
 :where(.apphub_CardCommentCount)
 {
 	display: inline-flex !important;
@@ -72,7 +72,7 @@
 	-webkit-mask: var(--w-icon-comment) center / 14px no-repeat;
 }
 
-/* Récompenses agrégées : petite pastille neutre avec l'icône Steam */
+/* Aggregated awards: small neutral badge with the Steam icon */
 :where(.review_award_aggregated)
 {
 	height: 24px;
@@ -87,7 +87,7 @@
 	height: 14px !important;
 }
 
-/* Notes en étoiles : texte secondaire aligné */
+/* Star ratings: aligned secondary text */
 :where(.apphub_CardRating.starRating, .apphub_CardRating.notRated)
 {
 	display: inline-flex !important;
@@ -98,7 +98,7 @@
 	font-size: 12px !important;
 }
 
-/* Bas de carte : nom du jeu, auteur */
+/* Card bottom: game name, author */
 :where(.apphub_CardContentAuthorBlock)
 {
 	left: 0 !important;
@@ -128,7 +128,7 @@
 	color: inherit !important;
 }
 
-/* Statistiques d'un objet (taille, dates, visiteurs…) : grille clé / valeur */
+/* Item stats (size, dates, visitors…): key / value grid */
 :where(.detailsStatsContainerLeft, .detailsStatsContainerRight, .stats_table)
 {
 	color: var(--adw-window-fg) !important;

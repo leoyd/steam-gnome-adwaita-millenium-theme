@@ -1,10 +1,10 @@
-/* Bibliothèque — page d'un jeu : l'illustration passe en haut, arrondie et
- * détachée des bords, et la barre de jeu (Jouer, statut cloud, temps de jeu…)
- * flotte en bas de l'illustration dans un panneau translucide.
+/* Library — game page: the artwork moves to the top, rounded and
+ * inset from the edges, and the game bar (Play, cloud status, playtime…)
+ * floats at the bottom of the artwork in a translucent panel.
  *
- * L'upstream place la barre au-dessus de l'image en la remontant de
- * (hauteur barre + hauteur image). Ici on la remonte seulement de
- * (hauteur barre + marge) pour qu'elle recouvre le bas de l'image. */
+ * Upstream places the bar above the image by shifting it up by
+ * (bar height + image height). Here it is only shifted up by
+ * (bar height + margin) so that it overlaps the bottom of the image. */
 
 :root
 {
@@ -14,11 +14,11 @@
 
 body.DesktopUI div._2iE-78WxX2Pj4GHbq7YJiA /* appdetails Container */
 {
-	/* Barre plus compacte : l'icône du jeu n'est plus affichée */
+	/* More compact bar: the game icon is no longer shown */
 	--adw-library-details-hero-image-height: var(--adw-lite-hero-height) !important;
 	--adw-library-details-header-height: 176px !important;
 
-	/* Jeux hors ligne, non-Steam, précommandes : barre sans statistiques */
+	/* Offline games, non-Steam games, pre-orders: bar without stats */
 	&:not(:has(div._1mDAVT4sTzFRwJtlKCw2Ws)),
 	&:has(div._1mDAVT4sTzFRwJtlKCw2Ws:empty),
 	&:has(div._2zxzStp5qY5M1evOm8keES:empty)
@@ -26,7 +26,7 @@ body.DesktopUI div._2iE-78WxX2Pj4GHbq7YJiA /* appdetails Container */
 		--adw-library-details-header-height: 112px !important;
 	}
 
-	/* Liens (menu ↗) : même remontée que la barre */
+	/* Links (↗ menu): same upward shift as the bar */
 	div._3-V8vjmrwuJM6Ws3tsjFJj
 	{
 		margin-top: calc((var(--adw-library-details-header-height) + var(--adw-lite-hero-inset)) * -1) !important;
@@ -34,17 +34,17 @@ body.DesktopUI div._2iE-78WxX2Pj4GHbq7YJiA /* appdetails Container */
 		position: relative !important;
 		z-index: 3 !important;
 
-		div._31ptFGGMZrSQc5BCX1e5lm div._1bIMOmWaxKrMdVMWU21ku /* LinksMenu : aligné sur le bouton Gérer */
+		div._31ptFGGMZrSQc5BCX1e5lm div._1bIMOmWaxKrMdVMWU21ku /* LinksMenu: aligned with the Manage button */
 		{
 			top: 22px !important;
 		}
 	}
 
-	/* Illustration (Header) : en haut, arrondie, avec des marges latérales */
+	/* Artwork (Header): at the top, rounded, with side margins */
 	div._2gZXhRmKUk68pA28-5ZmGQ
 	{
-		/* largeur explicite : en 100 % + marges, le bord droit passait sous la
-		 * colonne de droite et seul le côté gauche paraissait arrondi */
+		/* explicit width: with 100% + margins, the right edge slid under the
+		 * right column and only the left side looked rounded */
 		width: auto !important;
 		max-width: none !important;
 		box-sizing: border-box !important;
@@ -64,7 +64,7 @@ body.DesktopUI div._2iE-78WxX2Pj4GHbq7YJiA /* appdetails Container */
 			}
 		}
 
-		/* Logo du jeu : cantonné à la partie visible au-dessus du panneau */
+		/* Game logo: confined to the visible area above the panel */
 		div.A14yd24JRjhFI-Q1ae6tN /* BoxSizerContainer */
 		{
 			top: 24px !important;
@@ -75,7 +75,7 @@ body.DesktopUI div._2iE-78WxX2Pj4GHbq7YJiA /* appdetails Container */
 
 	div._1_cYNJSvS6IXs9vLTEYjy5
 	{
-		/* Barre de jeu, infos et liens : remontés sur le bas de l'illustration */
+		/* Game bar, info and links: shifted up over the bottom of the artwork */
 		div._1U7LKpx70kEsz3jJwAFOi-, /* PlayBar container (InPage) */
 		div._25oBZpa3dUcMw8QAsa2u67 /* game info */
 		{
@@ -96,7 +96,7 @@ body.DesktopUI div._2iE-78WxX2Pj4GHbq7YJiA /* appdetails Container */
 			z-index: 3 !important;
 		}
 
-		/* Panneau translucide */
+		/* Translucent panel */
 		div._1U7LKpx70kEsz3jJwAFOi- div._3fLo166MlaNqP8r8tTyRz /* PlayBar */
 		{
 			box-sizing: border-box !important;
@@ -110,15 +110,15 @@ body.DesktopUI div._2iE-78WxX2Pj4GHbq7YJiA /* appdetails Container */
 				0 2px 12px rgba(0, 0, 6, 0.25) !important;
 		}
 
-		/* Positions dans le panneau. Mêmes chemins que l'upstream (header.css)
-		 * pour avoir au moins sa spécificité ; décalage de −36 px partout. */
+		/* Positions inside the panel. Same paths as upstream (header.css)
+		 * to get at least its specificity; offset of −36 px everywhere. */
 		div._1U7LKpx70kEsz3jJwAFOi- div._3fLo166MlaNqP8r8tTyRz div._3Y87YQY56ZCOqhgcZFaDc5 /* InPage > PlayBar > InnerContainer */
 		{
 			div._2MBVRXpsw6DUjs7937DWZW /* PlayBarIconAndGame */
 			{
 				top: 12px !important; /* 48 − 36 */
 
-				div._1R9r2OBCxAmtuUVrgBEUBw /* GameIcon : masquée */
+				div._1R9r2OBCxAmtuUVrgBEUBw /* GameIcon: hidden */
 				{
 					display: none !important;
 				}
@@ -133,12 +133,12 @@ body.DesktopUI div._2iE-78WxX2Pj4GHbq7YJiA /* appdetails Container */
 
 		div._25oBZpa3dUcMw8QAsa2u67 div._2jPMy2QZr8bWi6yrk5ZzHA div._37mmOlZM_8n5yJAG5CHiW7 /* game info */
 		{
-			div._1Id6ZFEUVa5PKEMIvSg4nE /* Portrait : masquée */
+			div._1Id6ZFEUVa5PKEMIvSg4nE /* Portrait: hidden */
 			{
 				display: none !important;
 			}
 
-			div._3GkV1NVDKuXYTLyRt2Uirz > div.Panel /* titre */
+			div._3GkV1NVDKuXYTLyRt2Uirz > div.Panel /* title */
 			{
 				top: 28px !important; /* 64 − 36 */
 				left: 0 !important;
@@ -146,8 +146,8 @@ body.DesktopUI div._2iE-78WxX2Pj4GHbq7YJiA /* appdetails Container */
 		}
 	}
 
-	/* Illustration : remplit tout le cadre. Steam impose la hauteur de
-	 * TopCapsule en ligne (parallaxe), on ancre donc l'image sur le cadre. */
+	/* Artwork: fills the whole frame. Steam sets the TopCapsule height
+	 * inline (parallax), so the image is anchored to the frame instead. */
 	div._2gZXhRmKUk68pA28-5ZmGQ div.NZMJ6g2iVnFsOOp-lDmIP.NZMJ6g2iVnFsOOp-lDmIP /* TopCapsule */
 	{
 		--header-height: var(--adw-lite-hero-height) !important;
@@ -178,7 +178,7 @@ body.DesktopUI div._2iE-78WxX2Pj4GHbq7YJiA /* appdetails Container */
 		}
 	}
 
-	/* Rendu différé des rangées hors écran (activité, contenu de la communauté) */
+	/* Deferred rendering of off-screen rows (activity, community content) */
 	div._1I55h8ejmOddwvE4LFbSEq, /* AppOverviewRow */
 	div.S2Fu9HxHCA5MaCLGrN2ib    /* AppActivityDay */
 	{
@@ -192,9 +192,9 @@ body.DesktopUI div._2iE-78WxX2Pj4GHbq7YJiA /* appdetails Container */
 	from { opacity: 0; transform: translateY(-8px); }
 }
 
-/* Barre collante : la barre de jeu de Steam (sœur du conteneur défilant),
- * affichée par millennium/library.js quand le panneau sort de l'écran.
- * Barre fine translucide : titre, Jouer, engrenage. */
+/* Sticky bar: Steam's game bar (sibling of the scroll container),
+ * shown by millennium/library.js when the panel scrolls off screen.
+ * Thin translucent bar: title, Play, gear. */
 body.DesktopUI div._2Nq6ov7A1hGcHXVOXNt_OE /* AppDetailsMain */
 {
 	& > div._2L3s2nzh7yCnNESfI5_dN1 /* PlayBar */
@@ -247,16 +247,16 @@ body.DesktopUI div._2Nq6ov7A1hGcHXVOXNt_OE /* AppDetailsMain */
 	}
 
 	& > div._2L3s2nzh7yCnNESfI5_dN1 :is(
-		div._1mDAVT4sTzFRwJtlKCw2Ws, /* statistiques */
-		div._1R9r2OBCxAmtuUVrgBEUBw, /* icône */
-		div._1dg8hJMsAYISbeQUxcCJcv, /* progression de mise à jour */
-		div.z8GYwNt_nbBZrf7OVjs-s    /* bandeau partage familial */
+		div._1mDAVT4sTzFRwJtlKCw2Ws, /* stats */
+		div._1R9r2OBCxAmtuUVrgBEUBw, /* icon */
+		div._1dg8hJMsAYISbeQUxcCJcv, /* update progress */
+		div.z8GYwNt_nbBZrf7OVjs-s    /* family sharing banner */
 	)
 	{
 		display: none !important;
 	}
 
-	& > div._2L3s2nzh7yCnNESfI5_dN1 div._2MBVRXpsw6DUjs7937DWZW /* titre */
+	& > div._2L3s2nzh7yCnNESfI5_dN1 div._2MBVRXpsw6DUjs7937DWZW /* title */
 	{
 		position: static !important;
 		display: flex !important;
@@ -279,14 +279,14 @@ body.DesktopUI div._2Nq6ov7A1hGcHXVOXNt_OE /* AppDetailsMain */
 		}
 	}
 
-	& > div._2L3s2nzh7yCnNESfI5_dN1 :is(div._1FnJ6dPuknQFQ2RTpKTI16, div._3oddBTkj_FjknCgBnPqcmQ) /* Jouer, Gérer */
+	& > div._2L3s2nzh7yCnNESfI5_dN1 :is(div._1FnJ6dPuknQFQ2RTpKTI16, div._3oddBTkj_FjknCgBnPqcmQ) /* Play, Manage */
 	{
 		position: static !important;
 		flex-shrink: 0 !important;
 		margin: 0 !important;
 	}
 
-	/* Jouer : même bouton pilule que dans le panneau */
+	/* Play: same pill button as in the panel */
 	& > div._2L3s2nzh7yCnNESfI5_dN1 div._1FnJ6dPuknQFQ2RTpKTI16
 	{
 		height: 36px !important;
@@ -298,7 +298,7 @@ body.DesktopUI div._2Nq6ov7A1hGcHXVOXNt_OE /* AppDetailsMain */
 		box-shadow: none !important;
 		overflow: hidden !important;
 
-		&._3cI5TXsFX3bvpR-7EBOtxq /* Green (Jouer) */
+		&._3cI5TXsFX3bvpR-7EBOtxq /* Green (Play) */
 		{
 			background: var(--adw-success-bg) !important;
 			color: var(--adw-success-fg) !important;
@@ -341,7 +341,7 @@ body.DesktopUI div._2Nq6ov7A1hGcHXVOXNt_OE /* AppDetailsMain */
 		}
 	}
 
-	/* Boutons ronds (réglages, favori, menu) */
+	/* Round buttons (settings, favorite, menu) */
 	& > div._2L3s2nzh7yCnNESfI5_dN1 div._3qDWQGB0rtwM3qpXTb11Q- /* MenuButton */
 	{
 		width: 36px !important;

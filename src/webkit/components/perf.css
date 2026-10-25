@@ -1,7 +1,7 @@
 /* ═══ Performance ═════════════════════════════════════════════════════
- * Rendu différé : les blocs hors écran ne sont ni mis en page ni dessinés
- * tant qu'ils ne s'approchent pas de la zone visible. « auto » mémorise la
- * taille réelle une fois vue, le défilement reste donc stable. */
+ * Deferred rendering: off-screen blocks are neither laid out nor painted
+ * until they get close to the visible area. "auto" remembers the
+ * actual size once seen, so scrolling stays stable. */
 :where(
 	.apphub_CardRow, .forum_topic, .commentthread_comment, .market_listing_row,
 	.workshopItem, .badge_row, .search_result_row, .tab_item, .game_area_dlc_row,

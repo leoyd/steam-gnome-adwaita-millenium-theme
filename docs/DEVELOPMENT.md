@@ -1,103 +1,101 @@
-# Développement — Adw Lite
+# Development — Adw Lite
 
-Notes techniques pour modifier le thème. Pour l'installer, voir le [README](../README.md).
+Technical notes for modifying the theme. To install it, see the [README](../README.md).
 
-- Base client : [Adwaita-for-Steam](https://github.com/tkashkin/Adwaita-for-Steam) 4.4 (MIT), dans `src/adwaita/`.
-- Pages web et surcouche : `src/webkit/` et `src/lite/`.
-- Polices système uniquement (Adwaita Sans / Mono, repli Cantarell).
-- Petits scripts : `millennium/library.js` (barre collante de la page d'un jeu), `millennium/has.js` (remplaçant de `:has()`, généré), et en option `millennium/limits.js` (listes par 6 + « Voir plus ») et `millennium/no-microtrailers.js` (mini-bandes-annonces non téléchargées).
+- Client base: [Adwaita-for-Steam](https://github.com/tkashkin/Adwaita-for-Steam) 4.4 (MIT), in `src/adwaita/`.
+- Web pages and overlay: `src/webkit/` and `src/lite/`.
+- System fonts only (Adwaita Sans / Mono, Cantarell as fallback).
+- Small scripts: `millennium/library.js` (sticky bar on a game's page), `millennium/has.js` (`:has()` replacement, generated), and optionally `millennium/limits.js` (lists of 6 + "Show more") and `millennium/no-microtrailers.js` (micro-trailers not downloaded).
 
 ## Structure
 
 ```
-skin.json                  options Millennium (couleurs, accent, boutons, extras)
-build.py                   assemble et minifie les feuilles
-millennium/main.min.css    généré : fenêtre principale, sans :has() (voir plus bas)
-millennium/has.js          généré : pose les attributs qui remplacent les :has()
-millennium/adwaita.min.css généré : amis, dialogues, fenêtres plein écran
-millennium/menu.min.css    généré : menus (feuille réduite)
-webkit/webkit.min.css      généré : pages magasin / communauté
-options/                   petits fichiers injectés selon les options choisies
-millennium/library.js      barre collante de la page d'un jeu (toujours actif)
-millennium/limits.js       option « Listes limitées à 6 » + bouton « Voir plus »
-millennium/no-microtrailers.js  option « Mini-bandes-annonces : désactivées »
-src/client.css             point d'entrée client
-src/lite/                  surcouche Adw Lite du client (en-tête bibliothèque, spinner, avatars)
-src/webkit/components/     un fichier par composant (bouton, champ, carte, onglets,
-                           pagination, badge, vote, méta-données, média, carrousel,
-                           progression/spinner, performance)
-src/webkit/pages/          mise en page propre à chaque écran (en-têtes, magasin, communauté)
-tools/check-classes.py     repère les classes Steam disparues après une mise à jour
-tools/has2attr.mjs         convertit les :has() en attributs (Node + postcss)
-src/lite/has-runtime.js    modèle de millennium/has.js
+skin.json                  Millennium options (colors, accent, buttons, extras)
+build.py                   assembles and minifies the stylesheets
+millennium/main.min.css    generated: main window, without :has() (see below)
+millennium/has.js          generated: sets the attributes that replace the :has()
+millennium/adwaita.min.css generated: friends, dialogs, fullscreen windows
+millennium/menu.min.css    generated: menus (reduced stylesheet)
+webkit/webkit.min.css      generated: store / community pages
+options/                   small files injected depending on the chosen options
+millennium/library.js      sticky bar on a game's page (always active)
+millennium/limits.js       "Lists limited to 6" option + "Show more" button
+millennium/no-microtrailers.js  "Micro-trailers: disabled" option
+src/client.css             client entry point
+src/lite/                  Adw Lite client overlay (library header, spinner, avatars)
+src/webkit/components/     one file per component (button, entry, card, tabs,
+                           pagination, badge, vote, metadata, media, carousel,
+                           progress/spinner, performance)
+src/webkit/pages/          layout specific to each screen (headers, store, community)
+tools/check-classes.py     finds Steam classes that disappeared after an update
+tools/has2attr.mjs         converts :has() into attributes (Node + postcss)
+src/lite/has-runtime.js    template for millennium/has.js
 ```
 
-Les options dont `affects` vaut `.*` s'appliquent aussi aux pages web : le mode
-clair/sombre, la palette et la couleur d'accent sont donc communs au client et au
-magasin, car les deux feuilles utilisent les mêmes variables `--adw-*`.
+Options whose `affects` is `.*` also apply to web pages: light/dark mode, the
+palette and the accent color are therefore shared between the client and the
+store, since both stylesheets use the same `--adw-*` variables.
 
-## Modifier le thème
+## Modifying the theme
 
-Éditer les fichiers de `src/`, puis :
+Edit the files in `src/`, then:
 
 ```sh
 python3 build.py
 ```
 
-Les pages web se rechargent à la prochaine navigation ; le client a besoin d'un
-redémarrage de Steam.
+Web pages reload on the next navigation; the client needs a Steam restart.
 
-La première fois, installer les outils de conversion : `npm install`. Sans Node,
-`build.py` copie la feuille telle quelle (avec ses `:has()`) : le thème reste
-correct, mais la bibliothèque est nettement plus lente.
+The first time, install the conversion tools: `npm install`. Without Node,
+`build.py` copies the stylesheet as is (with its `:has()`): the theme still
+renders correctly, but the library is noticeably slower.
 
-## Performances : pas de :has() dans la fenêtre principale
+## Performance: no :has() in the main window
 
-Dans la bibliothèque, React modifie le DOM en permanence et chaque `:has()`
-oblige Chromium à réévaluer des sélecteurs à chaque modification : avec la
-feuille d'Adwaita-for-Steam, l'ouverture de la page d'un jeu passait de 0,2 s
-(Steam sans thème) à près de 4 s. Pour la fenêtre principale, `build.py` réécrit
-donc chaque `sujet:has(argument)` en `sujet[data-adw-hN]`, et `has.js` pose ces
-attributs une fois par image après une modification du DOM. Pour rester bon
-marché, il ne parcourt jamais tout le document : il part des éléments qui
-portent la classe du sujet (ou, pour `:has(> Y)` / `:has(+ Y)`, des Y) et saute
-les règles dont aucun élément n'est affiché.
+In the library, React modifies the DOM constantly and every `:has()` forces
+Chromium to re-evaluate selectors on each change: with the Adwaita-for-Steam
+stylesheet, opening a game's page went from 0.2 s (Steam without a theme) to
+nearly 4 s. For the main window, `build.py` therefore rewrites each
+`subject:has(argument)` as `subject[data-adw-hN]`, and `has.js` sets these
+attributes once per frame after a DOM change. To stay cheap, it never walks
+the whole document: it starts from the elements that carry the subject's class
+(or, for `:has(> Y)` / `:has(+ Y)`, from the Ys) and skips rules for which no
+element is displayed.
 
-Règle à garder en écrivant du CSS : un `:has()` doit viser un sujet qui porte une
-classe (`div.Classe:has(…)`), jamais un `div` nu ou `div.Panel`.
+Rule to follow when writing CSS: a `:has()` must target a subject that has a
+class (`div.Class:has(…)`), never a bare `div` or `div.Panel`.
 
-## Après une mise à jour de Steam
+## After a Steam update
 
-Steam et son magasin utilisent des classes hachées (`_16jZ3HEbtaJTl80pQINN2Y`) qui
-changent lors de certaines mises à jour. Une règle qui vise une classe disparue
-ne produit aucune erreur : elle cesse simplement de s'appliquer. Chaque classe
-hachée des sources est suivie de son nom d'origine en commentaire
-(`/* StoreMenu */`) pour pouvoir la retrouver.
+Steam and its store use hashed classes (`_16jZ3HEbtaJTl80pQINN2Y`) that change
+with some updates. A rule targeting a class that no longer exists produces no
+error: it simply stops applying. Every hashed class in the sources is followed
+by its original name in a comment (`/* StoreMenu */`) so it can be found again.
 
 ```sh
-python3 tools/check-classes.py   # classes du client introuvables dans steamui
+python3 tools/check-classes.py   # client classes not found in steamui
 ```
 
-Pour la partie client, le plus simple reste de reprendre `src/adwaita/` depuis la
-dernière version d'Adwaita-for-Steam (`adwaita/` du dépôt), puis de relancer `build.py`.
+For the client part, the simplest approach is to take `src/adwaita/` again from
+the latest Adwaita-for-Steam release (the repository's `adwaita/`), then rerun `build.py`.
 
-## Composants des pages web
+## Web page components
 
-Chaque élément d'interface est défini une seule fois dans `src/webkit/components/`
-et se décline par variables CSS, sans réécrire le composant :
+Each UI element is defined only once in `src/webkit/components/` and is
+customized through CSS variables, without rewriting the component:
 
-| Composant | Variables |
+| Component | Variables |
 |-----------|-----------|
-| bouton    | `--btn-bg`, `--btn-bg-hover`, `--btn-fg`, `--btn-radius`, `--btn-height`, `--btn-pad` |
-| carte     | `--card-bg`, `--card-pad`, `--card-radius` |
-| champ     | `--entry-bg`, `--entry-pad`, `--entry-radius` |
+| button    | `--btn-bg`, `--btn-bg-hover`, `--btn-fg`, `--btn-radius`, `--btn-height`, `--btn-pad` |
+| card      | `--card-bg`, `--card-pad`, `--card-radius` |
+| entry     | `--entry-bg`, `--entry-pad`, `--entry-radius` |
 | badge     | `--badge-bg`, `--badge-fg`, `--badge-radius` |
-| onglet    | `--tab-height`, `--tab-pad` |
-| bouton OSD (flèches) | `--osd-size` |
+| tab       | `--tab-height`, `--tab-pad` |
+| OSD button (arrows) | `--osd-size` |
 | spinner   | `--spinner-size` |
-| progression | `--progress-color`, `--progress-height` |
+| progress  | `--progress-color`, `--progress-height` |
 
-Les sélecteurs des composants sont dans `:where()` (spécificité nulle) : une
-page peut toujours ajuster un composant. Exception documentée dans
-`button.css` : Steam force la couleur de ses boutons avec `!important`, la
-couleur y est donc rejouée avec la même spécificité.
+Component selectors are wrapped in `:where()` (zero specificity): a page can
+always adjust a component. A documented exception in `button.css`: Steam forces
+its button color with `!important`, so the color is reapplied there with the
+same specificity.

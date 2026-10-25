@@ -1,7 +1,7 @@
 {
 	"name": "Adw Lite",
-	"author": "leoyd — d'après Adwaita-for-Steam (tkashkin)",
-	"description": "Steam aux couleurs de GNOME / libadwaita, client et pages web. Version légère : polices système, quelques petits scripts.",
+	"author": "leoyd — based on Adwaita-for-Steam (tkashkin)",
+	"description": "Steam in GNOME / libadwaita style, client and web pages. Lite version: system fonts, a few small scripts.",
 	"version": "4.4-lite.3",
 	"tags": [
 		"Adwaita",
@@ -46,13 +46,13 @@
 		}
 	],
 	"Conditions": {
-		"Mode de couleur": {
-			"description": "Clair ou sombre, pour le client et les pages web",
-			"tab": "Apparence",
-			"section": "Couleurs",
-			"default": "Sombre",
+		"Color scheme": {
+			"description": "Light or dark, for the client and the web pages",
+			"tab": "Appearance",
+			"section": "Colors",
+			"default": "Dark",
 			"values": {
-				"Sombre": {
+				"Dark": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -60,7 +60,7 @@
 						"src": "options/scheme/dark.css"
 					}
 				},
-				"Clair": {
+				"Light": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -68,17 +68,17 @@
 						"src": "options/scheme/light.css"
 					}
 				},
-				"Système": {}
+				"System": {}
 			}
 		},
 		"Palette": {
-			"description": "Gris bleutés de GNOME 48+ ou gris neutres des versions précédentes",
-			"tab": "Apparence",
-			"section": "Couleurs",
+			"description": "Blue-tinted grays of GNOME 48+ or the neutral grays of earlier versions",
+			"tab": "Appearance",
+			"section": "Colors",
 			"default": "GNOME 48+",
 			"values": {
 				"GNOME 48+": {},
-				"Gris neutre (avant GNOME 48)": {
+				"Neutral gray (before GNOME 48)": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -88,14 +88,14 @@
 				}
 			}
 		},
-		"Couleur d'accent": {
-			"description": "Les couleurs d'accent de GNOME",
-			"tab": "Apparence",
-			"section": "Couleurs",
-			"default": "Bleu",
+		"Accent color": {
+			"description": "GNOME accent colors",
+			"tab": "Appearance",
+			"section": "Colors",
+			"default": "Blue",
 			"values": {
-				"Bleu": {},
-				"Turquoise": {
+				"Blue": {},
+				"Teal": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -103,7 +103,7 @@
 						"src": "options/accent/teal.css"
 					}
 				},
-				"Vert": {
+				"Green": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -111,7 +111,7 @@
 						"src": "options/accent/green.css"
 					}
 				},
-				"Jaune": {
+				"Yellow": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -127,7 +127,7 @@
 						"src": "options/accent/orange.css"
 					}
 				},
-				"Rouge": {
+				"Red": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -135,7 +135,7 @@
 						"src": "options/accent/red.css"
 					}
 				},
-				"Rose": {
+				"Pink": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -143,7 +143,7 @@
 						"src": "options/accent/pink.css"
 					}
 				},
-				"Violet": {
+				"Purple": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -151,7 +151,7 @@
 						"src": "options/accent/purple.css"
 					}
 				},
-				"Ardoise": {
+				"Slate": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -161,13 +161,13 @@
 				}
 			}
 		},
-		"Boutons de fenêtre": {
-			"description": "Disposition des boutons de la barre de titre",
-			"tab": "Apparence",
-			"section": "Fenêtre",
-			"default": "GNOME (fermer)",
+		"Window buttons": {
+			"description": "Layout of the title bar buttons",
+			"tab": "Appearance",
+			"section": "Window",
+			"default": "GNOME (close only)",
 			"values": {
-				"GNOME (fermer)": {
+				"GNOME (close only)": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -175,7 +175,7 @@
 						"src": "options/layout/adwaita.css"
 					}
 				},
-				"Réduire, agrandir, fermer": {
+				"Minimize, maximize, close": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -183,7 +183,7 @@
 						"src": "options/layout/windows.css"
 					}
 				},
-				"À gauche (macOS)": {
+				"Left side (macOS)": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -201,14 +201,14 @@
 				}
 			}
 		},
-		"Étagère Nouveautés": {
-			"description": "Étagère « Nouveautés » en haut de la bibliothèque",
-			"tab": "Bibliothèque",
-			"section": "Accueil",
-			"default": "Afficher",
+		"What's New shelf": {
+			"description": "\"What's New\" shelf at the top of the library",
+			"tab": "Library",
+			"section": "Home",
+			"default": "Show",
 			"values": {
-				"Afficher": {},
-				"Masquer": {
+				"Show": {},
+				"Hide": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -218,14 +218,14 @@
 				}
 			}
 		},
-		"Liste des jeux": {
-			"description": "La liste de gauche n'apparaît qu'en approchant la souris du bord",
-			"tab": "Bibliothèque",
-			"section": "Liste des jeux",
-			"default": "Toujours visible",
+		"Game list": {
+			"description": "The left game list only appears when the mouse approaches the edge",
+			"tab": "Library",
+			"section": "Game list",
+			"default": "Always visible",
 			"values": {
-				"Toujours visible": {},
-				"Au survol": {
+				"Always visible": {},
+				"On hover": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -235,14 +235,14 @@
 				}
 			}
 		},
-		"Icônes carrées": {
-			"description": "Recadre la jaquette en carré sur la page d'un jeu",
-			"tab": "Bibliothèque",
-			"section": "Page d'un jeu",
-			"default": "Oui",
+		"Square icons": {
+			"description": "Crops the game cover to a square on a game page",
+			"tab": "Library",
+			"section": "Game page",
+			"default": "Yes",
 			"values": {
-				"Oui": {},
-				"Non": {
+				"Yes": {},
+				"No": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -252,13 +252,13 @@
 				}
 			}
 		},
-		"Listes limitées à 6": {
-			"description": "Page d'un jeu : 6 amis au maximum par groupe ; activité et contenu de la communauté par 6, avec un bouton « Voir plus » (plus de chargement en boucle au défilement)",
-			"tab": "Bibliothèque",
-			"section": "Page d'un jeu",
-			"default": "Oui",
+		"Lists limited to 6": {
+			"description": "Game page: at most 6 friends per group; activity and community content by 6, with a \"Show more\" button (no endless loading while scrolling)",
+			"tab": "Library",
+			"section": "Game page",
+			"default": "Yes",
 			"values": {
-				"Oui": {
+				"Yes": {
 					"TargetCss": {
 						"affects": [
 							"^Steam$"
@@ -272,16 +272,16 @@
 						"src": "millennium/limits.js"
 					}
 				},
-				"Non": {}
+				"No": {}
 			}
 		},
-		"Illustrations de fond": {
-			"description": "Fonds illustrés des fiches de jeu (magasin et hubs). Les fonds personnalisés des profils restent toujours affichés",
-			"tab": "Pages web",
-			"section": "Magasin et communauté",
-			"default": "Masquées",
+		"Background artwork": {
+			"description": "Illustrated backgrounds of game pages (store and hubs). Custom profile backgrounds are always shown",
+			"tab": "Web pages",
+			"section": "Store and community",
+			"default": "Hidden",
 			"values": {
-				"Masquées": {
+				"Hidden": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -289,17 +289,17 @@
 						"src": "options/extras/hide-web-backgrounds.css"
 					}
 				},
-				"Affichées": {}
+				"Shown": {}
 			}
 		},
-		"Adresse des pages": {
-			"description": "Affiche l'URL des pages magasin et communauté dans la fenêtre principale",
-			"tab": "Pages web",
-			"section": "Magasin et communauté",
-			"default": "Masquée",
+		"Page address": {
+			"description": "Shows the URL of store and community pages in the main window",
+			"tab": "Web pages",
+			"section": "Store and community",
+			"default": "Hidden",
 			"values": {
-				"Masquée": {},
-				"Affichée": {
+				"Hidden": {},
+				"Shown": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -309,13 +309,13 @@
 				}
 			}
 		},
-		"Mini-bandes-annonces": {
-			"description": "Vidéos qui se lancent au survol des jeux du magasin. Désactivées, elles ne sont plus téléchargées (navigation plus rapide)",
-			"tab": "Pages web",
+		"Micro-trailers": {
+			"description": "Videos that play when hovering games in the store. When disabled, they are not downloaded at all (faster browsing)",
+			"tab": "Web pages",
 			"section": "Performance",
-			"default": "Désactivées",
+			"default": "Disabled",
 			"values": {
-				"Désactivées": {
+				"Disabled": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -329,17 +329,17 @@
 						"src": "millennium/no-microtrailers.js"
 					}
 				},
-				"Activées": {}
+				"Enabled": {}
 			}
 		},
-		"QR code de connexion": {
-			"description": "Visibilité du QR code dans la fenêtre de connexion",
-			"tab": "Connexion",
-			"section": "Fenêtre de connexion",
-			"default": "Afficher",
+		"Login QR code": {
+			"description": "Visibility of the QR code in the login window",
+			"tab": "Sign-in",
+			"section": "Login window",
+			"default": "Show",
 			"values": {
-				"Afficher": {},
-				"Au survol": {
+				"Show": {},
+				"On hover": {
 					"TargetCss": {
 						"affects": [
 							".*"
@@ -347,7 +347,7 @@
 						"src": "options/extras/hover-qr.css"
 					}
 				},
-				"Masquer": {
+				"Hide": {
 					"TargetCss": {
 						"affects": [
 							".*"

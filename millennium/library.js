@@ -1,13 +1,13 @@
-/* Adw Lite — bibliothèque, page d'un jeu : barre collante.
- * Quand le panneau (Jouer, statut, temps de jeu…) sort de l'écran, on pose
- * data-adw-sticky sur AppDetailsMain ; le CSS affiche alors la barre de jeu
- * que Steam garde déjà dans la page (vrais boutons, rien n'est recréé).
- * Steam la déclenche normalement par un repère que la mise en page du thème
- * ne franchit plus. */
+/* Adw Lite — library, game page: sticky bar.
+ * When the panel (Play, status, playtime…) scrolls off screen, data-adw-sticky
+ * is set on AppDetailsMain; the CSS then shows the game bar that Steam
+ * already keeps in the page (real buttons, nothing is recreated).
+ * Steam normally triggers it with a marker that the theme's layout
+ * no longer crosses. */
 (function () {
   var SCROLL = 'div._2l416KfEtI4CL0mCUEmOBw',  // appdetails ScrollContainer
       MAIN = 'div._2Nq6ov7A1hGcHXVOXNt_OE',     // AppDetailsMain
-      PANEL = 'div._1U7LKpx70kEsz3jJwAFOi-',    // barre de jeu dans la page (InPage)
+      PANEL = 'div._1U7LKpx70kEsz3jJwAFOi-',    // in-page game bar (InPage)
       pending = null;
 
   function update(scroller) {

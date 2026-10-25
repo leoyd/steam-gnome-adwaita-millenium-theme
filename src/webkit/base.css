@@ -1,6 +1,6 @@
-/* Fond, typographie, liens, barres de défilement */
+/* Background, typography, links, scrollbars */
 
-/* Les polices Valve pointent vers les polices système Adwaita (local(), rien n'est téléchargé) */
+/* Valve fonts point to Adwaita system fonts (local(), nothing is downloaded) */
 @font-face { font-family: "Motiva Sans"; src: local("Adwaita Sans"), local("Cantarell"); font-weight: 100 900; font-style: normal; }
 @font-face { font-family: "Motiva Sans"; src: local("Adwaita Sans Italic"), local("Adwaita Sans"); font-weight: 100 900; font-style: italic; }
 @font-face { font-family: "Motiva Sans Light"; src: local("Adwaita Sans"), local("Cantarell"); font-weight: 100 900; }
@@ -30,7 +30,7 @@ code, pre, kbd, samp, tt, .bb_code
 	font-family: var(--adw-text-font-monospace) !important;
 }
 
-/* Conteneurs de mise en page : jamais de fond propre (pas de cartes empilées) */
+/* Layout containers: never their own background (no stacked cards) */
 body.v6,
 body.flat_page,
 body.responsive_page,
@@ -70,7 +70,7 @@ body.flat_page,
 	background-color: var(--adw-window-bg) !important;
 }
 
-/* Typographie Adwaita : pas de majuscules forcées ni d'espacement Valve */
+/* Adwaita typography: no forced uppercase or Valve letter spacing */
 h1, h2, h3, h4, h5,
 .pageheader,
 .page_title,
@@ -115,8 +115,8 @@ a
 	transition: color var(--adw-transition);
 }
 
-/* Pas de soulignement au survol : un sélecteur « lien contenant une image »
- * (:has) coûtait un recalcul de style à chaque mouvement de la souris. */
+/* No underline on hover: a “link containing an image” selector
+ * (:has) cost a style recalculation on every mouse move. */
 a:hover
 {
 	color: color-mix(in srgb, var(--adw-accent) 80%, var(--adw-window-fg));
@@ -142,7 +142,7 @@ hr,
 	background: var(--w-border) !important;
 }
 
-/* Texte secondaire (dim-label) */
+/* Secondary text (dim-label) */
 .dim,
 .subtitle,
 .game_area_details_specs_ctn .label,
@@ -161,7 +161,7 @@ hr,
 	color: var(--w-dim) !important;
 }
 
-/* Barres de défilement fines Adwaita (s'épaississent au survol) */
+/* Thin Adwaita scrollbars (thicken on hover) */
 ::-webkit-scrollbar
 {
 	width: 14px;

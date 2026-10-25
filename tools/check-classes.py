@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Adw Lite — liste les classes hachées du CSS client qui n'existent plus dans Steam.
+"""Adw Lite — lists the hashed classes of the client CSS that no longer exist in Steam.
 
-Steam régénère ses noms de classes à chaque grosse mise à jour : les règles qui
-les ciblent cessent alors de s'appliquer sans aucune erreur. Ce script compare
-millennium/adwaita.min.css aux fichiers du client (steamui) et affiche, pour
-chaque classe disparue, son nom d'origine quand le commentaire du source le donne.
+Steam regenerates its class names with every major update: rules that target
+them then silently stop applying, without any error. This script compares
+millennium/adwaita.min.css with the client files (steamui) and prints, for
+each missing class, its original name when the source comment provides it.
 
-    python3 tools/check-classes.py [chemin/vers/Steam/steamui]
+    python3 tools/check-classes.py [path/to/Steam/steamui]
 """
 import glob
 import os
@@ -32,14 +32,14 @@ def main():
         if path.endswith((".js", ".css")):
             known |= set(re.findall(r"[A-Za-z0-9_-]{18,24}", open(path, errors="ignore").read()))
 
-    # noms d'origine tirés des commentaires « div.hash /* Nom */ » des sources
+    # original names taken from the "div.hash /* Name */" comments in the sources
     names = {}
     for path in glob.glob(os.path.join(ROOT, "src/**/*.css"), recursive=True):
         for h, n in re.findall(r"\.([\w-]{18,24})[^\n{,]*?/\*\s*\.?([\w.: -]+?)\s*\*/", open(path, encoding="utf-8").read()):
             names.setdefault(h, n)
 
     stale = sorted(c for c in used if c not in known)
-    print(f"{len(used)} classes hachées utilisées, {len(stale)} introuvables dans {STEAMUI}")
+    print(f"{len(used)} hashed classes used, {len(stale)} not found in {STEAMUI}")
     for c in stale:
         print(f"  {c}  {names.get(c, '')}")
 

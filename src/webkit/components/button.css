@@ -1,13 +1,13 @@
-/* ═══ Composant : bouton ═══════════════════════════════════════════════
- * Un seul style de bouton (libadwaita). Les variantes ne changent que des
- * variables :
- *   --btn-bg / --btn-bg-hover / --btn-bg-active   fond
- *   --btn-fg                                      texte / icône
- *   --btn-radius                                  9px, 9999px (pilule), 50% (rond)
- *   --btn-height / --btn-pad / --btn-font         taille
- * Les sélecteurs sont dans :where() (spécificité nulle) : une page peut
- * toujours ajuster un bouton sans surenchère. Steam enveloppe souvent le
- * libellé dans un <span> : il devient transparent et hérite. */
+/* ═══ Component: button ════════════════════════════════════════════════
+ * A single button style (libadwaita). Variants only change
+ * variables:
+ *   --btn-bg / --btn-bg-hover / --btn-bg-active   background
+ *   --btn-fg                                      text / icon
+ *   --btn-radius                                  9px, 9999px (pill), 50% (circular)
+ *   --btn-height / --btn-pad / --btn-font         size
+ * Selectors are wrapped in :where() (zero specificity): a page can
+ * always adjust a button without a specificity war. Steam often wraps the
+ * label in a <span>: it becomes transparent and inherits. */
 
 :where(
 	.btn_grey_steamui, .btn_grey_black, .btn_grey_grey, .btn_grey_white_innerfade,
@@ -26,13 +26,13 @@
 	.header_installsteam_btn, .store_header_btn_gray, .store_header_btn_green,
 	.general_btn, .general_btn.share, .general_btn.favorite, .general_btn.report,
 	.dselect_container .trigger, .DialogButton,
-	a._0BH1ydyFmSnUvoVK2hIc, button._0BH1ydyFmSnUvoVK2hIc,      /* Button (kit Valve) */
-	button.PzuczM6OUSY-, button.Vy3rNuKLunU-, button.p0Gsr94HawQ-, /* boutons liste de souhaits (SSR) */
-	a.inqz7Zdx9Xg-,                                              /* boutons panier (SSR) */
-	div._2gL71Yq-HzVI9oOGyWu3jH, div.AjHMNGqS56A5oRpfyYhEz, div.xqG5GdDEeYauX2ots2DLl, /* listes du kit Valve */
+	a._0BH1ydyFmSnUvoVK2hIc, button._0BH1ydyFmSnUvoVK2hIc,      /* Button (Valve kit) */
+	button.PzuczM6OUSY-, button.Vy3rNuKLunU-, button.p0Gsr94HawQ-, /* wishlist buttons (SSR) */
+	a.inqz7Zdx9Xg-,                                              /* cart buttons (SSR) */
+	div._2gL71Yq-HzVI9oOGyWu3jH, div.AjHMNGqS56A5oRpfyYhEz, div.xqG5GdDEeYauX2ots2DLl, /* Valve kit lists */
 	a._2f_EIAuOVG5ZIzYb1sXJlw, a._1wt5Ne6MrJfPVdFz5fGlop, a.home_gift_card_link,
 	a._2gXzKgnqPNSUzBWEYvQ4OP, div.nDye27oueac7bocDYPZ0V, button._131dBxXvyV0SDKXTx9Ad0n,
-	button.LrqeL6o22aQ-, button.YAnzAmuUUnI-,              /* S'abonner (Workshop SSR) */
+	button.LrqeL6o22aQ-, button.YAnzAmuUUnI-,              /* Subscribe (Workshop SSR) */
 	button:not([class]), input[type="button"], input[type="submit"], input[type="reset"]
 )
 {
@@ -92,14 +92,14 @@
 	background: var(--btn-bg-active, var(--w-button-bg-active)) !important;
 }
 
-/* Variante « suggérée » : action principale (acheter, ajouter, valider) */
+/* "Suggested" variant: main action (buy, add, confirm) */
 :where(
 	.btn_green_steamui, .btn_green_white_innerfade, .btn_green_black,
 	.btnv6_green_white_innerfade,
 	.queue_btn_active, .market_commodity_buy_button, .item_market_action_button,
 	.header_installsteam_btn, .store_header_btn_green, .DialogButton.Primary,
 	a.inqz7Zdx9Xg-.WPxeXV5lR1E-, button.LrqeL6o22aQ-, button.YAnzAmuUUnI-,
-	div._1NBFz9qQu7S4tSVNyypXBZ button._0BH1ydyFmSnUvoVK2hIc /* « Vendre » (inventaire) */
+	div._1NBFz9qQu7S4tSVNyypXBZ button._0BH1ydyFmSnUvoVK2hIc /* "Sell" (inventory) */
 )
 {
 	--btn-bg: var(--adw-accent-bg);
@@ -108,20 +108,20 @@
 	--btn-fg: var(--adw-accent-fg);
 }
 
-/* Variante « destructive » */
+/* "Destructive" variant */
 :where(.btn_darkred_white_innerfade, .btn_red_white_innerfade, .btn_red_steamui, .btn_remove)
 {
 	--btn-fg: var(--adw-destructive);
 }
 
-/* Variante « plate » : pas de fond au repos */
+/* "Flat" variant: no background at rest */
 :where(.general_btn, .btn_report)
 {
 	--btn-bg: transparent;
 	--btn-bg-hover: var(--w-hover);
 }
 
-/* Tailles */
+/* Sizes */
 :where(.btn_small, .btn_small_thin, .btn_small_tall, .general_btn)
 {
 	--btn-height: 28px;
@@ -136,7 +136,7 @@
 	--btn-font: 700 15px/1.2 var(--adw-text-font);
 }
 
-/* Libellé interne des boutons Steam */
+/* Inner label of Steam buttons */
 :where([class*="btn_"], [class*="btnv6_"], .queue_control_button, .btn_profile_action,
        .dselect_container .trigger, .item_market_action_button) > span
 {
@@ -155,7 +155,7 @@
 	font: inherit !important;
 }
 
-/* Désactivé */
+/* Disabled */
 :where(.btn_disabled, [class*="btn_"][disabled], button:disabled, input:disabled, .DialogButton:disabled)
 {
 	opacity: var(--adw-disabled-opacity) !important;
@@ -163,12 +163,12 @@
 	pointer-events: none;
 }
 
-/* ═══ Bouton OSD rond (flèches de carrousel, fermeture) ═══════════════
- * Chevron Adwaita dessiné en ::after ; l'icône Steam d'origine est masquée. */
+/* ═══ Round OSD button (carousel arrows, close) ═══════════════════════
+ * Adwaita chevron drawn in ::after; the original Steam icon is hidden. */
 :where(
 	.carousel_container .arrow, .store_horizontal_autoslider_ctn .arrow,
 	button.carousel__back-button, button.carousel__next-button,
-	div._2lIBEOcXRC3KKhDamcV9t,                         /* Arrow : défilement des captures */
+	div._2lIBEOcXRC3KKhDamcV9t,                         /* Arrow: screenshot scrolling */
 	.slider_left, .slider_right, #highlight_slider_left, #highlight_slider_right
 )
 {
@@ -236,10 +236,10 @@
 	pointer-events: none !important;
 }
 
-/* Garde-fou : Steam impose la couleur de ses boutons avec !important et une
- * spécificité de classe (jusqu'à :not()×4:hover). :where() (spécificité
- * nulle) ne suffit pas ici : on rejoue uniquement la couleur avec la même
- * forme de sélecteur que Steam, la variable --btn-fg restant la source. */
+/* Safeguard: Steam forces its button colors with !important and class
+ * specificity (up to :not()×4:hover). :where() (zero specificity) is not
+ * enough here: only the color is re-applied, with the same selector shape
+ * as Steam, while --btn-fg remains the source of truth. */
 :is(.btn_black, .btn_blue_white_innerfade, .btn_darkblue_white_innerfade, .btn_darkred_white_innerfade,
     .btn_green_white_innerfade, .btn_grey_black, .btn_grey_grey, .btn_grey_grey_outer_bevel,
     .btn_grey_white_innerfade, .btn_plum, .btn_profile_action, .btn_royal_blue, .btn_teal,
@@ -261,9 +261,9 @@
 	--btn-bg: var(--w-button-bg);
 }
 
-/* Variante lecture : bouton OSD rond avec le triangle Adwaita, posé au
- * centre d'une vignette vidéo / diffusion. Steam utilise une <img> : l'image
- * d'origine est sortie du cadre (object-position) et le fond dessine le bouton. */
+/* Play variant: round OSD button with the Adwaita triangle, placed in the
+ * center of a video / broadcast thumbnail. Steam uses an <img>: the original
+ * image is pushed out of the box (object-position) and the background draws the button. */
 :where(img.apphub_CardContentPlayVideoIcon)
 {
 	--osd-size: 56px;

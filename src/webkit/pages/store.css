@@ -1,7 +1,7 @@
-/* Magasin : mise en page propre à chaque écran.
- * Les visuels (cartes, boutons, badges, onglets…) viennent des composants. */
+/* Store: per-screen layout.
+ * Visuals (cards, buttons, badges, tabs…) come from the components. */
 
-/* ───────────── Barre de menu du magasin (React) ───────────── */
+/* ───────────── Store menu bar (React) ───────────── */
 
 div._16jZ3HEbtaJTl80pQINN2Y, /* StoreMenu */
 div.WCG-2-OYepA-             /* StoreMenu (SSR) */
@@ -14,7 +14,7 @@ div.WCG-2-OYepA-             /* StoreMenu (SSR) */
 div._19o1GB7ysfrWKLYpqZ6aXu, /* Backdrop */
 div.rGuH1gD4ryg-,            /* Backdrop (SSR) */
 div.menu_takeover_background,
-div.t-LlQicBZjE-             /* barre de chargement (SSR) */
+div.t-LlQicBZjE-             /* loading bar (SSR) */
 {
 	background: transparent !important;
 	-webkit-backdrop-filter: none !important;
@@ -46,8 +46,8 @@ div._1-hPfsxjynE3demuqGmqf0  /* MenuUnderscoreCtn */
 	display: none !important;
 }
 
-/* Recherche du magasin : le formulaire est l'entrée (fond, rayon, focus),
- * le champ porte le padding du texte, la loupe est un bouton carré à droite. */
+/* Store search: the form is the entry (background, radius, focus),
+ * the field carries the text padding, the magnifier is a square button on the right. */
 form._1KU9eASfov1GnFQRbyLIdR, form._5fxF1NcznNc- /* SearchForm */
 {
 	--entry-pad: 0;
@@ -82,7 +82,7 @@ input._2tlUAG6WNyYFlk9caIiLj5:hover::placeholder, input.S-0LcpbLAf8-:hover::plac
 	font-style: normal !important;
 }
 
-form._1KU9eASfov1GnFQRbyLIdR button, form._5fxF1NcznNc- button /* loupe, effacer */
+form._1KU9eASfov1GnFQRbyLIdR button, form._5fxF1NcznNc- button /* magnifier, clear */
 {
 	flex: none;
 	display: flex !important;
@@ -102,9 +102,9 @@ a._2Cp17yynz2h_StEQZcNnqB, a.S-0da5Ll-j0- /* AdvancedSearch */
 	font-weight: 700;
 }
 
-/* ───────────── Accueil ───────────── */
+/* ───────────── Home ───────────── */
 
-/* Grande bannière : arrondie, avec des marges */
+/* Large banner: rounded, with margins */
 .home_page_takeover_link,
 .home_page_body_ctn.has_takeover .fullscreen-bg,
 .home_page_body_ctn.has_takeover .page_background_holder,
@@ -176,7 +176,7 @@ div.topseller_title
 	color: var(--adw-success) !important;
 }
 
-/* Colonne de gauche (recommandations, catégories) */
+/* Left column (recommendations, categories) */
 .home_page_gutter_block, .gutter_header, .home_page_gutter .gutter_block
 {
 	background: transparent !important;
@@ -191,13 +191,13 @@ div.topseller_title
 	padding: 6px 10px !important;
 }
 
-/* Calendrier personnel : aujourd'hui mis en avant */
+/* Personal calendar: today highlighted */
 div.tqaXEuWN2wV5_8lmSkMng._8UPO4fZBxxerbhcRBpAcc /* PersonalCalendarWidgetDay.TodayCtn */
 {
 	box-shadow: inset 0 0 0 2px var(--adw-accent-bg), var(--w-card-shadow) !important;
 }
 
-/* Prix (widget React StoreSalePrice) */
+/* Price (React StoreSalePrice widget) */
 div.hWF8eniTajf4-mfZvbK3F /* DiscountBlock */
 {
 	gap: 6px;
@@ -226,7 +226,7 @@ div._1xgg-R84IHS6h5_x6ZycXi, div._1odBXcjq8-Q8SFXViJa7c6, /* OriginalPrice */
 	background: transparent !important;
 }
 
-/* ───────────── Fiche de jeu ───────────── */
+/* ───────────── Game page ───────────── */
 
 .apphub_AppName
 {
@@ -234,8 +234,8 @@ div._1xgg-R84IHS6h5_x6ZycXi, div._1odBXcjq8-Q8SFXViJa7c6, /* OriginalPrice */
 	font-weight: 800 !important;
 }
 
-/* Bloc d'achat : Steam fait déborder le prix et le bouton sous le bloc
- * (position absolue, bottom négatif). On les remet dans la carte. */
+/* Purchase block: Steam makes the price and button overflow below the block
+ * (absolute position, negative bottom). We put them back in the card. */
 .game_area_purchase_game
 {
 	margin-bottom: 16px !important;
@@ -289,7 +289,7 @@ div._1xgg-R84IHS6h5_x6ZycXi, div._1odBXcjq8-Q8SFXViJa7c6, /* OriginalPrice */
 	opacity: 0.7;
 }
 
-/* Lots : vignettes des jeux du lot dans un cadre neutre */
+/* Bundles: thumbnails of the bundle's games in a neutral frame */
 .game_area_purchase_game .bundle_contents_preview,
 .game_area_purchase_game .package_contents
 {
@@ -299,7 +299,7 @@ div._1xgg-R84IHS6h5_x6ZycXi, div._1odBXcjq8-Q8SFXViJa7c6, /* OriginalPrice */
 	border-radius: var(--w-radius-button) !important;
 }
 
-/* Lien d'abonnement, prix habituels */
+/* Subscription link, regular prices */
 table.game_purchase_price_history,
 table.game_purchase_price_history td
 {
@@ -312,7 +312,7 @@ table.game_purchase_price_history td.normal_price
 	color: var(--adw-window-fg) !important;
 }
 
-/* Barre « Liste de souhaits / Suivre / Ignorer » */
+/* “Wishlist / Follow / Ignore” bar */
 .queue_actions_ctn
 {
 	display: flex;
@@ -344,7 +344,7 @@ table.game_purchase_price_history td.normal_price
 	width: 100%;
 }
 
-/* Colonne de droite : toutes les sections sont des cartes égales */
+/* Right column: all sections are equal cards */
 .rightcol.game_meta_data > *
 {
 	margin-bottom: 12px !important;
@@ -361,7 +361,7 @@ table.game_purchase_price_history td.normal_price
 	font-size: 15px;
 }
 
-/* Fonctionnalités : icône symbolique teintée + libellé, rangées serrées */
+/* Features: tinted symbolic icon + label, tight rows */
 .game_area_details_specs_ctn,
 a._2xZaMR-NKc0LbkeM50cZq8, /* InfoRow */
 a._1RmibngWLogcFmO93kGFgq
@@ -401,7 +401,7 @@ div._3KAysk4dlhWETa6ixz7V2j /* LocSection */
 	border-radius: 0 !important;
 }
 
-/* Langues : coches d'accent bien visibles */
+/* Languages: clearly visible accent checkmarks */
 .game_language_options
 {
 	width: 100%;
@@ -432,7 +432,7 @@ div._3KAysk4dlhWETa6ixz7V2j /* LocSection */
 	-webkit-mask: var(--w-icon-check) center / 14px no-repeat;
 }
 
-/* Configuration requise : onglets segmentés + deux colonnes dans une carte */
+/* System requirements: segmented tabs + two columns in a card */
 .sysreq_contents
 {
 	display: block;
@@ -471,13 +471,13 @@ div._3KAysk4dlhWETa6ixz7V2j /* LocSection */
 	font-weight: 700;
 }
 
-/* Lecteur React des bandes-annonces / captures */
-div._2Ose8zPg3MlKQQeG9nwv24 /* Item (vignette) */
+/* React player for trailers / screenshots */
+div._2Ose8zPg3MlKQQeG9nwv24 /* Item (thumbnail) */
 {
 	flex-shrink: 0 !important;
 }
 
-/* Évaluations : histogrammes et barres */
+/* Reviews: histograms and bars */
 div._1CB11dhU36u3GXF7wbJvRN /* BarPositive */
 {
 	background: var(--adw-accent-bg) !important;
@@ -501,7 +501,7 @@ a._2AL4QiqNSjqzhkK1W9m2E6, div._2AL4QiqNSjqzhkK1W9m2E6 /* Persona */
 	font-weight: 700;
 }
 
-span.Nu7NgfdJiM1QdEPGrlUcN, span.EZqO5MdZoyMOQJ38Sj0iH /* textes des boutons de vote / suivre */
+span.Nu7NgfdJiM1QdEPGrlUcN, span.EZqO5MdZoyMOQJ38Sj0iH /* vote / follow button labels */
 {
 	color: inherit !important;
 }
@@ -514,7 +514,7 @@ div.event_context, a.saleEventBannerLink
 	color: var(--w-dim) !important;
 }
 
-/* ───────────── Recherche ───────────── */
+/* ───────────── Search ───────────── */
 
 #search_resultsRows .search_result_row
 {
@@ -530,7 +530,7 @@ div.event_context, a.saleEventBannerLink
 	letter-spacing: normal !important;
 }
 
-/* ───────────── Panier / liste de souhaits ───────────── */
+/* ───────────── Cart / wishlist ───────────── */
 
 .cart_row
 {
@@ -547,18 +547,18 @@ div.event_context, a.saleEventBannerLink
 	color: var(--adw-destructive) !important;
 }
 
-div.PE-3oq-yIvg- /* rangée de liste de souhaits */
+div.PE-3oq-yIvg- /* wishlist row */
 {
 	margin-bottom: 6px;
 }
 
-button.LrqeL6o22aQ- > span /* « Ajouter au panier » (SSR) */
+button.LrqeL6o22aQ- > span /* “Add to cart” (SSR) */
 {
 	background: transparent !important;
 	color: inherit !important;
 }
 
-/* ───────────── Pied de page ───────────── */
+/* ───────────── Footer ───────────── */
 
 #footer, #footer_spacer, .footer_content,
 footer._36eiL2GCxdc-, div._291ttHtxyu5obiKzor2G9G
@@ -590,7 +590,7 @@ footer._36eiL2GCxdc-, div._291ttHtxyu5obiKzor2G9G
 	display: none !important;
 }
 
-/* Liste « Voir tout » des DLC et bandeau des vignettes d'un pack */
+/* DLC “See all” list and a pack's thumbnail strip */
 .game_area_dlc_section .dlc_show_all, .ds_collapse_flag .see_all_dlc, .game_area_dlc_expanded_ctn + div a,
 #dlc_show_all_link
 {
