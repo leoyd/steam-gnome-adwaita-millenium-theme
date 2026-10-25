@@ -1,0 +1,139 @@
+/* ═══ Composant : carrousel ════════════════════════════════════════════
+ * Flèches = bouton OSD (button.css), placées hors du contenu à gauche et à
+ * droite ; points = indicateurs Adwaita ; bande de vignettes = barre de
+ * défilement fine. */
+
+/* Position des flèches : à l'extérieur, centrées verticalement */
+:where(.carousel_container .arrow, .store_horizontal_autoslider_ctn .arrow,
+       button.carousel__back-button, button.carousel__next-button)
+{
+	position: absolute !important;
+	top: calc(50% - var(--osd-size) / 2) !important;
+	bottom: auto !important;
+	z-index: 5 !important;
+}
+
+:where(.carousel_container .arrow.left, .store_horizontal_autoslider_ctn .arrow.left, button.carousel__back-button)
+{
+	left: -56px !important;
+	right: auto !important;
+}
+
+:where(.carousel_container .arrow.right, .store_horizontal_autoslider_ctn .arrow.right, button.carousel__next-button)
+{
+	right: -56px !important;
+	left: auto !important;
+}
+
+/* Grand carrousel « À la une » : flèches posées sur la capsule, toujours visibles */
+:where(.carousel_container.maincap) .arrow
+{
+	display: block !important;
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+:where(.carousel_container.maincap) .arrow.left { left: 16px !important; }
+:where(.carousel_container.maincap) .arrow.right { right: 16px !important; }
+
+/* Changement de capsule : glissé + fondu */
+:where(.carousel_container.maincap) .store_main_capsule.focus
+{
+	animation: adw-carousel-in 420ms var(--adw-transition-curve) both;
+}
+
+/* Points */
+:where(.carousel_thumbs, .carousel_container .carousel_thumbs)
+{
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	background: transparent !important;
+}
+
+:where(.carousel_thumbs > div)
+{
+	width: 8px !important;
+	height: 8px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	border-radius: 50% !important;
+	background: color-mix(in srgb, var(--adw-window-fg) 30%, transparent) !important;
+	transition: background-color var(--adw-transition), width var(--adw-transition);
+}
+
+:where(.carousel_thumbs > div.focus)
+{
+	width: 20px !important;
+	border-radius: 9999px !important;
+	background: var(--adw-window-fg) !important;
+}
+
+:where(button.carousel__dot)
+{
+	color: transparent !important;
+	background: none !important;
+}
+
+:where(button.carousel__dot)::after,
+:where(button.carousel__dot) > *
+{
+	background: color-mix(in srgb, var(--adw-window-fg) 30%, transparent) !important;
+	border-radius: 9999px !important;
+}
+
+:where(button.carousel__dot--selected)::after,
+:where(button.carousel__dot--selected) > *
+{
+	background: var(--adw-window-fg) !important;
+}
+
+/* ═══ Bande de vignettes défilante (captures de la fiche, Workshop) ═══
+ * Rail fin à 15 %, poignée arrondie, petites flèches rondes de part et
+ * d'autre. Sert pour le lecteur React (Track/Thumb/Arrow) et l'ancien. */
+:where(div._2SBCUqLfy4PgWdonAHX_fR, #highlight_slider, .slider_ctn .slider, .slider_bg) /* Track */
+{
+	height: 6px !important;
+	margin-top: 9px !important;
+	background: color-mix(in srgb, var(--adw-window-fg) 12%, transparent) !important;
+	background-image: none !important;
+	border: none !important;
+	border-radius: 9999px !important;
+	box-shadow: none !important;
+}
+
+:where(div._3DXmyv2Yx-lnmLz03GryEd, #highlight_slider .handle, .slider .handle) /* Thumb */
+{
+	height: 6px !important;
+	top: 0 !important;
+	background: color-mix(in srgb, var(--adw-window-fg) 45%, transparent) !important;
+	background-image: none !important;
+	border: none !important;
+	border-radius: 9999px !important;
+	box-shadow: none !important;
+	transition: background-color var(--adw-transition);
+}
+
+:where(div._3DXmyv2Yx-lnmLz03GryEd, #highlight_slider .handle, .slider .handle):hover
+{
+	background: color-mix(in srgb, var(--adw-window-fg) 70%, transparent) !important;
+}
+
+:where(div._2lIBEOcXRC3KKhDamcV9t, .slider_left, .slider_right, #highlight_slider_left, #highlight_slider_right) /* Arrow */
+{
+	--osd-size: 24px;
+	position: relative;
+	background: var(--w-button-bg) !important;
+	color: var(--adw-window-fg) !important;
+}
+
+:where(div._2lIBEOcXRC3KKhDamcV9t, .slider_left, .slider_right, #highlight_slider_left, #highlight_slider_right):hover
+{
+	background: var(--w-button-bg-hover) !important;
+}
+
+:where(div._2lIBEOcXRC3KKhDamcV9t, .slider_left, .slider_right)::after
+{
+	-webkit-mask-size: 12px !important;
+}

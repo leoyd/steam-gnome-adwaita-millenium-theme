@@ -1,0 +1,88 @@
+/* ═══ Composant : barre de progression ═════════════════════════════════
+ * Rail 8px à 15 %, remplissage d'accent, extrémités rondes.
+ *   --progress-color : accent par défaut */
+
+:where(
+	.achieveBar, .progress_bar, .progressbar, .badge_progress_bar, .achievement_progress_bar_ctn,
+	.workshopItemProgress, .apphub_ProgressBarBG, .profile_xp_block_remaining_bar,
+	div._1Ni5Kqn_Pbfd6nOEYoVE4J                                  /* TimelineBar (lecteur vidéo) */
+)
+{
+	box-sizing: border-box;
+	height: var(--progress-height, 8px) !important;
+	padding: 0 !important;
+	background: color-mix(in srgb, currentColor var(--adw-trough-opacity), transparent) !important;
+	background-image: none !important;
+	border: none !important;
+	border-radius: 9999px !important;
+	box-shadow: none !important;
+	overflow: hidden;
+}
+
+:where(
+	.achieveBarProgress, .progress_bar .progress, .progress_bar_inner, .badge_progress_bar_inner,
+	.achievement_progress_bar, .apphub_ProgressBarFG, .profile_xp_block_remaining_bar_progress,
+	div.segment.base, div._1AHwgG8SLF8QL4SPHixfq                 /* Bar.Played */
+)
+{
+	height: 100% !important;
+	background: var(--progress-color, var(--adw-accent-bg)) !important;
+	background-image: none !important;
+	border: none !important;
+	border-radius: 9999px !important;
+}
+
+/* ═══ Composant : spinner (chargement) ═════════════════════════════════
+ * Anneau Adwaita qui tourne. Le throbber Steam (barres bleues, gif) est
+ * masqué et remplacé par le pseudo-élément. --spinner-size : 32px. */
+:where(.LoadingThrobber, .throbber, .apphub_GetMoreContentWait, .LoadingWrapper > .LoadingThrobber,
+       .loading_throbber, div[class*="throbber_"])
+{
+	--spinner-size: 32px;
+	position: relative !important;
+	min-width: var(--spinner-size);
+	min-height: var(--spinner-size);
+	background: none !important;
+}
+
+:where(.LoadingThrobber, .throbber, .loading_throbber) > *,
+:where(.LoadingThrobber) .Bar,
+:where(.apphub_GetMoreContentWait) > img,
+:where(img[src*="throbber"], img[src*="loading_"], img[src*="Throbber"])
+{
+	opacity: 0 !important;
+}
+
+:where(.LoadingThrobber, .throbber, .loading_throbber, .apphub_GetMoreContentWait)::after
+{
+	content: "";
+	position: absolute;
+	left: calc(50% - var(--spinner-size) / 2);
+	top: calc(50% - var(--spinner-size) / 2);
+	width: var(--spinner-size);
+	height: var(--spinner-size);
+	box-sizing: border-box;
+	border-radius: 50%;
+	border: 3px solid color-mix(in srgb, var(--adw-window-fg) 15%, transparent);
+	border-top-color: var(--adw-window-fg);
+	animation: adw-spin 0.9s linear infinite;
+	/* hérite de la visibilité du throbber : masqué = arrêté */
+}
+
+/* Chargement infini des hubs : le spinner suffit, la barre est masquée */
+:where(.apphub_GetMoreContentWait) :where(.apphub_ProgressBarBG)
+{
+	display: none !important;
+}
+
+:where(.apphub_GetMoreContentWait)
+{
+	--spinner-size: 28px;
+}
+
+/* Steam mesure cette zone pour déclencher le chargement suivant : on ne
+ * touche pas à sa taille, on place juste le spinner en haut. */
+:where(.apphub_GetMoreContentWait)::after
+{
+	top: 24px;
+}

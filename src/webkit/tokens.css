@@ -1,0 +1,65 @@
+/* Mêmes jetons que le client : les options Millennium (couleurs, accent)
+ * s'appliquent donc aussi aux pages web. */
+@import "../adwaita/css/_colors/palette.css";
+@import "../adwaita/css/_colors/default.css";
+@import "../adwaita/css/_colors/derived.css";
+@import "../adwaita/css/_root/opacity.css";
+@import "../adwaita/css/_root/text.css";
+@import "../adwaita/css/_root/transitions.css";
+@import "../lite/fonts.css";
+
+/* Raccourcis propres aux pages web (valeurs de libadwaita 1.7) */
+:root
+{
+	--w-radius: 12px;          /* cartes, popovers, listes encadrées */
+	--w-radius-button: 9px;    /* boutons, champs, éléments de menu */
+	--w-radius-small: 6px;     /* badges, vignettes */
+	--w-radius-dialog: 15px;
+
+	/* Texte secondaire : basé sur la couleur de la fenêtre et non sur currentColor,
+	 * sinon un parent déjà atténué atténuait encore ses enfants. */
+	--w-dim: color-mix(in srgb, var(--adw-window-fg) var(--adw-dim-label-opacity), transparent);
+	--w-border: color-mix(in srgb, currentColor var(--adw-border-opacity), transparent);
+	--w-hover: color-mix(in srgb, currentColor var(--adw-hover-opacity), transparent);
+	--w-active: color-mix(in srgb, currentColor var(--adw-active-opacity), transparent);
+	--w-selected: color-mix(in srgb, currentColor var(--adw-selected-opacity), transparent);
+
+	--w-button-bg: color-mix(in srgb, currentColor 10%, transparent);
+	--w-button-bg-hover: color-mix(in srgb, currentColor 15%, transparent);
+	--w-button-bg-active: color-mix(in srgb, currentColor 30%, transparent);
+
+	--w-card-shadow: 0 0 0 1px light-dark(rgba(0, 0, 6, 0.03), rgba(0, 0, 6, 0.36)), 0 1px 3px 1px light-dark(rgba(0, 0, 6, 0.07), transparent), 0 2px 6px 2px light-dark(rgba(0, 0, 6, 0.03), transparent);
+	--w-popover-shadow: 0 0 0 1px light-dark(rgba(0, 0, 6, 0.14), rgba(0, 0, 6, 0.6)), 0 1px 5px 1px rgba(0, 0, 6, 0.09), 0 2px 14px 3px rgba(0, 0, 6, 0.05);
+	--w-dialog-shadow: 0 0 0 1px light-dark(rgba(0, 0, 6, 0.05), rgba(0, 0, 6, 0.6)), 0 0 14px 2px rgba(0, 0, 6, 0.03), 0 0 5px 2px rgba(0, 0, 6, 0.1);
+	--w-focus-ring: 0 0 0 2px color-mix(in srgb, var(--adw-accent) var(--adw-focus-border-opacity), transparent);
+
+	--w-avatar-radius: 0;      /* avatars carrés comme Steam : les cadres de profil s'y ajustent */
+	--w-osd-bg: rgba(0, 0, 6, 0.65);
+	--w-osd-bg-hover: rgba(0, 0, 6, 0.8);
+	--w-icon-prev: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M10.707 3.293a1 1 0 0 1 0 1.414L7.414 8l3.293 3.293a1 1 0 0 1-1.414 1.414l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 0 1 1.414 0z'/%3E%3C/svg%3E");
+	--w-icon-play-white: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='%23fff' d='M4 2.8v10.4a.8.8 0 0 0 1.2.7l8.3-5.2a.8.8 0 0 0 0-1.4L5.2 2.1a.8.8 0 0 0-1.2.7z'/%3E%3C/svg%3E");
+	--w-icon-next: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M5.293 3.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L8.586 8 5.293 4.707a1 1 0 0 1 0-1.414z'/%3E%3C/svg%3E");
+	--w-icon-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M4.28 3.22a.75.75 0 0 0-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 1 0 1.06 1.06L8 9.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L9.06 8l3.72-3.72a.75.75 0 0 0-1.06-1.06L8 6.94z'/%3E%3C/svg%3E");
+	--w-icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M12.293 4.293a1 1 0 0 1 1.414 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L7 9.586z'/%3E%3C/svg%3E");
+	--w-icon-check-white: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='white' d='M12.293 4.293a1 1 0 0 1 1.414 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L7 9.586z'/%3E%3C/svg%3E");
+	--w-icon-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M8 2a1 1 0 0 1 1 1v4h4a1 1 0 1 1 0 2H9v4a1 1 0 1 1-2 0V9H3a1 1 0 0 1 0-2h4V3a1 1 0 0 1 1-1z'/%3E%3C/svg%3E");
+	--w-chevron-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='%23999' d='M3.293 6.293a1 1 0 0 1 1.414 0L8 9.586l3.293-3.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414z'/%3E%3C/svg%3E");
+	--w-icon-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M6.5 1a5.5 5.5 0 0 1 4.383 8.823l3.897 3.897a.75.75 0 0 1-1.06 1.06l-3.897-3.896A5.5 5.5 0 1 1 6.5 1zm0 1.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8z'/%3E%3C/svg%3E");
+	--w-icon-comment: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M3 2h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H8l-3.4 2.55A1 1 0 0 1 3 13.75V12a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z'/%3E%3C/svg%3E");
+	--w-icon-workshop: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M10.5 1a4.5 4.5 0 0 0-4.27 5.93L1.44 11.7a1.5 1.5 0 0 0 0 2.12l.74.74a1.5 1.5 0 0 0 2.12 0l4.77-4.79A4.5 4.5 0 0 0 14.86 5.7l-2.4 2.4-2.12-.44-.44-2.12 2.4-2.4A4.5 4.5 0 0 0 10.5 1z'/%3E%3C/svg%3E");
+	--w-icon-thumb-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M7.6 1.2a1 1 0 0 1 1.3-.4C10 1.3 10.5 2.4 10.2 3.6L9.8 5H13a2 2 0 0 1 1.96 2.4l-1 5A2 2 0 0 1 12 14H6V6.2zM1 6h3v8H1z'/%3E%3C/svg%3E");
+	--w-icon-thumb-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M8.4 14.8a1 1 0 0 1-1.3.4C6 14.7 5.5 13.6 5.8 12.4l.4-1.4H3a2 2 0 0 1-1.96-2.4l1-5A2 2 0 0 1 4 2h6v7.8zM15 10h-3V2h3z'/%3E%3C/svg%3E");
+
+	/* Pastilles de vote (vert succès / rouge destructif d'Adwaita) */
+	--w-vote-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2326a269'/%3E%3Cpath fill='white' transform='translate(8 8)' d='M7.6 1.2a1 1 0 0 1 1.3-.4C10 1.3 10.5 2.4 10.2 3.6L9.8 5H13a2 2 0 0 1 1.96 2.4l-1 5A2 2 0 0 1 12 14H6V6.2zM1 6h3v8H1z'/%3E%3C/svg%3E");
+	--w-vote-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23c01c28'/%3E%3Cpath fill='white' transform='translate(8 8)' d='M8.4 14.8a1 1 0 0 1-1.3.4C6 14.7 5.5 13.6 5.8 12.4l.4-1.4H3a2 2 0 0 1-1.96-2.4l1-5A2 2 0 0 1 4 2h6v7.8zM15 10h-3V2h3z'/%3E%3C/svg%3E");
+
+	--w-tooltip-bg: rgba(0, 0, 6, 0.8);
+	--w-dimmer: rgba(0, 0, 6, 0.4);
+
+	/* « En ligne » suit la couleur d'accent du thème */
+	--adw-user-online: var(--adw-accent);
+}
+
+@keyframes adw-spin { to { transform: rotate(360deg); } }
+@keyframes adw-carousel-in { from { opacity: 0; transform: translateX(24px); } }

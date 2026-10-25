@@ -1,0 +1,1579 @@
+/* Communauté : mise en page propre à chaque écran.
+ * Les visuels (cartes, boutons, badges, onglets…) viennent des composants. */
+
+/* ───────────── Typographie partagée ───────────── */
+
+.persona_name, .actual_persona_name, .friend_block_content, .forum_topic_name,
+.commentthread_comment_author a, .commentthread_author_link, .forum_op_author a,
+.badge_title, .badge_info_title, .achieveTxt h3, .workshopItemTitle, .hover_item_name,
+.market_title_text, .progress_info_bold, .profile_badges_header_title,
+.profile_customization_header, .profile_recentgame_header, .rightSectionTopTitle,
+.account_header, .youraccount_page h2, .account_setting_block_title
+{
+	color: var(--adw-window-fg) !important;
+	text-shadow: none !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+	font-weight: 700 !important;
+}
+
+.profile_summary, .profile_header_summary .header_real_name, .profile_flag, .friendSmallText,
+.badge_info_description, .badge_progress_info, .achieveTxt h5, .achieveUnlockTime,
+.forum_topic_reply_count, .forum_topic_lastpost, .forum_topic_op .forum_op_author,
+.workshopItemAuthorName, .workshop_author_link, .item_desc_description, .descriptor,
+.inventory_iteminfo .item_desc_game_info, .market_subtitle_text, .market_listing_game_name,
+.market_listing_listed_date, .market_listing_right_cell, .market_listing_num_listings_qty,
+.market_commodity_order_summary, .blotter_day_header_date, .blotter_daily_rollup_line,
+.community_home_subtitle, .community_home_search_title, .community_home_app_shortcuts_list_header,
+.badge_title_stats, .badge_view_details, .appNumItems, .mainSectionHeader, .workshopTagsTitle
+{
+	color: var(--w-dim) !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+}
+
+/* Liens et compteurs : couleur d'accent du thème */
+.new_items_text, .developer_response, .profile_count_link_total, .apphub_NumInApp,
+.review_award_count, .detailsStatNumChangeNotes, .current_player_workshop_title,
+.workshop_home_panel .headline a, .forum_topic.unread .forum_topic_name
+{
+	color: var(--adw-accent) !important;
+}
+
+blockquote, .bb_blockquote, .quote
+{
+	padding: 8px 12px !important;
+	background: color-mix(in srgb, currentColor 5%, transparent) !important;
+	border: none !important;
+	border-left: 3px solid var(--w-border) !important;
+	border-radius: var(--w-radius-small) !important;
+	color: var(--adw-window-fg) !important;
+}
+
+.bb_spoiler
+{
+	background: color-mix(in srgb, currentColor 15%, transparent) !important;
+	border-radius: var(--w-radius-small);
+}
+
+.bb_h1, .bb_h2, .bb_h3, .bb_h1 b, .bb_h2 b, .bb_h3 b
+{
+	color: var(--adw-window-fg) !important;
+}
+
+table { border-color: var(--w-border) !important; }
+td { border-color: var(--w-border) !important; }
+th
+{
+	background: transparent !important;
+	color: var(--w-dim) !important;
+	font-weight: 700;
+	text-transform: none !important;
+	border-bottom: 1px solid var(--w-border) !important;
+}
+
+/* ───────────── Accueil communauté / hubs ───────────── */
+
+/* Le survol Steam affichait le type en bleu par-dessus l'image (et sous le
+ * badge Workshop) : on le retire, le titre est affiché sous l'image. */
+.apphub_CardContentTypeContainer
+{
+	display: none !important;
+}
+
+.apphub_CardMetaData .apphub_CardContentTitle,
+.apphub_CardContentTitle
+{
+	order: -1;
+	display: block !important;
+	padding: 0 !important;
+	color: var(--adw-window-fg) !important;
+	font-size: 14px !important;
+	font-weight: 700 !important;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Titre des guides (« Jeu : Guide ») */
+.apphub_CardContentType.guide, .apphub_CardContentType
+{
+	position: static !important;
+	display: block !important;
+	visibility: visible !important;
+	min-height: 0;
+	padding: 12px 12px 0 !important;
+	background: none !important;
+	color: var(--adw-window-fg) !important;
+	font-size: 15px !important;
+	font-weight: 700 !important;
+	text-align: left;
+	justify-content: flex-start;
+}
+
+/* Diffusions : image bord à bord, titre et spectateurs sous l'image, auteur
+ * en bas. Steam empile tout en absolu dans une carte de hauteur fixe. */
+.Broadcast_Card.apphub_Card
+{
+	max-height: none !important;
+	height: auto !important;
+	padding-bottom: 0 !important;
+}
+
+.Broadcast_Card .apphub_CardContentPreviewImageBorder
+{
+	padding: 0 !important;
+}
+
+.Broadcast_Card .apphub_CardContentMain
+{
+	max-height: none !important;
+	aspect-ratio: 16 / 9;
+	background-color: var(--adw-thumbnail-bg) !important;
+}
+
+.Broadcast_Card .apphub_CardContentPreviewImage
+{
+	width: 100% !important;
+	height: 100% !important;
+	max-width: none !important;
+	max-height: none !important;
+	object-fit: cover;
+}
+
+.Broadcast_Card .apphub_CardMetaData
+{
+	position: static !important;
+	gap: 2px;
+	padding: 12px 16px 10px !important;
+}
+
+.Broadcast_Card .apphub_CardContentViewers
+{
+	float: none !important;
+	padding: 0 !important;
+	color: var(--w-dim) !important;
+	font-size: 13px !important;
+}
+
+.Broadcast_Card .apphub_CardContentAuthorBlock
+{
+	position: static !important;
+	height: auto !important;
+	padding: 10px 16px !important;
+}
+
+/* « Retour en haut » des hubs : pilule OSD flottante (Steam : images bleues) */
+.apphub_BackToTop
+{
+	bottom: 16px !important;
+	width: auto !important;
+	height: 36px !important;
+	padding: 0 16px;
+	background: var(--w-osd-bg) !important;
+	border-radius: 18px;
+	transition: background-color var(--adw-transition);
+}
+
+.apphub_BackToTop:hover
+{
+	background: var(--w-osd-bg-hover) !important;
+}
+
+.apphub_BackToTopButton.leftcap, .apphub_BackToTopButton.rightcap
+{
+	display: none !important;
+}
+
+.apphub_BackToTopButton.middle, .apphub_BackToTop:hover .apphub_BackToTopButton.middle
+{
+	width: auto !important;
+	height: 36px !important;
+	line-height: 36px !important;
+	float: none !important;
+	background: none !important;
+	color: #ffffff !important;
+	font: 700 14px/36px var(--adw-text-font) !important;
+}
+
+.apphub_BackToTop a, .appHub_BackToTopBody a
+{
+	color: #ffffff !important;
+	text-decoration: none !important;
+}
+
+/* Bloc auteur (diffusions et autres cartes) : avatar puis nom, sur une ligne */
+.apphub_friend_block_container
+{
+	float: none !important;
+	height: auto !important;
+	max-width: 100% !important;
+	min-width: 0;
+	margin: 0 !important;
+}
+
+.apphub_friend_block
+{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	min-width: 0;
+}
+
+.apphub_friend_block .appHubIconHolder
+{
+	position: static !important;
+	flex: none;
+	margin: 0 !important;
+}
+
+.apphub_friend_block .appHubIconHolder.greyOverlay
+{
+	display: none !important;
+}
+
+/* Objets du Workshop : badge « Workshop » à la place du dégradé bleu */
+.apphub_CardBG.workshop
+{
+	background: var(--adw-thumbnail-bg) !important;
+	background-image: none !important;
+}
+
+/* Sans :has() (trop coûteux) : le badge est porté par le cadre de l'image,
+ * frère suivant du fond « workshop » */
+.apphub_CardBG.workshop ~ .apphub_CardContentPreviewImageBorder
+{
+	position: relative;
+}
+
+.apphub_CardBG.workshop ~ .apphub_CardContentPreviewImageBorder::after
+{
+	content: "Workshop";
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	z-index: 3;
+	display: flex;
+	align-items: center;
+	height: 24px;
+	padding: 0 10px 0 28px;
+	border-radius: 9999px;
+	background: var(--w-osd-bg);
+	color: #ffffff;
+	font: 700 12px var(--adw-text-font);
+}
+
+.apphub_CardBG.workshop ~ .apphub_CardContentPreviewImageBorder::before
+{
+	content: "";
+	position: absolute;
+	top: 14px;
+	left: 17px;
+	z-index: 4;
+	width: 12px;
+	height: 12px;
+	background: #ffffff;
+	-webkit-mask: var(--w-icon-workshop) center / 12px no-repeat;
+}
+
+.apphub_CardContentGuideTitle
+{
+	padding: 8px 12px 0 !important;
+}
+
+.apphub_CardContentGuideDesc, .apphub_CardTextContent
+{
+	padding: 8px 12px !important;
+	color: var(--w-dim) !important;
+}
+
+.found_helpful, .date_posted
+{
+	padding: 0 12px;
+	color: var(--w-dim) !important;
+}
+
+/* En-tête de l'accueil communauté */
+.community_home_app_shortcuts_list
+{
+	background: transparent !important;
+}
+
+.community_home_search_ctn .community_home_search_content
+{
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+/* ───────────── Profil ───────────── */
+
+/* En-tête : la grille Steam est conservée (avatar | nom | niveau),
+ * on ajoute seulement des marges pour que rien ne touche les bords. */
+.profile_header
+{
+	padding: 24px 12px 12px !important;
+	height: auto !important;
+}
+
+.profile_header_content
+{
+	--card-pad: 24px 24px 20px;
+	column-gap: 24px;
+	height: auto !important;
+}
+
+.profile_header_centered_col
+{
+	padding: 0 !important;
+}
+
+.profile_header_badgeinfo
+{
+	display: flex !important;
+	flex-direction: column;
+	gap: 14px;
+	padding-top: 4px;
+	margin-bottom: 16px !important;
+}
+
+/* « Level 22 » : de l'air avant la carte du badge mis en avant
+ * (même sous-bloc que le badge, d'où une marge et pas le gap du parent) */
+.profile_header_badgeinfo .persona_level
+{
+	display: flex !important;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 12px !important;
+	line-height: 1.2 !important;
+}
+
+.profile_header_badge
+{
+	margin: 0 !important;
+	padding: 4px !important;
+	background: color-mix(in srgb, currentColor 6%, transparent) !important;
+	border-radius: var(--w-radius-button) !important;
+}
+
+.profile_header_actions
+{
+	display: flex !important;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin: 0 !important;
+}
+
+.actual_persona_name
+{
+	font-weight: 800 !important;
+}
+
+.profile_rightcol, .profile_leftcol .profile_customization
+{
+	--card-pad: 16px;
+}
+
+.profile_customization_header
+{
+	padding: 0 0 10px !important;
+	background: transparent !important;
+}
+
+.profile_customization_block
+{
+	padding: 0 !important;
+}
+
+/* Bannière de sanction (VAC) : marge interne */
+.profile_ban_status
+{
+	padding: 10px 14px !important;
+	margin: 8px 0 12px !important;
+}
+
+/* Compteurs (Jeux 496, Badges 22…) : libellé en blanc, nombre en accent */
+.profile_count_link a
+{
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	padding: 4px 8px !important;
+}
+
+.profile_item_links .count_link_label, .profile_count_link .count_link_label
+{
+	color: var(--adw-window-fg) !important;
+	font-weight: 700 !important;
+}
+
+/* Vitrine des succès (rares / favoris) : 6 succès + la case « +N » sur une
+ * même ligne de 7 cases égales. Steam calcule en JS une marge gauche par
+ * case qui faisait passer la 7e à la ligne. */
+.achievement_showcase > .showcase_content_bg:not(.showcase_stats_row)
+{
+	display: grid !important;
+	grid-template-columns: repeat(7, minmax(0, 1fr));
+	gap: 8px;
+}
+
+.achievement_showcase > .showcase_content_bg:not(.showcase_stats_row) > :not(.showcase_achievement)
+{
+	display: none;
+}
+
+.achievement_showcase .showcase_achievement
+{
+	float: none !important;
+	width: auto !important;
+	height: auto !important;
+	aspect-ratio: 1;
+	margin: 0 !important;
+}
+
+.achievement_showcase .showcase_achievement img
+{
+	display: block;
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: contain;
+}
+
+.achievement_showcase .showcase_achievement.plus_more
+{
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	padding: 0 !important;
+	background: var(--w-button-bg) !important;
+	border-radius: var(--w-radius-small);
+	color: var(--adw-window-fg) !important;
+	font: 700 13px/1 var(--adw-text-font) !important;
+}
+
+/* Aperçu des badges et récompenses : Steam en montre 4, sur une ligne de
+ * 4 cases égales (~50px) ; Steam : vignettes flottantes, 3 puis 1 */
+:is(.profile_badges, .profile_awards) .profile_count_link_preview
+{
+	display: grid !important;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 10px;
+	padding: 4px 8px 8px;
+}
+
+.profile_badges
+{
+	margin-bottom: 16px !important;     /* Steam : 40px de vide sous l'aperçu */
+}
+
+:is(.profile_badges, .profile_awards) .profile_count_link_preview > div[style*="clear"]
+{
+	display: none;
+}
+
+:is(.profile_badges, .profile_awards) .profile_badges_badge
+{
+	float: none !important;
+	width: auto !important;
+	height: auto !important;
+	margin: 0 !important;
+}
+
+:is(.profile_badges, .profile_awards) .profile_badges_badge img
+{
+	display: block;
+	width: 100% !important;
+	height: auto !important;
+	aspect-ratio: 1;
+	object-fit: contain;
+}
+
+.profile_in_game_header, .profile_in_game_name, .friend_small_text
+{
+	color: var(--adw-user-ingame) !important;
+}
+
+.profile_in_game.online .profile_in_game_header
+{
+	color: var(--adw-user-online) !important;
+}
+
+/* Jeux récents : la zone succès suit la carte (plus de couleur de thème de profil) */
+.recent_game_content
+{
+	padding: 10px !important;
+}
+
+.game_info_stats
+{
+	margin-top: 8px !important;
+	padding: 10px 12px !important;
+	background: color-mix(in srgb, currentColor 6%, transparent) !important;
+	border-radius: var(--w-radius-button) !important;
+}
+
+.game_info_stats .game_info_achievement_summary .ellipsis,
+.game_info_achievement_summary
+{
+	color: var(--adw-window-fg) !important;
+}
+
+.game_info_details
+{
+	color: var(--w-dim) !important;
+}
+
+/* Vitrines (succès, jeux terminés…) */
+.showcase_content_bg, .showcase_stat, .achievement_showcase, .rarest_achievements
+{
+	background: transparent !important;
+	border-radius: var(--w-radius-button) !important;
+}
+
+.showcase_stat .label
+{
+	color: var(--w-dim) !important;
+}
+
+/* ───────────── Amis / groupes ───────────── */
+
+.friends_nav, .friends_nav a, .profile_friends.title_bar, .friends_header_bg
+{
+	background: transparent !important;
+	color: var(--adw-window-fg) !important;
+}
+
+.grouppage_resp_title, .grouppage_header_name
+{
+	color: var(--adw-window-fg) !important;
+	text-shadow: none !important;
+}
+
+/* Listes d'amis en colonnes (« amis qui jouent à… », amis d'un profil) :
+ * grille au lieu des flottants, ligne à hauteur du contenu (Steam impose
+ * 36 px pour trois lignes de texte : la dernière était coupée). */
+.responsive_friendblocks
+{
+	display: grid !important;
+	grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+	gap: 8px;
+	margin-bottom: 8px;
+}
+
+.responsive_friendblocks > :not(.friendBlock)
+{
+	display: none !important;
+}
+
+.friendBlock
+{
+	display: flex !important;
+	align-items: center;
+	gap: 12px;
+	width: auto !important;
+	height: auto !important;
+	min-height: 56px;
+	margin: 0 !important;
+	padding: 8px 12px !important;
+	float: none !important;
+	font-size: 14px !important;
+	line-height: 1.35 !important;
+}
+
+.friendBlock .playerAvatar
+{
+	flex: none;
+	float: none !important;
+	margin: 0 !important;
+}
+
+.friendBlock .friendBlockContent
+{
+	flex: 1;
+	min-width: 0;
+	color: var(--adw-window-fg) !important;
+	font-weight: 700;
+}
+
+.friendBlock .friendSmallText
+{
+	display: block;
+	font-size: 13px;
+	font-weight: 400;
+}
+
+.friendBlock .friendBlockContent :is(a.friendBlockInnerLink, .friendSmallText a)
+{
+	color: var(--adw-accent) !important;
+}
+
+.friendBlock .friendBlockStatusIcon
+{
+	flex: none;
+	float: none !important;
+	margin: 0 !important;
+	height: auto !important;
+	line-height: normal !important;
+}
+
+/* Niveau dans une carte d'ami (cercle : media.css) */
+.friendBlock .friendPlayerLevel
+{
+	flex: none;
+	float: none !important;
+	margin: 0 !important;
+}
+
+/* ───────────── Badges ───────────── */
+
+/* La feuille de badges n'est plus un panneau : chaque badge est une carte */
+.badges_sheet
+{
+	display: flex !important;
+	flex-direction: column;
+	gap: 10px;
+	padding: 0 !important;
+}
+
+.badge_row
+{
+	--card-pad: 0;
+	margin: 0 !important;
+}
+
+.badge_row_inner
+{
+	padding: 12px 16px !important;
+}
+
+.badge_title_row
+{
+	display: flex !important;
+	flex-direction: row-reverse; /* Steam place les stats avant le titre */
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 0 0 8px !important;
+	border-bottom: 1px solid var(--w-border) !important;
+}
+
+.badge_title
+{
+	font-size: 15px !important;
+}
+
+.badge_content
+{
+	padding: 12px 0 0 !important;
+}
+
+.badge_empty, .badge_progress_card.unowned
+{
+	background: transparent !important;
+	border: 1px dashed var(--w-border) !important;
+	border-radius: var(--w-radius-small) !important;
+}
+
+.badge_empty_name
+{
+	color: var(--w-dim) !important;
+}
+
+.profile_paging
+{
+	background: transparent !important;
+	color: var(--w-dim) !important;
+}
+
+/* ───────────── Inventaire ───────────── */
+
+/* Le cadre de la grille garde la marge Steam (sinon la grille déborde) */
+#inventories.trade_item_box, .trade_item_box
+{
+	--card-pad: 6px 0 0 6px;
+}
+
+/* Objet sélectionné : anneau intérieur (n'est plus coupé dans les coins) */
+.itemHolder
+{
+	background: transparent !important;
+}
+
+.itemHolder .item, .inventory_page .item
+{
+	border-radius: var(--w-radius-small) !important;
+	box-shadow: none !important;
+}
+
+.itemHolder .item:hover, .item.activeInfo
+{
+	outline: 2px solid var(--adw-accent-bg) !important;
+	outline-offset: -2px;
+	box-shadow: none !important;
+}
+
+a.inventory_item_link
+{
+	background: transparent !important;
+	box-shadow: none !important;
+}
+
+/* Onglet de jeu sélectionné : pas d'ombre */
+.games_list_tab, .games_list_tab.active
+{
+	box-shadow: none !important;
+}
+
+/* Sélecteur « Tous les objets Steam » : liste déroulante normale */
+#contextselect_trigger
+{
+	font-size: 15px !important;
+	min-width: 280px;
+}
+
+#inventory_more_dselect_container .dropcontainer,
+.dselect_container .dropcontainer
+{
+	margin-top: 4px;
+}
+
+.inventory_rightnav, .inventory_links
+{
+	display: flex !important;
+	align-items: center;
+	gap: 8px;
+}
+
+/* ───────────── Marché ───────────── */
+
+#BG_top
+{
+	--card-pad: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0 16px;
+	box-sizing: border-box;
+	width: auto !important;
+	max-width: 949px;
+	height: auto !important;
+	margin: 0 auto !important;
+}
+
+#BG_top > h1.market_header
+{
+	flex: 1 1 360px;
+	width: auto !important;
+	margin: 0 !important;
+}
+
+/* Solde du porte-monnaie : bouton posé dans l'en-tête, plus de bloc en absolu */
+#BG_top > .user_info, .market_header .user_info, .user_info
+{
+	position: static !important;
+	width: auto !important;
+	max-width: none !important;
+	height: auto !important;
+	margin: 16px 20px !important;
+	padding: 8px 14px !important;
+	background: var(--w-button-bg) !important;
+	border: none !important;
+	border-radius: var(--w-radius-button) !important;
+	box-shadow: none !important;
+}
+
+#marketBetaNoteCtn a
+{
+	color: var(--adw-accent) !important;
+}
+
+/* Onglets du marché : largeur au contenu (Steam impose 195px) */
+.market_tab_well_tab_contents
+{
+	min-width: 0 !important;
+	line-height: normal !important;
+}
+
+#myMarketTabs, .market_large_tab_well, .market_section_header
+{
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	height: auto !important;
+	padding: 0 !important;
+	margin: 24px 0 12px !important;
+}
+
+#myMarketTabs_empty
+{
+	display: none;
+}
+
+.market_tab_well_tabs
+{
+	position: static !important;
+}
+
+#myMarketTabs > .pick_and_sell_button
+{
+	position: static !important;
+	margin-left: auto;
+	line-height: normal;
+}
+
+.market_large_tab_well_gradient, .market_section_header_cap, .market_large_tab_well_sep
+{
+	display: none !important;
+}
+
+/* Colonne de recherche : la carte prend la largeur de sa colonne */
+#sideBar > div
+{
+	width: 295px;
+	max-width: 100%;
+}
+
+.market_search_sidebar_contents
+{
+	--card-pad: 16px;
+	width: auto !important;
+}
+
+.market_search_sidebar_section_tip_small, .market_search_sidebar_section_tip
+{
+	display: block;
+	margin: 16px 0 8px !important;
+	color: var(--w-dim) !important;
+	font: 700 13px/1.3 var(--adw-text-font) !important;
+}
+
+.escrow_description_link
+{
+	color: var(--w-dim) !important;
+	font-size: 13px !important;
+}
+
+/* Recherche (composant React) : le champ lui-même devient l'entrée du thème,
+ * ses enveloppes sont transparentes, la loupe est dessinée par le conteneur */
+.market_search_sidebar_search_box
+{
+	position: relative;
+	display: block;
+}
+
+.market_search_sidebar_search_box div
+{
+	width: auto !important;
+	max-width: 100% !important;
+	min-height: 0 !important;
+	padding: 0 !important;
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+	outline: none !important;
+}
+
+.market_search_sidebar_search_box input
+{
+	box-sizing: border-box !important;
+	width: 100% !important;
+	height: 36px !important;
+	padding: 0 40px 0 14px !important;
+	background: var(--w-button-bg) !important;
+	color: var(--adw-window-fg) !important;
+	border: none !important;
+	border-radius: var(--w-radius-button) !important;
+	box-shadow: none !important;
+	outline: 2px solid transparent !important;
+	outline-offset: -2px !important;
+	font: 400 14px/normal var(--adw-text-font) !important;
+}
+
+.market_search_sidebar_search_box input:focus
+{
+	outline-color: color-mix(in srgb, var(--adw-accent) var(--adw-focus-border-opacity), transparent) !important;
+}
+
+.market_search_sidebar_search_box input::placeholder
+{
+	font-style: normal !important;
+}
+
+.market_search_sidebar_search_box::after
+{
+	content: "";
+	position: absolute;
+	top: calc(50% - 8px);
+	right: 12px;
+	width: 16px;
+	height: 16px;
+	background: var(--adw-window-fg);
+	opacity: 0.6;
+	-webkit-mask: var(--w-icon-search) center / 16px no-repeat;
+	pointer-events: none;
+}
+
+/* « Afficher les options avancées » : bouton pleine largeur, chevron dedans */
+#market_search_advanced_show
+{
+	width: auto !important;
+	margin-top: 8px !important;
+}
+
+.market_search_advanced_button
+{
+	position: relative;
+	display: flex !important;
+	align-items: center;
+	justify-content: space-between;
+	width: 100% !important;
+	box-sizing: border-box;
+}
+
+.market_search_advanced_button > .btn_details_arrow
+{
+	position: static !important;
+	margin: 0 !important;
+}
+
+/* Parcourir par jeu : rangées pleine largeur */
+.market_search_game_button_group
+{
+	margin-top: 0 !important;
+}
+
+.market_search_game_button_group .game_button
+{
+	display: flex !important;
+	width: 100% !important;
+	box-sizing: border-box;
+	margin: 0 0 2px !important;
+	padding: 0 !important;
+}
+
+.market_search_game_button_group .game_button_contents
+{
+	display: flex !important;
+	align-items: center;
+	flex: 1;
+	gap: 10px;
+	width: auto !important;
+	padding: 6px 8px !important;
+	background: none !important;
+	color: var(--adw-window-fg) !important;
+}
+
+/* Steam : hauteur fixe, dégradé + border-image (les fines barres), icône en absolu */
+.market_search_game_button_group .game_button
+{
+	height: auto !important;
+	line-height: normal !important;
+}
+
+.market_search_game_button_group .game_button > span
+{
+	float: none !important;
+	height: auto !important;
+	line-height: normal !important;
+	border: none !important;
+	border-image: none !important;
+	border-radius: var(--w-radius-button);
+}
+
+.market_search_game_button_group .game_button:hover > span
+{
+	background: var(--w-hover) !important;
+}
+
+.market_search_game_button_group .game_button_game_icon img
+{
+	position: static !important;
+	display: block;
+	width: 32px;
+	height: 32px;
+	border-radius: var(--w-radius-small);
+}
+
+.market_search_game_button_group .game_button_game_name
+{
+	padding: 0 !important;
+	max-width: none !important;
+}
+
+.market_header_text
+{
+	padding: 16px 20px !important;
+	box-sizing: border-box;
+}
+
+.market_header .user_info, .user_info
+{
+	margin: 16px 16px 0 0 !important;
+	padding: 8px 12px !important;
+	background: var(--w-button-bg) !important;
+	border-radius: var(--w-radius-button) !important;
+}
+
+h3.my_market_header, .market_listing_table_header
+{
+	padding: 0 4px 8px !important;
+	background: transparent !important;
+	box-shadow: none !important;
+	border-radius: 0 !important;
+}
+
+.market_listing_table_header
+{
+	color: var(--w-dim) !important;
+	border-bottom: 1px solid var(--w-border) !important;
+}
+
+.market_listing_item_name, .market_listing_price, .market_table_value, .normal_price
+{
+	color: var(--adw-window-fg) !important;
+}
+
+.item_market_action_button_edge, .item_market_action_button_preload
+{
+	display: none !important;
+}
+
+.market_commodity_orders_table, .market_commodity_orders_table tr,
+.market_commodity_orders_table td, .market_commodity_orders_table th
+{
+	background: transparent !important;
+	border-color: var(--w-border) !important;
+	color: var(--adw-window-fg) !important;
+}
+
+#pricehistory, .pricehistory_container, .jqplot-target
+{
+	background: transparent !important;
+	color: var(--w-dim) !important;
+}
+
+/* ───────────── Workshop ───────────── */
+
+/* Accueil du Workshop : panneaux et tuiles d'applications */
+.workshop_home_panel, .primary_panel_border
+{
+	--card-pad: 16px;
+}
+
+/* La grille d'applications a une largeur fixe chez Steam : pas de marge
+ * interne sur la carte, sinon une tuile passe à la ligne */
+.browseApps
+{
+	--card-pad: 0;
+}
+
+.browseAppsTitleContainer
+{
+	padding: 12px 16px !important;
+}
+
+#BG_top_workshop
+{
+	background-image: none !important;
+	height: auto !important;
+}
+
+.rightbox_list_selection_background
+{
+	background: var(--w-selected) !important;
+	background-image: none !important;
+	border-radius: var(--w-radius-button) !important;
+}
+
+.workshopAppsRow, .browseAppsTitleContainer, .primary_panel
+{
+	background: transparent !important;
+}
+
+.app_hub_cap, .appCap, .workshopAppCap
+{
+	border-radius: var(--w-radius-small) !important;
+	overflow: hidden;
+}
+
+.newItemBanner, .appNewBanner, img[src*="new_banner"]
+{
+	display: none !important;
+}
+
+/* Page d'un objet */
+.workshopItemDetailsHeader
+{
+	--card-pad: 12px 16px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 12px !important;
+}
+
+.workshopItemTitle
+{
+	font-size: var(--adw-text-title2-size) !important;
+	padding: 0 !important;
+}
+
+.workshop_item_header, .workshopItemPreviewArea, #highlight_player_area
+{
+	background: transparent !important;
+}
+
+.workshopItemPreviewArea
+{
+	padding: 0 !important;
+}
+
+.col_right .rightDetailsBlock
+{
+	--card-pad: 12px 14px;
+	margin-bottom: 12px !important;
+}
+
+.workshopTags
+{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	padding: 4px 0 !important;
+}
+
+/* Bouton « S'abonner » : icône symbolique + libellé, centrés */
+#SubscribeItemBtn
+{
+	--btn-height: 36px;
+	--btn-pad: 0 18px;
+	width: auto !important;
+	gap: 8px;
+}
+
+#SubscribeItemBtn .subscribeIcon, .collectionItem .subscribeIcon
+{
+	position: static !important;
+	flex-shrink: 0;
+	width: 16px !important;
+	height: 16px !important;
+	background: currentColor !important;
+	background-image: none !important;
+	-webkit-mask: var(--w-icon-plus) center / 14px no-repeat;
+}
+
+#SubscribeItemBtn.toggled .subscribeIcon
+{
+	-webkit-mask-image: var(--w-icon-check);
+}
+
+#SubscribeItemBtn > span.subscribeText, .btn_medium > span.subscribeText
+{
+	padding: 0 !important;
+	width: auto !important;
+}
+
+.subscribeOption.selected
+{
+	line-height: 1.2 !important;
+}
+
+/* Cartes imbriquées de la page d'un objet : une seule carte, sections
+ * séparées par un filet */
+.detailBox .detailBox,
+.detailBox .workshopItemDescription,
+.panel .rightDetailsBlock
+{
+	--card-pad: 12px 0 0;
+	background: transparent !important;
+	box-shadow: none !important;
+	border-radius: 0 !important;
+	border-top: 1px solid var(--w-border) !important;
+	margin-top: 12px;
+}
+
+.detailBox .workshopItemDescription
+{
+	border-top: none !important;
+	margin-top: 4px;
+	padding-top: 0 !important;
+}
+
+.sidebar > .panel, .col_right > .panel
+{
+	--card-pad: 12px 14px;
+	box-sizing: border-box;
+	margin-bottom: 12px !important;
+	padding: 12px 14px !important;
+	background: var(--card-bg) !important;
+	background-image: none !important;
+	border-radius: var(--w-radius) !important;
+	box-shadow: var(--w-card-shadow) !important;
+}
+
+.workshopItemDescriptionTitle, .rightSectionMinorText, .parentCollectionsNumOthers
+{
+	color: var(--w-dim) !important;
+}
+
+.game_area_purchase_game.workshop, .game_area_purchase_margin .game_area_purchase_game
+{
+	display: flex !important;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+/* Récompenses, favoris, partage : barre d'actions compacte */
+.workshopItemControls, #ItemControls
+{
+	display: flex !important;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 0 !important;
+}
+
+/* Parcourir : barre latérale et grille */
+.workshopItem
+{
+	padding: 8px !important;
+}
+
+.rightSectionTopTitle
+{
+	padding: 0 0 6px !important;
+}
+
+/* ───────────── Forums ───────────── */
+
+.forum_topic
+{
+	margin-bottom: 6px !important;
+}
+
+.forum_topic_overlay
+{
+	border-radius: var(--w-radius) !important;
+}
+
+.rightbox
+{
+	margin-bottom: 12px !important;
+}
+
+/* Discussions (accueil des forums) */
+.steam_discussions_intro, .steam_discussions_moderationdisclaimer
+{
+	color: var(--w-dim) !important;
+}
+
+.steam_discussions_intro b
+{
+	color: var(--adw-window-fg) !important;
+	font-weight: 700 !important;
+}
+
+.global_discussion_search_ctn
+{
+	max-width: 420px;
+	margin: 16px 0 !important;
+	padding: 0 !important;
+}
+
+.discussionSearchTextContainer
+{
+	position: relative !important;
+	width: auto !important;
+	height: auto !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.discussionSearchTextContainer::before,
+.discussionSearchTextContainer::after
+{
+	display: none !important;
+}
+
+.discussions_header
+{
+	margin: 24px auto 16px !important;
+	padding: 0 !important;
+}
+
+.discussions_header .group_tab
+{
+	height: auto !important;
+	line-height: normal !important;
+	margin: 0 !important;
+}
+
+.discussions_header .group_tab > span
+{
+	display: contents !important;
+	padding: 0 !important;
+	background: none !important;
+	color: inherit !important;
+	font: inherit !important;
+}
+
+.discussion_tab_content_rule
+{
+	border-top: 1px solid var(--adw-border-color, var(--w-hover)) !important;
+	margin: 24px 0 16px !important;
+}
+
+.discussion_tab_content_area h2,
+.discussion_tab_content_area h2.discussion_primary_header
+{
+	margin: 0 0 12px !important;
+	color: var(--adw-window-fg) !important;
+	font: 700 20px/1.3 var(--adw-text-font) !important;
+	letter-spacing: normal !important;
+}
+
+/* Liste des forums : une carte, une rangée par forum */
+.forum_list_ctn
+{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 24px;
+}
+
+.forum_list_ctn .forum_list_left
+{
+	flex: 1 1 480px;
+	width: auto !important;
+	float: none !important;
+}
+
+.forum_list_ctn .forum_list_right
+{
+	flex: 0 1 300px;
+	width: auto !important;
+	max-width: none !important;
+	margin: 0 !important;
+	float: none !important;
+}
+
+.forum_list_ctn > div[style*="clear"]
+{
+	display: none;
+}
+
+.discussions_forumlist_header
+{
+	padding: 0 12px;
+	margin-bottom: 8px !important;
+	color: var(--w-dim) !important;
+	font: 700 12px/1.4 var(--adw-text-font) !important;
+	letter-spacing: 0.04em;
+}
+
+.discussions_forumlist
+{
+	--card-pad: 6px;
+}
+
+.discussions_forum_row
+{
+	height: 52px !important;
+	margin: 0 !important;
+	padding: 0 12px 0 0;
+	color: var(--w-dim) !important;
+}
+
+.discussions_forum_row :is(.discussions_forumlist_topiccount, .discussions_forumlist_lastpost, .discussions_forumlist_forumname.no_description)
+{
+	line-height: 52px !important;
+}
+
+.discussions_forumlist_linkoverlay img
+{
+	height: 52px !important;
+}
+
+.discussions_forumlist_forumname
+{
+	color: var(--adw-window-fg) !important;
+	font-weight: 700;
+}
+
+/* Icône de forum (enveloppe bleue) : bulle de discussion symbolique */
+.discussions_forumlist_icon
+{
+	line-height: 52px !important;
+}
+
+.discussions_forumlist_icon img,
+.recent_game_discussions_unread_indicator img
+{
+	width: 16px !important;
+	height: 16px !important;
+	object-position: -100px 0;
+	background: var(--adw-accent) !important;
+	-webkit-mask: var(--w-icon-comment) center / 16px no-repeat;
+}
+
+.discussions_forum_row:not(.unread) .discussions_forumlist_icon img
+{
+	background: var(--w-dim) !important;
+}
+
+/* Forums des jeux récents et forums officiels : avatar, nom, nombre de sujets */
+a.recent_game_discussion
+{
+	--card-pad: 8px 12px;
+	box-sizing: border-box;
+	gap: 0 12px;
+	height: auto !important;
+	min-height: 56px;
+	vertical-align: top;
+}
+
+a.recent_game_discussion.quasi_official_group
+{
+	display: grid !important;
+	width: auto !important;
+	margin: 0 0 2px !important;
+	padding: 6px 8px !important;
+}
+
+a.recent_game_discussion .playerAvatar
+{
+	flex: none;
+	float: none !important;
+	margin: 0 !important;
+}
+
+a.recent_game_discussion .recent_game_discussion_name
+{
+	color: var(--adw-window-fg) !important;
+}
+
+.recent_game_discussion_count
+{
+	color: var(--w-dim) !important;
+	font-size: 13px;
+}
+
+/* Nom et compteur empilés à côté de l'avatar ; les cartes des jeux récents
+ * restent côte à côte (en ligne), les forums officiels en liste */
+a.recent_game_discussion
+{
+	display: inline-grid !important;
+	grid-template-columns: auto 1fr auto;
+	grid-template-rows: auto auto;
+}
+
+a.recent_game_discussion .playerAvatar
+{
+	grid-row: 1 / 3;
+	align-self: center;
+}
+
+a.recent_game_discussion :is(.recent_game_discussion_name, .recent_game_discussion_count)
+{
+	grid-column: 2;
+	min-width: 0;
+}
+
+a.recent_game_discussion .recent_game_discussion_name
+{
+	align-self: end;
+}
+
+a.recent_game_discussion .recent_game_discussion_count
+{
+	align-self: start;
+}
+
+a.recent_game_discussion .recent_game_discussions_unread_indicator
+{
+	grid-column: 3;
+	grid-row: 1 / 3;
+	align-self: center;
+	float: none !important;
+	height: auto !important;
+	line-height: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.rightbox .rule
+{
+	width: auto !important;
+	margin: 8px 0 !important;
+	border-top: 1px solid var(--w-hover) !important;
+	background: none !important;
+	height: 0 !important;
+}
+
+.discussions_links .weblink
+{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+/* ───────────── Compte / assistance ───────────── */
+
+.youraccount_page .account_setting_block, .account_setting_sub_block
+{
+	margin-bottom: 12px !important;
+}
+
+.account_data_field, .account_manage_link, .account_setting_sub_block .help_link
+{
+	color: var(--adw-window-fg) !important;
+}
+
+/* Parcourir le Workshop d'un jeu (rendu SSR, noms courts) */
+div._7-YnTYBrWGM- /* fond des aperçus */
+{
+	background: var(--adw-thumbnail-bg) !important;
+}
+
+span.IokSIloSPlA- /* compteurs entre parenthèses */
+{
+	color: var(--w-dim) !important;
+}
+
+button.inqz7Zdx9Xg-.a-Dt3-0cU9Y- /* « Voir tout » */
+{
+	color: var(--adw-accent) !important;
+	background: transparent !important;
+}
+
+/* Tri « Les plus populaires / récents » : casse normale */
+.community_home_sort_buttons a, .community_home_sort_buttons a span
+{
+	text-transform: none !important;
+	letter-spacing: normal !important;
+}
+
+/* « Un développeur a répondu » : bannière neutre */
+.developer_response
+{
+	margin: 0 12px 8px;
+	padding: 6px 10px !important;
+	background: color-mix(in srgb, var(--adw-accent-bg) 16%, transparent) !important;
+	border-radius: var(--w-radius-button) !important;
+	color: var(--adw-window-fg) !important;
+}
+
+/* Bouton « Retour en haut » */
+.responsive_back_to_top, #back_to_top, a.back_to_top, .scroll_to_top_btn, .apphub_backToTop
+{
+	background: var(--w-osd-bg) !important;
+	color: #ffffff !important;
+	border-radius: 9999px !important;
+	box-shadow: none !important;
+	border: none !important;
+	padding: 0 16px !important;
+	line-height: 34px !important;
+	font: 700 13px/34px var(--adw-text-font) !important;
+}

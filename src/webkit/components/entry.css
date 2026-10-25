@@ -1,0 +1,188 @@
+/* ═══ Composant : champ de saisie ══════════════════════════════════════
+ * Entrée Adwaita : fond 10 %, rayon 9px, anneau de focus d'accent.
+ * Variante « recherche » : loupe symbolique à droite (--entry-icon).
+ * Variante « cadre » : Steam entoure parfois le vrai champ d'un conteneur
+ * (.gray_bevel…) ; le conteneur porte le style, le champ devient transparent. */
+
+:where(
+	input[type="text"], input[type="password"], input[type="search"], input[type="number"],
+	input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input:not([type]),
+	textarea, select,
+	.gray_bevel, .dynInput, .commentthread_entry_quotebox, .search_text_box, .text_input,
+	form._1KU9eASfov1GnFQRbyLIdR, form._5fxF1NcznNc-  /* SearchForm du menu du magasin (module / SSR) */
+)
+{
+	appearance: none !important;
+	box-sizing: border-box;
+	min-height: var(--entry-height, 34px);
+	padding: var(--entry-pad, 6px 12px) !important;
+	background: var(--entry-bg, var(--w-button-bg)) !important;
+	background-image: none !important;
+	color: var(--adw-window-fg) !important;
+	border: none !important;
+	border-radius: var(--entry-radius, var(--w-radius-button)) !important;
+	box-shadow: none !important;
+	outline: 2px solid transparent !important;
+	outline-offset: -2px !important;
+	font-family: var(--adw-text-font) !important;
+	font-size: 14px;
+	transition: outline-color var(--adw-transition), background-color var(--adw-transition) !important;
+}
+
+:where(input, textarea, select):focus,
+:where(.gray_bevel, .commentthread_entry_quotebox, form._1KU9eASfov1GnFQRbyLIdR, form._5fxF1NcznNc-):focus-within
+{
+	outline-color: color-mix(in srgb, var(--adw-accent) var(--adw-focus-border-opacity), transparent) !important;
+}
+
+/* Champ interne d'un cadre : transparent, sans contour propre */
+:where(.gray_bevel, .commentthread_entry_quotebox, form._1KU9eASfov1GnFQRbyLIdR, form._5fxF1NcznNc-,
+       .community_home_search_apps, .community_home_search_players, .searchbox, #store_search .searchbox)
+	:where(input, textarea)
+{
+	--entry-bg: transparent;
+	min-height: 0;
+	outline: none !important;
+}
+
+:where(.gray_bevel, .commentthread_entry_quotebox) :where(input, textarea)
+{
+	--entry-pad: 0;
+}
+
+::placeholder
+{
+	color: var(--w-dim) !important;
+	opacity: 1 !important;
+}
+
+/* Variante recherche (même rendu que la recherche du magasin) : le conteneur
+ * est transparent, le champ fait 36 px avec de la place pour le placeholder
+ * à gauche et pour la loupe, bouton plat, à droite. */
+:where(.appHubSearchTextForm, .community_home_search_apps, .community_home_search_players,
+       form.workshopSearchForm, .workshopBrowseSearch, .discussionSearchTextContainer)
+{
+	position: relative;
+	background: transparent !important;
+	border: none !important;
+	border-radius: 0 !important;
+	padding: 0 !important;
+	box-shadow: none !important;
+}
+
+:where(.appHubSearchTextForm, .community_home_search_apps, .community_home_search_players,
+       form.workshopSearchForm, .workshopBrowseSearch, .discussionSearchTextContainer) input[type="text"]
+{
+	--entry-bg: var(--w-button-bg);
+	position: static !important;
+	box-sizing: border-box !important;
+	width: 100% !important;
+	height: 36px !important;
+	min-height: 36px;
+	margin: 0 !important;
+	padding: 0 40px 0 14px !important;
+	outline: 2px solid transparent !important;
+	font: 400 14px/normal var(--adw-text-font) !important;
+}
+
+:where(.appHubSearchTextForm, .community_home_search_apps, .community_home_search_players,
+       form.workshopSearchForm, .workshopBrowseSearch, .discussionSearchTextContainer) input[type="text"]::placeholder
+{
+	font-style: normal !important;
+	font-size: 14px !important;
+}
+
+:where(.appHubSearchTextForm, .community_home_search_apps, .community_home_search_players,
+       form.workshopSearchForm, .workshopBrowseSearch, .discussionSearchTextContainer) input[type="text"]:focus
+{
+	outline-color: color-mix(in srgb, var(--adw-accent) var(--adw-focus-border-opacity), transparent) !important;
+}
+
+/* Bouton loupe (input image / submit, ou bouton icône) */
+:where(.appHubSearchTextForm, .community_home_search_apps, .community_home_search_players,
+       form.workshopSearchForm, .workshopBrowseSearch, .discussionSearchTextContainer)
+	:where(input[type="image"], input[type="submit"], .workshopSearchButton, button, img.discussionSearchTextSubmitImg)
+{
+	position: absolute !important;
+	right: 4px !important;
+	top: calc(50% - 13px) !important;
+	width: 26px !important;
+	height: 26px !important;
+	min-height: 0 !important;
+	padding: 0 !important;
+	border: none !important;
+	border-radius: var(--w-radius-small) !important;
+	object-position: -100px 0;
+	font-size: 0 !important;
+	color: transparent !important;
+	background: var(--adw-window-fg) !important;
+	background-image: none !important;
+	opacity: 0.6;
+	-webkit-mask: var(--w-icon-search) center / 16px no-repeat;
+}
+
+/* Boutons recherche du menu du magasin (icône seule) */
+:where(button._1Yo-ZsBr-KbVMyAMXEYszd, button.et-RRc3JMu8-)
+{
+	background: transparent !important;
+	color: var(--w-dim) !important;
+	border-radius: 0 !important;
+}
+
+/* ═══ Liste déroulante ═════════════════════════════════════════════════
+ * <select> natif et « dselect » de Steam : bouton avec chevron à droite. */
+:where(select, .dselect_container .trigger, #inventory_more_trigger, #contextselect_trigger)
+{
+	--btn-pad: 0 34px 0 12px;
+	--entry-pad: 0 34px 0 12px;
+	background-image: var(--w-chevron-down) !important;
+	background-repeat: no-repeat !important;
+	background-position: right 12px center !important;
+	background-size: 12px !important;
+	font: 700 14px/1.2 var(--adw-text-font) !important;
+	min-height: 34px !important;
+	height: auto !important;
+	text-align: left;
+}
+
+:where(.dselect_container)
+{
+	background: none !important;
+	border: none !important;
+	padding: 0 !important;
+}
+
+:where(.dselect_container .trigger) > *:not(span),
+:where(.dselect_container .trigger)::after,
+:where(.dselect_container .trigger) img
+{
+	display: none !important;
+}
+
+select option
+{
+	background: var(--adw-popover-bg);
+	color: var(--adw-popover-fg);
+}
+
+/* Cases à cocher natives */
+:where(input[type="checkbox"], input[type="radio"])
+{
+	accent-color: var(--adw-accent-bg);
+}
+
+/* Cases à cocher Steam en <span> (filtres de recherche) */
+:where(.tab_filter_control_checkbox)
+{
+	width: 14px !important;
+	height: 14px !important;
+	border-radius: var(--w-radius-small) !important;
+	background: transparent !important;
+	box-shadow: inset 0 0 0 2px color-mix(in srgb, currentColor 15%, transparent) !important;
+}
+
+:where(.tab_filter_control.checked, .tab_filter_control_row.checked) .tab_filter_control_checkbox
+{
+	background: var(--adw-accent-bg) var(--w-icon-check-white) center / 12px no-repeat !important;
+	box-shadow: none !important;
+}

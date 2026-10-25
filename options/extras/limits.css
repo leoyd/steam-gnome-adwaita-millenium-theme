@@ -1,0 +1,61 @@
+/* Bibliothèque, page d'un jeu : complément CSS de millennium/limits.js */
+
+/* Ce qui dépasse la limite. :not(#adw) donne le poids d'un identifiant : les
+ * lignes du thème imposent display: flex !important avec des sélecteurs longs. */
+[data-adw-overflow]:not(#adw)
+{
+	display: none !important;
+}
+
+/* Tant que des éléments chargés restent masqués, Steam ne doit pas en
+ * charger d'autres : son capteur de visibilité (dernier enfant de la grille,
+ * après les rangées) et son indicateur de chargement sont retirés. */
+div.A6G1leLXs7Vqw45hoXg-l[data-adw-has-more] div._3Uy7tGY-DstlA3jV6dGEfB > :not(._1I55h8ejmOddwvE4LFbSEq) /* CommunityContentContainer InnerContainer > ≠ AppOverviewRow */
+{
+	display: none !important;
+}
+
+/* Activité : le bouton Steam « Charger plus » laisse la place à « Voir plus »
+ * tant qu'il reste des éléments déjà chargés à afficher */
+body.DesktopUI div._3yTl3RiWfo-Itg-xp967wP[data-adw-has-more] button._39ZurKJQex6v69aXzvc_nj._39ZurKJQex6v69aXzvc_nj /* FetchMoreContainer */
+{
+	display: none !important;
+}
+
+/* Bouton « Voir plus » : même composant que « Charger plus d'activité » */
+body.DesktopUI button.adw-more
+{
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	width: fit-content !important;
+	min-width: 190px;
+	height: 44px;
+	margin: 16px auto 0 !important;
+	align-self: center;
+	padding: 0 24px !important;
+	border: none !important;
+	border-radius: var(--adw-button-pill-radius, 9999px) !important;
+	background: color-mix(in srgb, var(--adw-window-fg) var(--adw-button-bg-opacity, 10%), transparent) !important;
+	color: var(--adw-window-fg) !important;
+	font: 700 15px var(--adw-text-font) !important;
+	transition: background-color var(--adw-transition, 200ms) !important;
+}
+
+body.DesktopUI button.adw-more:hover
+{
+	background: color-mix(in srgb, var(--adw-window-fg) var(--adw-button-bg-opacity-hover, 15%), transparent) !important;
+}
+
+body.DesktopUI button.adw-more[hidden]
+{
+	display: none !important;
+}
+
+/* Amis : la dernière ligne visible garde les coins arrondis du bas */
+body.DesktopUI div.qGJMO0uQwngYsOvMwgGWa div[data-adw-last]:not(#adw)
+{
+	border-bottom-left-radius: var(--adw-card-radius) !important;
+	border-bottom-right-radius: var(--adw-card-radius) !important;
+	box-shadow: var(--adw-card-shadow), var(--adw-card-outline-last) !important;
+}

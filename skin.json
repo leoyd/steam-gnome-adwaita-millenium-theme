@@ -1,0 +1,361 @@
+{
+	"name": "Adw Lite",
+	"author": "leoyd — d'après Adwaita-for-Steam (tkashkin)",
+	"description": "Steam aux couleurs de GNOME / libadwaita, client et pages web. Version légère : polices système, quelques petits scripts.",
+	"version": "4.4-lite.3",
+	"tags": [
+		"Adwaita",
+		"GNOME",
+		"GTK",
+		"libadwaita"
+	],
+	"github": {
+		"owner": "leoyd",
+		"repo_name": "steam-gnome-adwaita-millenium-theme"
+	},
+	"UseDefaultPatches": false,
+	"Steam-WebKit": "webkit/webkit.min.css",
+	"Patches": [
+		{
+			"MatchRegexString": "^Steam$",
+			"TargetCss": "millennium/main.min.css",
+			"TargetJs": [
+				"millennium/has.js",
+				"millennium/library.js"
+			]
+		},
+		{
+			"MatchRegexString": ".friendsui-container",
+			"TargetCss": "millennium/adwaita.min.css"
+		},
+		{
+			"MatchRegexString": ".ModalDialogPopup",
+			"TargetCss": "millennium/adwaita.min.css"
+		},
+		{
+			"MatchRegexString": ".FullModalOverlay",
+			"TargetCss": "millennium/adwaita.min.css"
+		},
+		{
+			"MatchRegexString": "Supernav$",
+			"TargetCss": "millennium/menu.min.css"
+		},
+		{
+			"MatchRegexString": "Menu$",
+			"TargetCss": "millennium/menu.min.css"
+		}
+	],
+	"Conditions": {
+		"Mode de couleur": {
+			"description": "Clair ou sombre, pour le client et les pages web",
+			"tab": "Apparence",
+			"section": "Couleurs",
+			"default": "Sombre",
+			"values": {
+				"Sombre": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/scheme/dark.css"
+					}
+				},
+				"Clair": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/scheme/light.css"
+					}
+				},
+				"Système": {}
+			}
+		},
+		"Palette": {
+			"description": "Gris bleutés de GNOME 48+ ou gris neutres des versions précédentes",
+			"tab": "Apparence",
+			"section": "Couleurs",
+			"default": "GNOME 48+",
+			"values": {
+				"GNOME 48+": {},
+				"Gris neutre (avant GNOME 48)": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/scheme/gray.css"
+					}
+				}
+			}
+		},
+		"Couleur d'accent": {
+			"description": "Les couleurs d'accent de GNOME",
+			"tab": "Apparence",
+			"section": "Couleurs",
+			"default": "Bleu",
+			"values": {
+				"Bleu": {},
+				"Turquoise": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/accent/teal.css"
+					}
+				},
+				"Vert": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/accent/green.css"
+					}
+				},
+				"Jaune": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/accent/yellow.css"
+					}
+				},
+				"Orange": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/accent/orange.css"
+					}
+				},
+				"Rouge": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/accent/red.css"
+					}
+				},
+				"Rose": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/accent/pink.css"
+					}
+				},
+				"Violet": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/accent/purple.css"
+					}
+				},
+				"Ardoise": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/accent/slate.css"
+					}
+				}
+			}
+		},
+		"Boutons de fenêtre": {
+			"description": "Disposition des boutons de la barre de titre",
+			"tab": "Apparence",
+			"section": "Fenêtre",
+			"default": "GNOME (fermer)",
+			"values": {
+				"GNOME (fermer)": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/layout/adwaita.css"
+					}
+				},
+				"Réduire, agrandir, fermer": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/layout/windows.css"
+					}
+				},
+				"À gauche (macOS)": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/layout/macos.css"
+					}
+				},
+				"Pantheon": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/layout/pantheon.css"
+					}
+				}
+			}
+		},
+		"Étagère Nouveautés": {
+			"description": "Étagère « Nouveautés » en haut de la bibliothèque",
+			"tab": "Bibliothèque",
+			"section": "Accueil",
+			"default": "Afficher",
+			"values": {
+				"Afficher": {},
+				"Masquer": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/extras/hide-whats-new.css"
+					}
+				}
+			}
+		},
+		"Liste des jeux": {
+			"description": "La liste de gauche n'apparaît qu'en approchant la souris du bord",
+			"tab": "Bibliothèque",
+			"section": "Liste des jeux",
+			"default": "Toujours visible",
+			"values": {
+				"Toujours visible": {},
+				"Au survol": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/extras/sidebar-hover.css"
+					}
+				}
+			}
+		},
+		"Icônes carrées": {
+			"description": "Recadre la jaquette en carré sur la page d'un jeu",
+			"tab": "Bibliothèque",
+			"section": "Page d'un jeu",
+			"default": "Oui",
+			"values": {
+				"Oui": {},
+				"Non": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/extras/uncrop-covers-in-details.css"
+					}
+				}
+			}
+		},
+		"Listes limitées à 6": {
+			"description": "Page d'un jeu : 6 amis au maximum par groupe ; activité et contenu de la communauté par 6, avec un bouton « Voir plus » (plus de chargement en boucle au défilement)",
+			"tab": "Bibliothèque",
+			"section": "Page d'un jeu",
+			"default": "Oui",
+			"values": {
+				"Oui": {
+					"TargetCss": {
+						"affects": [
+							"^Steam$"
+						],
+						"src": "options/extras/limits.css"
+					},
+					"TargetJs": {
+						"affects": [
+							"^Steam$"
+						],
+						"src": "millennium/limits.js"
+					}
+				},
+				"Non": {}
+			}
+		},
+		"Illustrations de fond": {
+			"description": "Fonds illustrés des fiches de jeu (magasin et hubs). Les fonds personnalisés des profils restent toujours affichés",
+			"tab": "Pages web",
+			"section": "Magasin et communauté",
+			"default": "Masquées",
+			"values": {
+				"Masquées": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/extras/hide-web-backgrounds.css"
+					}
+				},
+				"Affichées": {}
+			}
+		},
+		"Adresse des pages": {
+			"description": "Affiche l'URL des pages magasin et communauté dans la fenêtre principale",
+			"tab": "Pages web",
+			"section": "Magasin et communauté",
+			"default": "Masquée",
+			"values": {
+				"Masquée": {},
+				"Affichée": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/extras/show-url.css"
+					}
+				}
+			}
+		},
+		"Mini-bandes-annonces": {
+			"description": "Vidéos qui se lancent au survol des jeux du magasin. Désactivées, elles ne sont plus téléchargées (navigation plus rapide)",
+			"tab": "Pages web",
+			"section": "Performance",
+			"default": "Désactivées",
+			"values": {
+				"Désactivées": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/extras/no-microtrailers.css"
+					},
+					"TargetJs": {
+						"affects": [
+							".*"
+						],
+						"src": "millennium/no-microtrailers.js"
+					}
+				},
+				"Activées": {}
+			}
+		},
+		"QR code de connexion": {
+			"description": "Visibilité du QR code dans la fenêtre de connexion",
+			"tab": "Connexion",
+			"section": "Fenêtre de connexion",
+			"default": "Afficher",
+			"values": {
+				"Afficher": {},
+				"Au survol": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/extras/hover-qr.css"
+					}
+				},
+				"Masquer": {
+					"TargetCss": {
+						"affects": [
+							".*"
+						],
+						"src": "options/extras/hide-qr.css"
+					}
+				}
+			}
+		}
+	}
+}

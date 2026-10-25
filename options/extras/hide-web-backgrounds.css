@@ -1,0 +1,18 @@
+/* Masque les illustrations de fond des fiches de jeu (magasin et hubs).
+ * Les fonds personnalisés des profils restent affichés. */
+.game_page_background,
+.game_page_background.game,
+.game_page_background_ctn,
+.game_page_background_ctn.game,
+body.apphub_blue .apphub_background,
+.workshop_page_bg
+{
+	background-image: none !important;
+	background-color: transparent !important;
+}
+
+.game_page_background_ctn img.gameColor,
+.game_page_background_ctn img.gameTexture
+{
+	display: none !important;
+}

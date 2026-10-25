@@ -1,0 +1,19 @@
+/* Mini-bandes-annonces du magasin désactivées : l'image fixe reste affichée */
+.store_main_capsule video,
+.capsule video,
+.microtrailer,
+video.sale_capsule_video,
+video.tab_preview_video,
+video.microtrailer_video,
+div._2R6-lF5h4f0SPrOL9B9IAw video /* ScreenshotCrossfade */
+{
+	display: none !important;
+}
+
+/* Steam masque l'image au survol pour laisser place à la vidéo
+ * (.microtrailer_active) : sans vidéo, l'image doit rester visible. */
+.with_microtrailer.microtrailer_active .sale_capsule_image,
+.with_microtrailer:hover :is(.ds_flag, .broadcast_live_stream_icon)
+{
+	opacity: 1 !important;
+}

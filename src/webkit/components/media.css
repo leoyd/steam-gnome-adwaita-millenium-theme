@@ -1,0 +1,128 @@
+/* ═══ Composant : média (vignettes, captures, avatars) ═════════════════
+ *   --media-radius : 6px pour les vignettes, 12px pour les grands visuels
+ * Les avatars sont carrés, comme dans Steam : les cadres de profil
+ * (personnalisation) s'y ajustent exactement. */
+
+:where(
+	.game_header_image_full, .game_header_image_ctn img, .highlight_strip_item img,
+	.screenshot_holder img, .game_area_dlc_row img, .tab_item_cap_img, .search_capsule img,
+	.capsule img, .cluster_capsule img, .store_capsule img, .match_img img, .game_info_cap img,
+	.game_capsule, .achieveImgHolder img, .market_listing_item_img, .market_listing_largeimage img,
+	.workshopItemPreviewImage, .workshopItemPreviewImageMain, .collectionItemImage,
+	.workshopItemPreviewHolder, .apphub_CardContentGuideImage, .tab_preview .screenshot,
+	div._2Ose8zPg3MlKQQeG9nwv24, img._3_wKbXvT7_y5YkrtadL0I6,
+	a.communitylink_points_shop_item
+)
+{
+	border-radius: var(--media-radius, var(--w-radius-small)) !important;
+}
+
+:where(.highlight_ctn, .highlight_player_area, #highlight_player_area, .workshopItemPreviewImageEnlargeableContainer,
+       #highlight_player_area_spacer)
+{
+	--media-radius: var(--w-radius);
+	background: var(--adw-thumbnail-bg) !important;
+	border-radius: var(--media-radius) !important;
+	overflow: hidden;
+}
+
+/* Fonds noirs Steam derrière les vignettes */
+:where(.highlight_strip_item, .screenshot.capsule_screenshot_load, video.sale_capsule_video,
+       a.communitylink_points_shop_item, div._1u7tlq5OcUVR8p7-ic_ZVw,
+       .market_listing_item_img_container, .itemHolder .item, .inventory_page .item, .trade_slot)
+{
+	background-color: var(--adw-thumbnail-bg) !important;
+	background-image: none !important;
+	border-color: transparent !important;
+}
+
+/* Vignette sélectionnable : anneau d'accent dessiné à l'intérieur (pas de
+ * débordement coupé par le conteneur) */
+:where(.highlight_strip_item)
+{
+	border: none !important;
+	border-radius: var(--w-radius-small) !important;
+	opacity: 0.6;
+	transition: opacity var(--adw-transition);
+}
+
+:where(.highlight_strip_item, div._2Ose8zPg3MlKQQeG9nwv24):is(:hover, .focus, ._2uCL56lGO9iUUcLEtE83zG)
+{
+	opacity: 1;
+	outline: 2px solid var(--adw-accent-bg) !important;
+	outline-offset: -2px;
+}
+
+/* ═══ Avatars ══════════════════════════════════════════════════════════ */
+:root
+{
+	--avatar-radius: var(--w-avatar-radius);
+}
+
+:where(
+	.playerAvatar img, .playerAvatarAutoSizeInner img, .friend_block_avatar img, .avatarIcon img,
+	.avatarMedium img, .avatarFull img, .commentthread_comment_avatar img, .blotter_avatar_holder img,
+	.persona_avatar img, .apphub_CardContentAuthorBlock img, .forum_op_avatar img, .player_avatar img,
+	.appHubIconHolder img, .AvatarHolder img, img.cFn3BDbAK-g-, .user_avatar img
+)
+{
+	border-radius: var(--avatar-radius) !important;
+	background-image: none !important;
+}
+
+/* Contour de statut (en ligne / en jeu / hors ligne) : liseré de 2px */
+:where(.playerAvatar, .avatarIcon, .avatarMedium, .avatarFull, .friend_block_avatar,
+       .commentthread_comment_avatar a, .appHubIconHolder, div.mpKocPQdcN4-)
+{
+	padding: 2px !important;
+	background: transparent !important;
+	background-image: none !important;
+	border-radius: var(--avatar-radius) !important;
+}
+
+:where(.playerAvatar, .avatarIcon, .avatarMedium, .avatarFull, .appHubIconHolder).online,
+:where(.friend_block_v2.online) .friend_block_avatar
+{
+	background: var(--adw-user-online) !important;
+}
+
+:where(.playerAvatar, .avatarIcon, .avatarMedium, .avatarFull, .appHubIconHolder).in-game,
+:where(.friend_block_v2.in-game) .friend_block_avatar
+{
+	background: var(--adw-user-ingame) !important;
+}
+
+:where(.playerAvatar, .avatarIcon, .avatarMedium, .avatarFull, .appHubIconHolder).offline
+{
+	background: var(--adw-user-offline) !important;
+}
+
+/* Avatar principal d'un profil : souvent un cadre animé, pas de liseré */
+:where(.playerAvatar.profile_header_size)
+{
+	padding: 0 !important;
+	background: transparent !important;
+}
+
+/* Niveau Steam (cercle) : le nombre est centré en flex. Steam le place avec
+ * un line-height fixe calé sur sa police : avec celle du thème il touchait
+ * le bas du cercle. */
+:where(.friendPlayerLevel)
+{
+	box-sizing: border-box;
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	width: 32px !important;              /* Steam : 28px + bordure 2px */
+	height: 32px !important;
+	border-radius: 50% !important;
+	font-size: 15px !important;
+	line-height: 1 !important;
+}
+
+:where(.friendPlayerLevelNum)
+{
+	display: block;
+	line-height: 1 !important;
+}

@@ -1,0 +1,146 @@
+/* ═══ Composant : ligne de méta-données d'une carte ═══════════════════
+ * Pied des cartes d'activité / Workshop / guides : à gauche les actions
+ * (votes, note), à droite les compteurs (pouce, récompenses, commentaires).
+ * Steam ancre ces blocs en bas des cartes (hauteur fixe) ; on garde
+ * l'ancrage mais leur contenu passe en flex : rien ne se chevauche et tout
+ * est aligné sur la même ligne. */
+
+:where(.apphub_CardMetaData, .UserReviewCardContent_Footer)
+{
+	/* Steam les ancre en bas de la carte (hauteur fixe) : on garde l'ancrage */
+	left: 0 !important;
+	right: 0 !important;
+	box-sizing: border-box;
+	display: flex !important;
+	flex-direction: column;
+	gap: 6px;
+	padding: 8px 12px !important;
+	height: auto !important;
+}
+
+:where(.apphub_CardControls, .apphub_UserReviewCardStats)
+{
+	display: flex !important;
+	align-items: center;
+	gap: 8px;
+	width: 100% !important;
+	height: auto !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+:where(.apphub_CardRightData, .apphub_UserReviewCardStats)
+{
+	position: static !important;
+	display: flex !important;
+	align-items: center;
+	gap: 12px;
+	margin-left: auto !important;
+	float: none !important;
+}
+
+:where(.apphub_CardRightData, .apphub_CardControls, .apphub_UserReviewCardStats) > *
+{
+	position: static !important;
+	float: none !important;
+	margin: 0 !important;
+	top: auto !important;
+	right: auto !important;
+}
+
+/* Compteur de commentaires : icône symbolique + nombre */
+:where(.apphub_CardCommentCount)
+{
+	display: inline-flex !important;
+	align-items: center;
+	gap: 6px;
+	height: 24px;
+	padding: 0 !important;
+	background: none !important;
+	color: var(--w-dim) !important;
+	font-size: 13px !important;
+	font-weight: 700;
+}
+
+:where(.apphub_CardCommentCount)::before
+{
+	content: "";
+	flex-shrink: 0;
+	width: 14px;
+	height: 14px;
+	background: currentColor;
+	-webkit-mask: var(--w-icon-comment) center / 14px no-repeat;
+}
+
+/* Récompenses agrégées : petite pastille neutre avec l'icône Steam */
+:where(.review_award_aggregated)
+{
+	height: 24px;
+	padding: 0 8px !important;
+	gap: 4px;
+	color: var(--adw-window-fg) !important;
+}
+
+:where(.review_award_aggregated) img
+{
+	width: 14px !important;
+	height: 14px !important;
+}
+
+/* Notes en étoiles : texte secondaire aligné */
+:where(.apphub_CardRating.starRating, .apphub_CardRating.notRated)
+{
+	display: inline-flex !important;
+	align-items: center;
+	height: 24px;
+	background-position: left center !important;
+	color: var(--w-dim) !important;
+	font-size: 12px !important;
+}
+
+/* Bas de carte : nom du jeu, auteur */
+:where(.apphub_CardContentAuthorBlock)
+{
+	left: 0 !important;
+	right: 0 !important;
+	display: flex !important;
+	align-items: center;
+	gap: 8px;
+	min-height: 40px;
+	padding: 8px 12px !important;
+	border-top: 1px solid var(--w-border) !important;
+	box-sizing: border-box;
+}
+
+:where(.apphub_CardContentAppName, .apphub_CardContentAuthorName)
+{
+	min-width: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding: 0 !important;
+	color: var(--w-dim) !important;
+	font-size: 13px !important;
+}
+
+:where(.apphub_CardContentAppName, .apphub_CardContentAuthorName) a
+{
+	color: inherit !important;
+}
+
+/* Statistiques d'un objet (taille, dates, visiteurs…) : grille clé / valeur */
+:where(.detailsStatsContainerLeft, .detailsStatsContainerRight, .stats_table)
+{
+	color: var(--adw-window-fg) !important;
+}
+
+:where(.detailsStatLeft, .stats_table td:first-child)
+{
+	color: var(--w-dim) !important;
+}
+
+:where(.detailsStatRight, .stats_table td:not(:first-child))
+{
+	color: var(--adw-window-fg) !important;
+	font-weight: 700;
+}

@@ -1,0 +1,316 @@
+/* En-têtes : barre globale Steam (hors client) et barre de navigation du magasin */
+
+/* Barre globale = headerbar Adwaita */
+#global_header,
+.responsive_header,
+#global_header .content
+{
+	background: var(--adw-headerbar-bg) !important;
+	background-image: none !important;
+	color: var(--adw-headerbar-fg) !important;
+	border: none !important;
+	box-shadow: inset 0 -1px var(--adw-headerbar-shade) !important;
+}
+
+#global_header .content
+{
+	box-shadow: none !important;
+}
+
+#global_header .menuitem,
+#global_header .supernav,
+#global_header a.menuitem
+{
+	color: var(--adw-headerbar-fg) !important;
+	border-radius: var(--w-radius-button) !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+	font-weight: 700 !important;
+	text-shadow: none !important;
+	transition: background-color var(--adw-transition) !important;
+}
+
+#global_header .menuitem:hover,
+#global_header .supernav:hover,
+#global_header .menuitem.active,
+#global_header .supernav.active
+{
+	background: var(--w-hover) !important;
+	color: var(--adw-headerbar-fg) !important;
+	text-decoration: none !important;
+}
+
+#global_header .menuitem.active,
+#global_header .supernav.active
+{
+	background: var(--w-selected) !important;
+}
+
+#global_action_menu,
+#global_actions,
+.global_action_link,
+#account_pulldown,
+#account_dropdown .popup_menu_item
+{
+	color: var(--adw-headerbar-fg) !important;
+	text-shadow: none !important;
+}
+
+.global_action_link,
+#account_pulldown
+{
+	border-radius: var(--w-radius-button) !important;
+	padding: 4px 10px !important;
+	transition: background-color var(--adw-transition) !important;
+}
+
+.global_action_link:hover,
+#account_pulldown:hover
+{
+	background: var(--w-hover) !important;
+	text-decoration: none !important;
+}
+
+/* Bouton « Installer Steam » : bouton suggéré */
+.header_installsteam_btn,
+.header_installsteam_btn_green
+{
+	background: var(--adw-accent-bg) !important;
+	background-image: none !important;
+	color: var(--adw-accent-fg) !important;
+	border-radius: var(--w-radius-button) !important;
+}
+
+.header_installsteam_btn_content
+{
+	color: inherit !important;
+	background: none !important;
+}
+
+/* Portefeuille / notifications dans l'en-tête */
+#header_wallet_balance,
+.header_notification_btn,
+#header_notification_link,
+.notification_ctn
+{
+	color: var(--adw-headerbar-fg) !important;
+	background: transparent !important;
+	border-radius: var(--w-radius-button) !important;
+}
+
+#header_notification_link:hover,
+.header_notification_btn:hover
+{
+	background: var(--w-hover) !important;
+}
+
+.notification_count_total_ctn,
+.notification_count,
+.header_notification_count
+{
+	background: var(--adw-accent-bg) !important;
+	color: var(--adw-accent-fg) !important;
+	border-radius: 9999px !important;
+}
+
+/* ───────────── Barre de navigation du magasin ───────────── */
+
+#store_header,
+.store_header,
+#store_header .content,
+.store_nav_area,
+#store_nav_area,
+.store_nav_bg
+{
+	background: transparent !important;
+	background-image: none !important;
+	box-shadow: none !important;
+	border: none !important;
+}
+
+.store_nav,
+#store_header .store_nav
+{
+	display: flex !important;
+	align-items: center;
+	gap: 2px;
+	min-height: 46px;
+	padding: 6px !important;
+	background: var(--adw-headerbar-bg) !important;
+	background-image: none !important;
+	border: none !important;
+	border-radius: var(--w-radius) !important;
+	box-shadow: var(--w-card-shadow) !important;
+}
+
+.store_nav .tab,
+.store_nav .tab > span,
+.store_nav a.tab_item
+{
+	background: transparent !important;
+	background-image: none !important;
+	color: var(--adw-headerbar-fg) !important;
+	border: none !important;
+	border-radius: var(--w-radius-button) !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+	font-weight: 700 !important;
+}
+
+.store_nav .tab
+{
+	height: auto !important;
+	margin: 0 !important;
+	transition: background-color var(--adw-transition) !important;
+}
+
+.store_nav .tab > span
+{
+	padding: 0 12px !important;
+	line-height: 34px !important;
+	height: 34px !important;
+}
+
+.store_nav .tab:hover,
+.store_nav .tab.focus,
+.store_nav .tab:hover > span
+{
+	background: var(--w-hover) !important;
+}
+
+.store_nav .tab.active,
+.store_nav .tab.active > span
+{
+	background: var(--w-selected) !important;
+}
+
+.store_nav .tab .pulldown > span,
+.store_nav .pulldown > span
+{
+	background-image: none !important;
+	padding-right: 0 !important;
+}
+
+/* Chevron des menus déroulants façon Adwaita */
+.store_nav .tab.pulldown > span::after
+{
+	content: "";
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-left: 6px;
+	vertical-align: -1px;
+	background: currentColor;
+	opacity: 0.7;
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M3.293 6.293a1 1 0 0 1 1.414 0L8 9.586l3.293-3.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414z'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+
+.store_nav .tab.pulldown > span::before,
+.store_nav .tab .pulldown_arrow
+{
+	display: none !important;
+}
+
+/* Barre de recherche du magasin : entrée de recherche Adwaita */
+.store_nav .search_area,
+#store_search
+{
+	background: transparent !important;
+	border: none !important;
+	margin-left: auto !important;
+}
+
+#store_nav_search_term,
+.store_nav .searchbox,
+.store_nav .searchbox input,
+#store_search .searchbox
+{
+	min-height: 34px;
+	background: var(--w-button-bg) !important;
+	background-image: none !important;
+	color: var(--adw-headerbar-fg) !important;
+	border: none !important;
+	border-radius: var(--w-radius-button) !important;
+	box-shadow: none !important;
+}
+
+.store_nav .searchbox input,
+#store_nav_search_term
+{
+	background: transparent !important;
+	outline: none !important;
+}
+
+.store_nav .searchbox:focus-within,
+#store_search .searchbox:focus-within
+{
+	outline: 2px solid color-mix(in srgb, var(--adw-accent) var(--adw-focus-border-opacity), transparent) !important;
+	outline-offset: -2px;
+}
+
+#store_search_link img
+{
+	opacity: 0.7;
+	filter: light-dark(invert(0.8), none) grayscale(1);
+}
+
+/* Bandeau compte du magasin (liste de souhaits, panier) */
+#cart_status_data .store_header_btn_green,
+.store_header_btn_green,
+#store_header_cart_btn
+{
+	background: var(--adw-accent-bg) !important;
+	background-image: none !important;
+	color: var(--adw-accent-fg) !important;
+	border-radius: var(--w-radius-button) !important;
+	box-shadow: none !important;
+}
+
+.store_header_btn_gray,
+.store_header_btn,
+#wishlist_link
+{
+	background: var(--w-button-bg) !important;
+	background-image: none !important;
+	color: var(--adw-window-fg) !important;
+	border-radius: var(--w-radius-button) !important;
+	box-shadow: none !important;
+}
+
+.store_header_btn_caps,
+.store_header_btn_content,
+.store_header_btn a
+{
+	color: inherit !important;
+	background: none !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+	font-weight: 700 !important;
+}
+
+/* Résultats de recherche instantanée */
+#search_suggestion_contents .match,
+.search_suggest .match
+{
+	display: flex !important;
+	align-items: center;
+	gap: 10px;
+	min-height: 48px;
+	line-height: normal !important;
+	padding: 6px 12px !important;
+}
+
+#search_suggestion_contents .match_img img,
+.search_suggest .match_img img
+{
+	border-radius: var(--w-radius-small);
+}
+
+#search_suggestion_contents .match_price,
+.search_suggest .match_price,
+#search_suggestion_contents .match_subtitle
+{
+	color: var(--w-dim) !important;
+}

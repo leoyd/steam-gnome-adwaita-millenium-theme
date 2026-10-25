@@ -1,0 +1,31 @@
+/* Adw Lite — pages web affichées dans Steam (magasin, communauté, compte, aide)
+ *
+ * Organisation :
+ *   tokens.css        jetons de couleur, rayons, icônes (partagés avec le client)
+ *   base.css          fond, typographie, liens, barres de défilement
+ *   components/       un fichier par composant ; chaque composant est défini
+ *                     une seule fois et se décline par variables (--btn-*,
+ *                     --card-*, --badge-*, --tab-*…)
+ *   pages/            mise en page propre à chaque écran, rien de visuel
+ *                     qui ne passe par un composant */
+
+@import "tokens.css";
+@import "base.css";
+
+@import "components/button.css";
+@import "components/entry.css";
+@import "components/popover.css";
+@import "components/card.css";
+@import "components/tabs.css";
+@import "components/pagination.css";
+@import "components/badge.css";
+@import "components/vote.css";
+@import "components/stats.css";
+@import "components/media.css";
+@import "components/carousel.css";
+@import "components/progress.css";
+@import "components/perf.css";
+
+@import "pages/header.css";
+@import "pages/store.css";
+@import "pages/community.css";

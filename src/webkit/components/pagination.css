@@ -1,0 +1,95 @@
+/* ═══ Composant : pagination ═══════════════════════════════════════════
+ * Même rendu partout (forums, commentaires, recherche, Workshop, marché,
+ * inventaire) : numéros en boutons plats 32px, page courante surlignée,
+ * « < » et « > » remplacés par des chevrons symboliques. */
+
+:where(
+	.pagebtn, .pagingPageLink, .commentthread_pagelinks a, .commentthread_pagelinks span,
+	.forum_paging_controls a, .search_pagination_right a, .workshopBrowsePagingControls a,
+	.workshopBrowsePagingControls span, .market_paging_controls span,
+	#searchResults_btn_prev, #searchResults_btn_next, .pagebtn.disabled
+)
+{
+	box-sizing: border-box;
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	min-width: 32px;
+	height: 32px;
+	padding: 0 8px !important;
+	margin: 0 1px !important;
+	background: transparent !important;
+	background-image: none !important;
+	color: var(--adw-window-fg) !important;
+	border: none !important;
+	border-radius: var(--w-radius-button) !important;
+	box-shadow: none !important;
+	text-decoration: none !important;
+	font: 700 14px/1 var(--adw-text-font) !important;
+	transition: background-color var(--adw-transition);
+}
+
+:where(
+	.pagebtn, .pagingPageLink, .commentthread_pagelinks a, .forum_paging_controls a,
+	.search_pagination_right a, .workshopBrowsePagingControls a,
+	#searchResults_btn_prev, #searchResults_btn_next
+):hover
+{
+	background: var(--w-hover) !important;
+}
+
+/* Page courante */
+:where(
+	.pagingPageLink.active, .pagebtn.active, .commentthread_pagelinks .commentthread_pagelink.active,
+	.search_pagination_right > span, .workshopBrowsePagingControls span:not(.pagebtn),
+	.forum_paging_controls span
+)
+{
+	background: var(--w-selected) !important;
+}
+
+/* Précédent / suivant : chevrons symboliques au lieu de « < » « > » */
+:where(.pagebtn, #searchResults_btn_prev, #searchResults_btn_next)
+{
+	font-size: 0 !important;
+	color: transparent !important;
+	position: relative;
+	width: 32px;
+}
+
+:where(.pagebtn, #searchResults_btn_prev, #searchResults_btn_next)::after
+{
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: var(--adw-window-fg);
+	-webkit-mask: var(--w-icon-next) center / 16px no-repeat;
+}
+
+:where(.pagebtn:first-child, #searchResults_btn_prev, #pagebtn_previous,
+       [id$="_btn_prev"], [id$="_pagebtn_prev"], [id$="_previous"])::after
+{
+	-webkit-mask-image: var(--w-icon-prev);
+}
+
+:where(.pagebtn.disabled, .pagebtn[disabled])
+{
+	opacity: var(--adw-disabled-opacity);
+	pointer-events: none;
+}
+
+/* Conteneurs : alignement et texte secondaire (« 1 sur 4 », « Affichage 1-15 ») */
+:where(.commentthread_pagelinks, .forum_paging_controls, .workshopBrowsePagingControls,
+       .search_pagination_right, .inventory_page_controls, .pagecontrols)
+{
+	display: inline-flex !important;
+	align-items: center;
+	gap: 2px;
+}
+
+:where(.forum_paging_summary, .search_pagination_left, .workshopBrowsePagingInfo,
+       [id$="_pagetotal"], [id$="_footerpagetotal"], .pagecontrol_element.pagecounts, .pagecounts)
+{
+	color: var(--w-dim) !important;
+	font-size: 13px;
+}

@@ -1,0 +1,241 @@
+/* ═══ Composant : carte ════════════════════════════════════════════════
+ * Un seul niveau de carte : les blocs de contenu, jamais leurs conteneurs.
+ * Variables :
+ *   --card-bg        fond (assombri automatiquement sur un fond de profil)
+ *   --card-pad       marge interne (0 pour les cartes « média »)
+ *   --card-radius    12px
+ * Variantes : contenu (avec marge), média (image bord à bord), interactive
+ * (survol), translucide (posée sur une illustration). */
+
+:root
+{
+	--card-bg: var(--adw-card-bg);
+	--card-bg-hover: color-mix(in srgb, var(--adw-card-bg), currentColor 5%);
+}
+
+/* Sur un fond personnalisé (profil, groupe), les cartes sont presque opaques
+ * pour rester lisibles quel que soit le fond (clair, chargé…). */
+:where(.profile_page.has_profile_background, .has_profile_background, .profile_content.has_profile_background)
+{
+	--card-bg: color-mix(in srgb, var(--adw-window-bg) 90%, transparent);
+	--card-bg-hover: color-mix(in srgb, var(--adw-window-bg) 82%, var(--adw-window-fg) 8%);
+}
+
+/* Cartes de contenu : texte, listes, formulaires → marge interne */
+:where(
+	/* magasin */
+	.game_area_purchase_game, .glance_ctn, .game_area_already_owned,
+	.rightcol.game_meta_data > .block, .rightcol.game_meta_data > div > .block,
+	.rightcol.game_meta_data > div > div > .block,
+	.block.responsive_apppage_details_right, .block.responsive_apppage_reviewblock,
+	.game_details .block_content, .review_box, .curator_review, .recommendation,
+	.queue_overflow_ctn, .discovery_queue_static, .steam_curators_block,
+	.cart_row, .cart_estimated_total_ctn, .cart_status_message,
+	#additional_search_options .block, .search_options_block, .search_results_filtered_warning,
+	.sale_page_section, .dynamiclink_box, .game_area_dlc_bubble, .game_area_bubble,
+	.content_hub_bubble, .tab_preview, .sysreq_contents,
+	div._1rJdzVWqHHLrXDngd242Qr, div.fSTofplcy-cQt7eO3r665, div._3eE3x6hLZfLx4F6Mkal8p4,
+	div.KahBO3vHzFejyThpZEiB, div._9rDXQjCJPDYQMbin0P6bC, div._2uvK1zucSC4I2mo3PDObGs,
+	div.i-xXuvHLioU-, div.i1XZFikuzME-,
+	/* communauté */
+	.profile_customization, .profile_rightcol, .profile_header_content,
+	.commentthread_area, .detailBox, .rightDetailsBlock, .workshopItemDescription,
+	.workshopItemDetailsHeader, .forum_op, .group_summary, .group_content_rule, .groupadmin_section,
+	.inventory_iteminfo, .trade_area, .tradeoffer, .market_content_block,
+	.market_commodity_order_block, .market_search_sidebar_contents, .market_listing_iteminfo,
+	#BG_top, .badge_row, .badge_detail_tasks, .achieveRow, .guide_item,
+	.blotter_block, .content_reported_block, .points_shop_category,
+	.youraccount_page .account_setting_block, .account_setting_sub_block, .help_page .help_box,
+	.rightbox, .community_home_app_shortcuts, .community_home_search_box,
+	.discussions_forumlist, .forum_list_ctn .forum_list_right, a.recent_game_discussion:not(.quasi_official_group),
+	.games_list_tabs_ctn, #inventories.trade_item_box, .trade_item_box,
+	.workshop_home_panel, .primary_panel_border, .panel.workshop_section, .browseApps,
+	div._2MixhMbHTxS0qJ2uAefnVy                               /* ItemDescription (inventaire) */
+)
+{
+	box-sizing: border-box;
+	padding: var(--card-pad, 12px 16px) !important;
+	background: var(--card-bg) !important;
+	background-image: none !important;
+	color: var(--adw-card-fg) !important;
+	border: none !important;
+	border-radius: var(--card-radius, var(--w-radius)) !important;
+	box-shadow: var(--w-card-shadow) !important;
+}
+
+/* Cartes média : l'image va jusqu'au bord, pas de marge */
+:where(
+	.store_main_capsule, .carousel_items .store_capsule, .cluster_capsule, .home_marketing_message,
+	.home_area_spotlight, .spotlight_content, .special.dailydeal, .store_capsule.daily_deal,
+	.home_smallcap, .small_cap, .tab_item, .search_result_row, .recommendation_highlight,
+	.store_capsule.app_impression_tracked, .wishlist_row, .store_horizontal_autoslider_ctn,
+	.apphub_Card, .workshopItem, .collectionItem, .friend_block_v2, .friendBlock,
+	.forum_topic, .screenshot_holder, .creator_capsule_ctn, .recently_updated_desc,
+	a.community_recommendation_capsule,
+	div._1gsW0WuP7ZclL1_ScZlsvo, div.tqaXEuWN2wV5_8lmSkMng, a._1MwNf8slOG9lOvAeOshmuu,
+	div.PE-3oq-yIvg-, div._3G65z75zOTQeHrXxszHO4b,
+	div.UNowfeldbNg-, div.tYCWuqm2E-A-                         /* tuiles Workshop (SSR) */
+)
+{
+	--card-pad: 0;
+	box-sizing: border-box;
+	background: var(--card-bg) !important;
+	background-image: none !important;
+	color: var(--adw-card-fg) !important;
+	border: none !important;
+	border-radius: var(--card-radius, var(--w-radius)) !important;
+	box-shadow: var(--w-card-shadow) !important;
+	overflow: hidden;
+}
+
+/* Cartes interactives : légère surbrillance au survol */
+:where(
+	.store_main_capsule, .carousel_items .store_capsule, .cluster_capsule, .home_smallcap, .small_cap,
+	.tab_item, .search_result_row, .apphub_Card, .workshopItem, .friend_block_v2, .friendBlock,
+	.forum_topic, .badge_row, a.community_recommendation_capsule, div.PE-3oq-yIvg-,
+	div.UNowfeldbNg-, div.tYCWuqm2E-A-, a.recent_game_discussion:not(.quasi_official_group)
+)
+{
+	transition: background-color var(--adw-transition);
+}
+
+:where(
+	.store_main_capsule, .carousel_items .store_capsule, .cluster_capsule, .home_smallcap, .small_cap,
+	.tab_item, .search_result_row, .apphub_Card, .workshopItem, .friend_block_v2, .friendBlock,
+	.forum_topic, .badge_row, a.community_recommendation_capsule, div.PE-3oq-yIvg-,
+	div.UNowfeldbNg-, div.tYCWuqm2E-A-, a.recent_game_discussion:not(.quasi_official_group)
+):is(:hover, .focus)
+{
+	background: var(--card-bg-hover) !important;
+}
+
+/* ═══ Conteneurs neutres ═══════════════════════════════════════════════
+ * Les enveloppes de mise en page n'ont jamais de fond : c'est ce qui
+ * évitait les cartes empilées (« sous-panneaux inutiles »). */
+:where(
+	.page_content_ctn, .page_content, .pagecontent, .maincontent, .store_page_ctn,
+	.home_page_body_ctn, .home_ctn, .home_page_content, .leftcol, .rightcol,
+	.page_title_area, .page_header_ctn, .apphub_HomeHeaderContent, .apphub_HeaderStandardTop,
+	.apphub_HeaderTop, .apphub_StoreAppData, .apphub_background, .apphub_sectionTabs,
+	.breadcrumbs, .glance_ctn_responsive_left, .glance_ctn_responsive_right,
+	.block_header, .block_content, .block_content_inner, .game_area_purchase_game_wrapper,
+	.game_purchase_action_bg, .gradientbg, .home_page_gutter, .home_cluster_ctn,
+	.carousel_container, .carousel_items, .home_tabs_content, .tab_content_ctn,
+	.main_cluster_content, .home_smallcap_area, .tab_review_summary, #game_highlights,
+	.highlight_overflow, .leftcol.game_description_column, .rightcol.game_meta_data,
+	.store_nav_bg, .game_background_glow, .game_background_lighten, .queue_and_playtime, .home_tab_bg_ctn, .home_deck_section.ctn_background,
+	.home_discount_games_ctn, div.gradient, .related_items_ctn,
+	.profile_customization_area, .profile_leftcol, .profile_rightcol .profile_item_links,
+	.profile_header_bg, .profile_header_bg_texture, .profile_header, .profile_header_summary,
+	.profile_content, .profile_content_inner, .commentthread_comment_container,
+	.commentthread_footer, .commentthread_header, .forum_topics, .forum_paging,
+	.workshopBrowseItems, .workshop_browse_menu_area, .market_listing_table_header,
+	#tabContentsMyListings, .market_home_main_listing_table, .market_header_bg,
+	.market_header, .market_header_text, .market_header_logo, .market_tab_well_tabs,
+	.market_listing_table_message, .blotter_page, .badges_sheet, .badge_row_inner,
+	.badge_title_row, .badge_content, .inventory_page_left, .inventory_page_right,
+	.inventory_ctn, .games_list_tabs, .gameslistitems, #games_list_rows,
+	.profile_small_header_bg, .profile_small_header_texture, .group_summary .content,
+	.grouppage_header, .grouppage_header_content, .grouppage_logo, .profile_count_link_preview_ctn,
+	.profile_in_game, .responsive_status_info, .apphub_CardContentAuthorBlock,
+	.apphub_CardContentMain, .apphub_CardTextContent, .apphub_UserReviewCardContent,
+	.apphub_CardContentGuideTitle, .review_box .vote_header, .review_box .content,
+	.vote_header, .user_reviews_summary_row, .user_reviews_summary_bar, .review_histogram_section,
+	.workshopAppsRow, .browseAppsTitleContainer, .primary_panel, .workshop_item_header,
+	.workshopItemPreviewArea, .sharedfiles_item_page_header, .game_info_stats,
+	.recent_game, .recent_game_content, .game_info, .game_info_cap,
+	.tab_item_content, .tab_item_details, .search_name, .store_main_capsule .info,
+	.store_main_capsule .main_cap_content, .cluster_capsule .main_cap_content,
+	.queue_ctn, div._2faI25vznC0tWNttks8OaJ, div._6QzykeEsckc-, div.sNExYpOoTBo-,
+	div.horizontalSlider___281Ls, div.deep_dive_key_tags, div.Cek1s5Ixk2xYmkqjjESD0,
+	div.XIDYByW4BEOm-YiOiwGmO, div._2BG1JKMgeqn_cr0rbRhRNA, div.nfxC9n3FRVE-,
+	div._1so1AGD_m_uIBFDEc1ImOu, div.kauOU9QnW8Fs0QpxzTBph, div._1i6AhxSEgz1FAUyiEt1Xsk,
+	.global_discussion_search_ctn, .discussionSearchTextContainer, .discussions_header,
+	.forum_list_ctn, .forum_list_left, .group_content
+)
+{
+	background-color: transparent !important;
+	background-image: none !important;
+	box-shadow: none !important;
+	border-color: transparent !important;
+}
+
+/* ═══ Rangée de liste (boxed-list) ═════════════════════════════════════
+ * Rangées dans une carte : transparentes, survol 7 %, rayon 9px. */
+:where(
+	.game_area_dlc_row, .game_area_details_specs_ctn, a._2xZaMR-NKc0LbkeM50cZq8, a.linkbar,
+	.market_listing_row, .market_recent_listing_row, .tab_filter_control_row, .tab_filter_control,
+	.gutter_item, .rightDetailsBlock .browseOption a, .filterOption, .recent_game,
+	.profile_count_link a, .game_button, .discussions_forum_row, a.recent_game_discussion.quasi_official_group
+)
+{
+	background: transparent !important;
+	background-image: none !important;
+	color: var(--adw-window-fg) !important;
+	border: none !important;
+	border-radius: var(--w-radius-button) !important;
+	text-decoration: none !important;
+	transition: background-color var(--adw-transition);
+}
+
+:where(
+	.game_area_dlc_row, .game_area_details_specs_ctn, a._2xZaMR-NKc0LbkeM50cZq8, a.linkbar,
+	.market_listing_row_link:hover .market_listing_row, .market_listing_row, .market_recent_listing_row,
+	.tab_filter_control_row, .tab_filter_control, .gutter_item, .rightDetailsBlock .browseOption a,
+	.filterOption, .recent_game, .profile_count_link a, .game_button,
+	.discussions_forum_row, a.recent_game_discussion.quasi_official_group
+):hover
+{
+	background: var(--w-hover) !important;
+}
+
+:where(.rightDetailsBlock .browseOption.selected a, .filterOption.selected)
+{
+	background: var(--w-selected) !important;
+}
+
+/* Liste de commentaires : chaque commentaire est une rangée séparée */
+:where(.commentthread_comment)
+{
+	padding: 12px !important;
+	margin: 0 !important;
+	background: transparent !important;
+	border: none !important;
+	border-radius: var(--w-radius-button) !important;
+	box-shadow: none !important;
+	transition: background-color var(--adw-transition);
+}
+
+:where(.commentthread_comment) + :where(.commentthread_comment)
+{
+	box-shadow: inset 0 1px var(--w-border) !important;
+	border-radius: 0 !important;
+}
+
+:where(.commentthread_comment):hover
+{
+	background: var(--w-hover) !important;
+}
+
+/* ═══ Bannière (info / avertissement) ═════════════════════════════════
+ * --banner-color : accent par défaut, warning pour les sanctions. */
+:where(
+	.notice_box_content, .info_box, .lowerbanner, .profile_private_info, #marketBetaNoteCtn,
+	.warning_box, .profile_ban_status, div.DRM_notice, div.parentCollection, div.requiredItem,
+	div.HistogramSection, div.pgzV3PE_496cofVMBZS8z, div.C_oRj-mVQWma1wrzDiGur
+)
+{
+	--banner-color: var(--adw-accent-bg);
+	box-sizing: border-box;
+	padding: 10px 14px !important;
+	background: color-mix(in srgb, var(--banner-color) 16%, transparent) !important;
+	background-image: none !important;
+	color: var(--adw-window-fg) !important;
+	border: none !important;
+	border-radius: var(--w-radius) !important;
+}
+
+:where(.warning_box, .profile_ban_status, div.DRM_notice)
+{
+	--banner-color: var(--adw-warning-bg);
+}

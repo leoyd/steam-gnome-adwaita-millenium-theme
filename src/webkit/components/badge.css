@@ -1,0 +1,143 @@
+/* ═══ Composant : badge ════════════════════════════════════════════════
+ * Petite pastille d'information. Variables :
+ *   --badge-bg / --badge-fg   couleur (neutre par défaut)
+ *   --badge-radius            6px (étiquette) ou 9999px (pilule)
+ * Variantes : neutre, accent (nouveau, liste de souhaits), succès (remise),
+ * destructif (direct), pilule cliquable (tags). */
+
+:where(
+	/* remises */
+	.discount_pct, .search_discount span, .bundle_base_discount, div.discount_icon,
+	div._2lQxRlo1DQ1PN08TYTil2L, div._2wlqkq-0fkggDE-Kll8Rwd, div.rsMD9WnTopA-,
+	div._1kSDZm0Cg9anUkTfWFtwdN, div._12oL_Na-4ZnfDriQ80BEBc,
+	/* accent */
+	span.lX3GvxrkYaEqKJRpIhPsk, div.ds_flag, div.dlc_highlight_reason, div.znNVIhFP6KdJlUS2p2B7q,
+	div._2qnY9VZwgA2qx1ydmUlsUm._1f8WQvpQv-I5pqCmscp6iV, span.BReXgOZvJY6u4htWQn1aF,
+	.notification_count, .header_notification_count, .notification_count_total_ctn,
+	/* succès */
+	a.kkZ9PsIE60o-,
+	/* destructif */
+	div.broadcast_live_stream_icon,
+	/* neutre */
+	.review_award_aggregated, .review_award, .apphub_CardContentType, .forum_topic_label
+)
+{
+	--badge-bg: color-mix(in srgb, currentColor 12%, transparent);
+	--badge-fg: inherit;
+	box-sizing: border-box;
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	min-height: 20px;
+	padding: 0 6px !important;
+	background: var(--badge-bg) !important;
+	background-image: none !important;
+	color: var(--badge-fg) !important;
+	border: none !important;
+	border-radius: var(--badge-radius, var(--w-radius-small)) !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+	font-weight: 700 !important;
+	font-size: 12px !important;
+	line-height: 20px !important;
+}
+
+:where(.discount_pct, .search_discount span, .bundle_base_discount, div.discount_icon,
+       div._2lQxRlo1DQ1PN08TYTil2L, div._2wlqkq-0fkggDE-Kll8Rwd, div.rsMD9WnTopA-,
+       div._1kSDZm0Cg9anUkTfWFtwdN, div._12oL_Na-4ZnfDriQ80BEBc, a.kkZ9PsIE60o-)
+{
+	--badge-bg: var(--adw-success-bg);
+	--badge-fg: var(--adw-success-fg);
+	font-size: 13px !important;
+	font-weight: 800 !important;
+}
+
+:where(span.lX3GvxrkYaEqKJRpIhPsk, div.ds_flag, div.dlc_highlight_reason, div.znNVIhFP6KdJlUS2p2B7q,
+       div._2qnY9VZwgA2qx1ydmUlsUm._1f8WQvpQv-I5pqCmscp6iV, span.BReXgOZvJY6u4htWQn1aF,
+       .notification_count, .header_notification_count, .notification_count_total_ctn)
+{
+	--badge-bg: var(--adw-accent-bg);
+	--badge-fg: var(--adw-accent-fg);
+}
+
+:where(span.BReXgOZvJY6u4htWQn1aF, .notification_count, .header_notification_count, .notification_count_total_ctn)
+{
+	--badge-radius: 9999px;
+}
+
+:where(div.broadcast_live_stream_icon)
+{
+	--badge-bg: var(--adw-destructive-bg);
+	--badge-fg: var(--adw-destructive-fg);
+}
+
+:where(.forum_topic_label.sticky_label)
+{
+	--badge-bg: color-mix(in srgb, var(--adw-success-bg) 25%, transparent);
+	--badge-fg: var(--adw-success);
+}
+
+:where(div._2lQxRlo1DQ1PN08TYTil2L, div.discount_icon, div.rsMD9WnTopA-) *
+{
+	color: inherit !important;
+	fill: currentColor !important;
+}
+
+/* ═══ Tags cliquables (pilules) ═══════════════════════════════════════ */
+:where(
+	.app_tag, .popular_tags a, .tag_browse_tag, .top_tag, .search_tag_ctn .searchtag,
+	div.deep_dive_tag, .store_main_capsule .tags span, button.U3ndjc3qoW8-,
+	.workshopTags a, .tag_dropdown_option
+)
+{
+	display: inline-flex !important;
+	align-items: center;
+	min-height: 24px;
+	padding: 0 10px !important;
+	background: var(--w-button-bg) !important;
+	background-image: none !important;
+	color: var(--adw-window-fg) !important;
+	border: none !important;
+	border-radius: 9999px !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	text-transform: none !important;
+	font-size: 12px !important;
+	line-height: 1 !important;
+	text-decoration: none !important;
+	transition: background-color var(--adw-transition);
+}
+
+:where(.app_tag, .popular_tags a, .tag_browse_tag, .workshopTags a, button.U3ndjc3qoW8-):hover
+{
+	background: var(--w-button-bg-hover) !important;
+}
+
+/* Tags en texte simple dans les listes (onglets d'accueil) */
+:where(.tab_item_top_tags .top_tag)
+{
+	min-height: 0;
+	padding: 0 !important;
+	background: transparent !important;
+	color: var(--w-dim) !important;
+}
+
+/* ═══ Évaluations : couleurs sémantiques ══════════════════════════════ */
+:where(.game_review_summary.positive, .search_review_summary.positive, .user_reviews_summary_row .positive,
+       div._2K0QaklF1PPjEzkH9U2Ozt.DVGYJj6Ddo8-TqMXZ8tDa, span._24Z0sYrwo1ALn7WkF98RaU)
+{
+	color: var(--adw-accent) !important;
+}
+
+:where(.game_review_summary.mixed, .search_review_summary.mixed, .user_reviews_summary_row .mixed)
+{
+	color: var(--adw-warning) !important;
+}
+
+:where(.game_review_summary.negative, .search_review_summary.negative, .user_reviews_summary_row .negative)
+{
+	color: var(--adw-destructive) !important;
+}

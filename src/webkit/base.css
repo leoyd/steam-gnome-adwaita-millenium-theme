@@ -1,0 +1,201 @@
+/* Fond, typographie, liens, barres de défilement */
+
+/* Les polices Valve pointent vers les polices système Adwaita (local(), rien n'est téléchargé) */
+@font-face { font-family: "Motiva Sans"; src: local("Adwaita Sans"), local("Cantarell"); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: "Motiva Sans"; src: local("Adwaita Sans Italic"), local("Adwaita Sans"); font-weight: 100 900; font-style: italic; }
+@font-face { font-family: "Motiva Sans Light"; src: local("Adwaita Sans"), local("Cantarell"); font-weight: 100 900; }
+@font-face { font-family: "Motiva Sans Thin"; src: local("Adwaita Sans"), local("Cantarell"); font-weight: 100 900; }
+@font-face { font-family: "Motiva Sans Bold"; src: local("Adwaita Sans"), local("Cantarell"); font-weight: 100 900; }
+@font-face { font-family: "Motiva Sans Black"; src: local("Adwaita Sans"), local("Cantarell"); font-weight: 100 900; }
+@font-face { font-family: "Motiva Sans Regular"; src: local("Adwaita Sans"), local("Cantarell"); font-weight: 100 900; }
+@font-face { font-family: "Motiva Sans ExtraBold"; src: local("Adwaita Sans"), local("Cantarell"); font-weight: 100 900; }
+@font-face { font-family: "Motiva Sans Medium"; src: local("Adwaita Sans"), local("Cantarell"); font-weight: 100 900; }
+
+html,
+body
+{
+	background: var(--adw-window-bg) !important;
+	color: var(--adw-window-fg) !important;
+	font-family: var(--adw-text-font) !important;
+	-webkit-font-smoothing: antialiased;
+}
+
+body *:not(code, pre, kbd, samp, tt, .bb_code, textarea.code)
+{
+	font-family: inherit;
+}
+
+code, pre, kbd, samp, tt, .bb_code
+{
+	font-family: var(--adw-text-font-monospace) !important;
+}
+
+/* Conteneurs de mise en page : jamais de fond propre (pas de cartes empilées) */
+body.v6,
+body.flat_page,
+body.responsive_page,
+body.headerless_page,
+.responsive_page_frame,
+.responsive_page_content,
+.responsive_page_template_content,
+#responsive_page_template_content,
+.page_content_ctn,
+.page_content,
+.pagecontent,
+.maincontent,
+.store_page_ctn,
+.home_page_body_ctn,
+.home_ctn,
+.home_page_content,
+.leftcol,
+.rightcol,
+.page_title_area,
+.apphub_background,
+.workshop_page,
+.profile_content,
+.profile_content_inner,
+.market_content_block_ctn,
+#mainContents,
+.pagecontent.no_header
+{
+	background-color: transparent !important;
+	background-image: none !important;
+	box-shadow: none !important;
+}
+
+body.v6,
+body.flat_page,
+.responsive_page_frame
+{
+	background-color: var(--adw-window-bg) !important;
+}
+
+/* Typographie Adwaita : pas de majuscules forcées ni d'espacement Valve */
+h1, h2, h3, h4, h5,
+.pageheader,
+.page_title,
+.home_title,
+.home_page_content h2,
+.block_title,
+.block_header h2,
+.block_header h4,
+.game_area_purchase_game h1,
+.apphub_AppName,
+.profile_header_centered_persona,
+.workshopBrowseHeader
+{
+	color: var(--adw-window-fg) !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+	text-shadow: none !important;
+	font-family: var(--adw-text-font) !important;
+}
+
+h1, .pageheader, .apphub_AppName
+{
+	font-size: var(--adw-text-largetitle-size);
+	font-weight: var(--adw-text-largetitle-weight) !important;
+}
+
+h2,
+.home_page_content h2,
+.home_title,
+.block_title,
+.block_header h2
+{
+	font-size: var(--adw-text-title2-size) !important;
+	font-weight: 700 !important;
+	padding-bottom: 6px;
+}
+
+a
+{
+	color: var(--adw-accent);
+	text-decoration: none;
+	transition: color var(--adw-transition);
+}
+
+/* Pas de soulignement au survol : un sélecteur « lien contenant une image »
+ * (:has) coûtait un recalcul de style à chaque mouvement de la souris. */
+a:hover
+{
+	color: color-mix(in srgb, var(--adw-accent) 80%, var(--adw-window-fg));
+}
+
+::selection
+{
+	background: color-mix(in srgb, var(--adw-accent-bg) 30%, transparent);
+	color: inherit;
+}
+
+:focus-visible
+{
+	outline: 2px solid color-mix(in srgb, var(--adw-accent) var(--adw-focus-border-opacity), transparent) !important;
+	outline-offset: 2px;
+}
+
+hr,
+.hr
+{
+	border: none !important;
+	height: 1px !important;
+	background: var(--w-border) !important;
+}
+
+/* Texte secondaire (dim-label) */
+.dim,
+.subtitle,
+.game_area_details_specs_ctn .label,
+.dev_row .subtitle,
+.release_date .subtitle,
+.date,
+.timestamp,
+.commentthread_comment_timestamp,
+.searchtag.tag_dynamic,
+.game_review_summary.not_enough_reviews,
+.responsive_reviewdesc,
+.search_released,
+.profile_count_link_total,
+.ellipsis.whitelink
+{
+	color: var(--w-dim) !important;
+}
+
+/* Barres de défilement fines Adwaita (s'épaississent au survol) */
+::-webkit-scrollbar
+{
+	width: 14px;
+	height: 14px;
+	background: transparent;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner
+{
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb
+{
+	min-height: 40px;
+	border: 5px solid transparent;
+	border-radius: 9999px;
+	background: color-mix(in srgb, var(--adw-window-fg) 20%, transparent) padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+	border-width: 3px;
+	background-color: color-mix(in srgb, var(--adw-window-fg) 40%, transparent);
+}
+
+::-webkit-scrollbar-thumb:active
+{
+	border-width: 3px;
+	background-color: color-mix(in srgb, var(--adw-window-fg) 60%, transparent);
+}
+
+::-webkit-scrollbar-button
+{
+	display: none;
+}

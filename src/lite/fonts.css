@@ -1,0 +1,7 @@
+/* Polices système uniquement : rien n'est téléchargé ni embarqué.
+ * Adwaita Sans/Mono sont livrées avec GNOME 48+, Cantarell sert de repli. */
+:root
+{
+	--adw-text-font-primary: "Adwaita Sans", "Cantarell";
+	--adw-text-font-monospace-primary: "Adwaita Mono", "Source Code Pro";
+}

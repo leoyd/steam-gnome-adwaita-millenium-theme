@@ -1,0 +1,614 @@
+/* Magasin : mise en page propre à chaque écran.
+ * Les visuels (cartes, boutons, badges, onglets…) viennent des composants. */
+
+/* ───────────── Barre de menu du magasin (React) ───────────── */
+
+div._16jZ3HEbtaJTl80pQINN2Y, /* StoreMenu */
+div.WCG-2-OYepA-             /* StoreMenu (SSR) */
+{
+	background: var(--adw-headerbar-bg) !important;
+	box-shadow: inset 0 -1px var(--adw-headerbar-shade) !important;
+	color: var(--adw-headerbar-fg) !important;
+}
+
+div._19o1GB7ysfrWKLYpqZ6aXu, /* Backdrop */
+div.rGuH1gD4ryg-,            /* Backdrop (SSR) */
+div.menu_takeover_background,
+div.t-LlQicBZjE-             /* barre de chargement (SSR) */
+{
+	background: transparent !important;
+	-webkit-backdrop-filter: none !important;
+	backdrop-filter: none !important;
+}
+
+button._175B12uOwmeGBNcSaQFe-Z, /* MenuButton */
+a._175B12uOwmeGBNcSaQFe-Z
+{
+	height: 34px !important;
+	margin: 6px 1px !important;
+	padding: 0 10px !important;
+	border-radius: var(--w-radius-button) !important;
+	color: var(--adw-headerbar-fg) !important;
+	font-weight: 700 !important;
+	transition: background-color var(--adw-transition) !important;
+}
+
+button._175B12uOwmeGBNcSaQFe-Z:hover,
+a._175B12uOwmeGBNcSaQFe-Z:hover,
+button._175B12uOwmeGBNcSaQFe-Z._2IyR9WyPwYb15ILBjPvLR9 /* Active */
+{
+	background: var(--w-hover) !important;
+}
+
+div._3gaaE-cRfFWJdZcC8XMi0x, /* MenuUnderscore */
+div._1-hPfsxjynE3demuqGmqf0  /* MenuUnderscoreCtn */
+{
+	display: none !important;
+}
+
+/* Recherche du magasin : le formulaire est l'entrée (fond, rayon, focus),
+ * le champ porte le padding du texte, la loupe est un bouton carré à droite. */
+form._1KU9eASfov1GnFQRbyLIdR, form._5fxF1NcznNc- /* SearchForm */
+{
+	--entry-pad: 0;
+	--entry-height: 36px;
+	display: flex !important;
+	align-items: center !important;
+	height: 36px !important;
+	overflow: hidden;
+}
+
+input._2tlUAG6WNyYFlk9caIiLj5, input.S-0LcpbLAf8- /* SearchInput (module / SSR) */
+{
+	flex: 1;
+	align-self: stretch;
+	min-width: 0;
+	height: auto !important;
+	padding: 0 8px 0 14px !important;
+	background: transparent !important;
+	border: none !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	outline: none !important;
+	color: var(--adw-window-fg) !important;
+	font: 400 14px/normal var(--adw-text-font) !important;
+}
+
+input._2tlUAG6WNyYFlk9caIiLj5::placeholder, input.S-0LcpbLAf8-::placeholder,
+input._2tlUAG6WNyYFlk9caIiLj5:hover::placeholder, input.S-0LcpbLAf8-:hover::placeholder
+{
+	color: var(--w-dim) !important;
+	font-size: 14px !important;
+	font-style: normal !important;
+}
+
+form._1KU9eASfov1GnFQRbyLIdR button, form._5fxF1NcznNc- button /* loupe, effacer */
+{
+	flex: none;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	width: 36px !important;
+	height: 36px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+a._2Cp17yynz2h_StEQZcNnqB, a.S-0da5Ll-j0- /* AdvancedSearch */
+{
+	background: var(--w-button-bg) !important;
+	border-radius: var(--w-radius-button) !important;
+	color: var(--adw-popover-fg) !important;
+	font-weight: 700;
+}
+
+/* ───────────── Accueil ───────────── */
+
+/* Grande bannière : arrondie, avec des marges */
+.home_page_takeover_link,
+.home_page_body_ctn.has_takeover .fullscreen-bg,
+.home_page_body_ctn.has_takeover .page_background_holder,
+.home_page_body_ctn.has_takeover .store_bg_overlay
+{
+	margin-left: 24px !important;
+	margin-right: 24px !important;
+	width: auto !important;
+	left: 0 !important;
+	right: 0 !important;
+	border-radius: var(--w-radius) !important;
+	overflow: hidden !important;
+}
+
+.store_bg_overlay .gradient_left,
+.store_bg_overlay .gradient_right
+{
+	display: none !important;
+}
+
+.home_page_content h2, .home_title, .carousel_container h2
+{
+	padding-left: 2px !important;
+}
+
+.store_main_capsule .info
+{
+	padding: 16px !important;
+	box-sizing: border-box;
+}
+
+.tab_item
+{
+	margin-bottom: 6px !important;
+}
+
+.tab_item_cap
+{
+	border-radius: var(--w-radius) 0 0 var(--w-radius);
+	overflow: hidden;
+}
+
+.tab_item_name, .search_name .title
+{
+	font-weight: 700;
+}
+
+.tab_item_details, .tab_item_top_tags, .search_released, .search_name p, .store_main_capsule .reason,
+.hours, .hours.ellipsis, .hours.vote_info, .header_inline
+{
+	color: var(--w-dim) !important;
+}
+
+a.tab_row_item
+{
+	background: var(--w-hover) !important;
+	border-radius: var(--w-radius-button) !important;
+}
+
+a.tab_row_item.focus
+{
+	background: var(--w-selected) !important;
+}
+
+.main.bytags strong,
+.recommendation_reason strong,
+div.topseller_title
+{
+	color: var(--adw-success) !important;
+}
+
+/* Colonne de gauche (recommandations, catégories) */
+.home_page_gutter_block, .gutter_header, .home_page_gutter .gutter_block
+{
+	background: transparent !important;
+	color: var(--w-dim) !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+}
+
+.gutter_item
+{
+	display: block;
+	padding: 6px 10px !important;
+}
+
+/* Calendrier personnel : aujourd'hui mis en avant */
+div.tqaXEuWN2wV5_8lmSkMng._8UPO4fZBxxerbhcRBpAcc /* PersonalCalendarWidgetDay.TodayCtn */
+{
+	box-shadow: inset 0 0 0 2px var(--adw-accent-bg), var(--w-card-shadow) !important;
+}
+
+/* Prix (widget React StoreSalePrice) */
+div.hWF8eniTajf4-mfZvbK3F /* DiscountBlock */
+{
+	gap: 6px;
+	background: transparent !important;
+}
+
+div._2L23Sk2CNSFCplu_7mMmQx, /* FinalPrice */
+.game_purchase_price, .discount_final_price, .price, .search_price .discounted, .match_price
+{
+	color: var(--adw-window-fg) !important;
+	font-weight: 700 !important;
+	background: transparent !important;
+}
+
+div._1xgg-R84IHS6h5_x6ZycXi, div._1odBXcjq8-Q8SFXViJa7c6, /* OriginalPrice */
+.discount_original_price, .search_price strike
+{
+	color: var(--w-dim) !important;
+}
+
+.discount_block, .discount_prices
+{
+	display: inline-flex !important;
+	align-items: center;
+	gap: 6px;
+	background: transparent !important;
+}
+
+/* ───────────── Fiche de jeu ───────────── */
+
+.apphub_AppName
+{
+	font-size: var(--adw-text-title1-size) !important;
+	font-weight: 800 !important;
+}
+
+/* Bloc d'achat : Steam fait déborder le prix et le bouton sous le bloc
+ * (position absolue, bottom négatif). On les remet dans la carte. */
+.game_area_purchase_game
+{
+	margin-bottom: 16px !important;
+}
+
+.game_area_purchase_game h1,
+.game_area_purchase_game h2
+{
+	margin: 0 0 4px !important;
+	padding-right: 120px;
+	font-size: var(--adw-text-title3-size) !important;
+	font-weight: 700 !important;
+}
+
+.game_area_purchase_game .game_purchase_action
+{
+	position: static !important;
+	display: flex !important;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 12px 0 0 !important;
+	height: auto !important;
+	background: transparent !important;
+}
+
+.game_purchase_action_bg
+{
+	display: flex !important;
+	align-items: center;
+	gap: 10px;
+	padding: 0 !important;
+	height: auto !important;
+}
+
+.game_area_purchase_platform
+{
+	position: absolute;
+	top: 14px;
+	right: 16px;
+}
+
+.game_area_purchase_game
+{
+	position: relative;
+}
+
+.game_area_purchase_platform .platform_img
+{
+	filter: grayscale(1) light-dark(invert(0.7), brightness(1.4));
+	opacity: 0.7;
+}
+
+/* Lots : vignettes des jeux du lot dans un cadre neutre */
+.game_area_purchase_game .bundle_contents_preview,
+.game_area_purchase_game .package_contents
+{
+	padding: 8px !important;
+	margin: 8px 0 0 !important;
+	background: var(--adw-thumbnail-bg) !important;
+	border-radius: var(--w-radius-button) !important;
+}
+
+/* Lien d'abonnement, prix habituels */
+table.game_purchase_price_history,
+table.game_purchase_price_history td
+{
+	background: transparent !important;
+	color: var(--w-dim) !important;
+}
+
+table.game_purchase_price_history td.normal_price
+{
+	color: var(--adw-window-fg) !important;
+}
+
+/* Barre « Liste de souhaits / Suivre / Ignorer » */
+.queue_actions_ctn
+{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.queue_actions_ctn > *
+{
+	margin: 0 !important;
+}
+
+/* Description */
+.game_area_description h2
+{
+	padding-bottom: 6px !important;
+	border-bottom: 1px solid var(--w-border) !important;
+	background-image: none !important;
+}
+
+.game_page_autocollapse_fade
+{
+	background: linear-gradient(to bottom, transparent, var(--adw-window-bg)) !important;
+}
+
+.game_page_autocollapse_readmore
+{
+	display: flex !important;
+	width: 100%;
+}
+
+/* Colonne de droite : toutes les sections sont des cartes égales */
+.rightcol.game_meta_data > *
+{
+	margin-bottom: 12px !important;
+}
+
+.rightcol.game_meta_data .block
+{
+	margin-bottom: 0 !important;
+}
+
+.block.responsive_apppage_details_right.heading
+{
+	font-weight: 700;
+	font-size: 15px;
+}
+
+/* Fonctionnalités : icône symbolique teintée + libellé, rangées serrées */
+.game_area_details_specs_ctn,
+a._2xZaMR-NKc0LbkeM50cZq8, /* InfoRow */
+a._1RmibngWLogcFmO93kGFgq
+{
+	display: flex !important;
+	align-items: center;
+	gap: 10px;
+	min-height: 32px;
+	padding: 0 8px !important;
+	margin: 0 !important;
+}
+
+.game_area_details_specs_ctn .icon,
+div._29jQMo9DGCmcSKyDIC3V7M, div._2hLfFwbFsdutlEoG1YjlJe, div.dxuI55RF56-dzbuXjj2W0 /* ImageContainer / ImgSection */
+{
+	flex-shrink: 0;
+	width: 20px !important;
+	padding: 0 !important;
+	background: transparent !important;
+	display: flex !important;
+	justify-content: center;
+}
+
+.game_area_details_specs_ctn .icon img,
+.category_icon
+{
+	filter: grayscale(1) light-dark(invert(0.75), brightness(1.6));
+}
+
+.game_area_details_specs_ctn .label,
+span._3sRe2CGQBgablPBz9Bc9c2, span._22m8Q03ftyieJoZUjjJh7f, /* FeatureNameContainer */
+div._3KAysk4dlhWETa6ixz7V2j /* LocSection */
+{
+	padding: 0 !important;
+	background: transparent !important;
+	color: var(--adw-window-fg) !important;
+	border-radius: 0 !important;
+}
+
+/* Langues : coches d'accent bien visibles */
+.game_language_options
+{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.game_language_options th, .game_language_options td
+{
+	padding: 6px 4px !important;
+	background: transparent !important;
+	color: var(--adw-window-fg) !important;
+	border-color: var(--w-border) !important;
+}
+
+.game_language_options tr + tr td
+{
+	border-top: 1px solid var(--w-border) !important;
+}
+
+.game_language_options td.checkcol span
+{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	font-size: 0 !important;
+	vertical-align: middle;
+	background: var(--adw-accent);
+	-webkit-mask: var(--w-icon-check) center / 14px no-repeat;
+}
+
+/* Configuration requise : onglets segmentés + deux colonnes dans une carte */
+.sysreq_contents
+{
+	display: block;
+}
+
+.game_area_sys_req
+{
+	display: flex !important;
+	gap: 24px;
+	background: transparent !important;
+}
+
+.game_area_sys_req_leftCol, .game_area_sys_req_rightCol, .game_area_sys_req_full
+{
+	flex: 1;
+	float: none !important;
+	width: auto !important;
+}
+
+.game_area_sys_req ul.bb_ul
+{
+	padding: 0 !important;
+	list-style: none;
+}
+
+.game_area_sys_req li
+{
+	padding: 4px 0;
+	border-bottom: 1px solid var(--w-border);
+}
+
+.game_area_sys_req strong
+{
+	color: var(--w-dim) !important;
+	text-transform: none !important;
+	font-weight: 700;
+}
+
+/* Lecteur React des bandes-annonces / captures */
+div._2Ose8zPg3MlKQQeG9nwv24 /* Item (vignette) */
+{
+	flex-shrink: 0 !important;
+}
+
+/* Évaluations : histogrammes et barres */
+div._1CB11dhU36u3GXF7wbJvRN /* BarPositive */
+{
+	background: var(--adw-accent-bg) !important;
+}
+
+div._1ZL6bNcbV4zF6x--9nazOj /* BarNegative */
+{
+	background: var(--adw-destructive-bg) !important;
+}
+
+span._3laM7u4MkRxKIjKy6PUm0p, div._3laM7u4MkRxKIjKy6PUm0p, /* XAxisLabel */
+div._37ICOYBDy-RisYkzNGWFDX, div._1N9XZTVu3iXgXmyuKwSF4E, div._36PINioDf9qx6L5QCpuW3l,
+div._3ANj1jpZ3BkJEdiPp_Nt-i, div._2079QFhY02KJ4KxGMltDNJ, div._1gPMlAGyoROvtc-R4oDvoF
+{
+	color: var(--w-dim) !important;
+}
+
+a._2AL4QiqNSjqzhkK1W9m2E6, div._2AL4QiqNSjqzhkK1W9m2E6 /* Persona */
+{
+	color: var(--adw-window-fg) !important;
+	font-weight: 700;
+}
+
+span.Nu7NgfdJiM1QdEPGrlUcN, span.EZqO5MdZoyMOQJ38Sj0iH /* textes des boutons de vote / suivre */
+{
+	color: inherit !important;
+}
+
+div.event_context, a.saleEventBannerLink
+{
+	background: transparent !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	color: var(--w-dim) !important;
+}
+
+/* ───────────── Recherche ───────────── */
+
+#search_resultsRows .search_result_row
+{
+	margin-bottom: 6px;
+	padding: 6px !important;
+}
+
+#additional_search_options .block_header, .search_options_block .block_header
+{
+	color: var(--adw-window-fg) !important;
+	font-weight: 700 !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+}
+
+/* ───────────── Panier / liste de souhaits ───────────── */
+
+.cart_row
+{
+	margin-bottom: 6px !important;
+}
+
+.cart_estimated_total
+{
+	font-weight: 800 !important;
+}
+
+.remove_link, .cart_item_remove
+{
+	color: var(--adw-destructive) !important;
+}
+
+div.PE-3oq-yIvg- /* rangée de liste de souhaits */
+{
+	margin-bottom: 6px;
+}
+
+button.LrqeL6o22aQ- > span /* « Ajouter au panier » (SSR) */
+{
+	background: transparent !important;
+	color: inherit !important;
+}
+
+/* ───────────── Pied de page ───────────── */
+
+#footer, #footer_spacer, .footer_content,
+footer._36eiL2GCxdc-, div._291ttHtxyu5obiKzor2G9G
+{
+	background: var(--adw-window-bg) !important;
+	background-image: none !important;
+	color: var(--w-dim) !important;
+	border-top: 1px solid var(--w-border) !important;
+}
+
+#footer a, footer._36eiL2GCxdc- a, div._291ttHtxyu5obiKzor2G9G a
+{
+	color: var(--adw-window-fg) !important;
+}
+
+#footer.compact, #footer.compact .footer_content
+{
+	background: transparent !important;
+	border: none !important;
+}
+
+#footer.compact a
+{
+	color: var(--w-dim) !important;
+}
+
+#footer.compact .responsive_optin_link
+{
+	display: none !important;
+}
+
+/* Liste « Voir tout » des DLC et bandeau des vignettes d'un pack */
+.game_area_dlc_section .dlc_show_all, .ds_collapse_flag .see_all_dlc, .game_area_dlc_expanded_ctn + div a,
+#dlc_show_all_link
+{
+	color: var(--w-dim) !important;
+	background: var(--w-button-bg) !important;
+	border-radius: var(--w-radius-button) !important;
+	padding: 2px 10px !important;
+}
+
+.package_contents_ctn, .package_capsules, .bundle_contents_preview
+{
+	background: var(--adw-thumbnail-bg) !important;
+	background-image: none !important;
+	border-radius: var(--w-radius-button) !important;
+	padding: 6px !important;
+}
+
+.package_capsules .package_capsule_fade, .bundle_contents_preview .fade
+{
+	display: none !important;
+}

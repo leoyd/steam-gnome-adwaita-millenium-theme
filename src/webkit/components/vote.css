@@ -1,0 +1,198 @@
+/* ═══ Composant : vote / recommandation ════════════════════════════════
+ * Un seul pouce partout (évaluations du magasin, de la communauté, des
+ * cartes d'activité, du Workshop) : pastille ronde verte (recommandé) ou
+ * rouge (non recommandé) avec l'icône symbolique Adwaita.
+ *   --vote-size : 32px dans les en-têtes d'évaluation, 24px ailleurs. */
+
+/* En-tête d'évaluation : [pouce] Recommandé   x heures */
+:where(.reviewInfo, .review_box .vote_header, .vote_header .reviewInfo,
+       div.HGCiCZ2mhusHJku7z15Nw)                               /* ReviewInfoHeader (magasin React) */
+{
+	display: flex !important;
+	align-items: center;
+	gap: 12px;
+	min-height: 0 !important;
+	height: auto !important;
+	padding: 8px 12px !important;
+	background: color-mix(in srgb, currentColor 6%, transparent) !important;
+	border-radius: var(--w-radius-button) !important;
+}
+
+:where(.reviewInfo, .review_box) .thumb,
+div._1pk8MT_nsrwd0kif6cppyD                                    /* ThumbIcon (magasin React) */
+{
+	--vote-size: 32px;
+	position: static !important;
+	float: none !important;
+	flex-shrink: 0;
+	width: var(--vote-size) !important;
+	height: var(--vote-size) !important;
+	margin: 0 !important;
+	border-radius: 50%;
+	background: var(--adw-success-bg) !important;
+}
+
+:where(.reviewInfo, .review_box) .thumb::before,
+div._1pk8MT_nsrwd0kif6cppyD::before
+{
+	content: none;
+}
+
+/* L'image Steam est remplacée par le pouce Adwaita (content: url() sur
+ * <img>, sans :has() qui coûtait un recalcul de style permanent) */
+:where(.reviewInfo, .review_box) .thumb img
+{
+	display: block !important;
+	width: 100% !important;
+	height: 100% !important;
+	content: var(--w-vote-up);
+}
+
+:where(.reviewInfo, .review_box) .thumb img:is([src*="Down"], [src*="down"])
+{
+	content: var(--w-vote-down);
+}
+
+:where(.reviewInfo, .review_box) .thumb
+{
+	background: none !important;
+}
+
+/* Magasin React : l'icône est un SVG, la variante « Down » une classe */
+div._1pk8MT_nsrwd0kif6cppyD > svg
+{
+	display: none !important;
+}
+
+div._1pk8MT_nsrwd0kif6cppyD
+{
+	background: var(--w-vote-up) center / contain no-repeat !important;
+}
+
+div._1pk8MT_nsrwd0kif6cppyD._1yQUzR4jghsMyIgpY_Ay7f /* ThumbIcon.Down */
+{
+	background-image: var(--w-vote-down) !important;
+}
+
+:where(.reviewInfo .title, .review_box .header .title, div._17lxcLR8FnXBii5ZgrKZCf) /* Headline */
+{
+	position: static !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	color: var(--adw-window-fg) !important;
+	font-size: 15px !important;
+	font-weight: 700 !important;
+}
+
+:where(.reviewInfo .hours, .review_box .hours)
+{
+	position: static !important;
+	margin: 0 0 0 auto !important;
+	color: var(--w-dim) !important;
+	font-size: 13px;
+}
+
+/* Boutons de vote (Utile / Pas utile / Drôle / Récompense) : boutons
+ * compacts identiques, icône symbolique à la place du sprite Steam. */
+:where(.apphub_CardRatingButtons, .vote_bar_ctn, .workshopItemControls, .ratingBar + .voteControls)
+{
+	display: flex !important;
+	align-items: center;
+	gap: 6px;
+}
+
+:where(.apphub_CardRatingButtons a, .btn_grey_grey.btn_small_thin.ico_hover, .ratebtn, .general_btn.voteUp, .general_btn.voteDown,
+       #VoteUpBtn, #VoteDownBtn)
+{
+	--btn-height: 28px;
+	--btn-pad: 0 10px;
+	position: relative;
+	min-width: 32px;
+}
+
+:where(.apphub_CardRatingButtons a, .btn_grey_grey.btn_small_thin.ico_hover, .ratebtn, #VoteUpBtn, #VoteDownBtn) i,
+:where(.apphub_CardRatingButtons a, .btn_grey_grey.btn_small_thin.ico_hover, .ratebtn, #VoteUpBtn, #VoteDownBtn) img
+{
+	display: none !important;
+}
+
+/* Pouces : 1er bouton = utile, 2e = pas utile (Steam y met un sprite <i>) */
+:where(.apphub_CardRatingButtons a:nth-child(1), .apphub_CardRatingButtons a:nth-child(2), #VoteUpBtn, #VoteDownBtn,
+       .general_btn.voteUp, .general_btn.voteDown)::before
+{
+	content: "";
+	width: 14px;
+	height: 14px;
+	flex-shrink: 0;
+	background: currentColor;
+	-webkit-mask: var(--w-icon-thumb-up) center / 14px no-repeat;
+}
+
+:where(.apphub_CardRatingButtons a:nth-child(2), #VoteDownBtn, .general_btn.voteDown)::before
+{
+	-webkit-mask-image: var(--w-icon-thumb-down);
+}
+
+/* Compteur de votes des cartes (rateUp / rateDown) : pastille + nombre */
+:where(.apphub_CardRating.rateUp, .apphub_CardRating.rateDown)
+{
+	display: inline-flex !important;
+	align-items: center;
+	gap: 6px;
+	padding: 0 !important;
+	background: none !important;
+	color: var(--adw-success) !important;
+	font-weight: 700;
+}
+
+/* Même pastille que l'en-tête des évaluations du magasin (--w-vote-up/down) */
+:where(.apphub_CardRating.rateUp, .apphub_CardRating.rateDown)::before
+{
+	content: "";
+	flex-shrink: 0;
+	width: var(--vote-size, 22px);
+	height: var(--vote-size, 22px);
+	background: var(--w-vote-up) center / contain no-repeat;
+}
+
+:where(.apphub_CardRating.rateDown)
+{
+	color: var(--adw-destructive) !important;
+}
+
+:where(.apphub_CardRating.rateDown)::before
+{
+	background-image: var(--w-vote-down);
+}
+
+/* Boutons Oui / Non / Drôle / Récompense des évaluations du magasin */
+div._22edD6e1Rd44stPirbVhB2 /* VoteButtons */
+{
+	display: flex !important;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.DialogButton._131dBxXvyV0SDKXTx9Ad0n /* VoteButton */
+{
+	--btn-height: 30px;
+	--btn-pad: 0 12px;
+	width: auto !important;
+	min-width: 0 !important;
+	flex: 0 0 auto;
+}
+
+.DialogButton._131dBxXvyV0SDKXTx9Ad0n._20o0K-LdkmbQfesddfuo-X /* Selected */
+{
+	--btn-bg: var(--adw-accent-bg);
+	--btn-bg-hover: var(--adw-accent-bg);
+	--btn-fg: var(--adw-accent-fg);
+}
+
+.DialogButton._131dBxXvyV0SDKXTx9Ad0n svg
+{
+	width: 16px !important;
+	height: 16px !important;
+	color: currentColor !important;
+	fill: currentColor !important;
+}

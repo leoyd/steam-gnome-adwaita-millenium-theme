@@ -1,0 +1,188 @@
+/* ═══ Composant : popover / menu ═══════════════════════════════════════
+ * Surface flottante Adwaita (rayon 12px, marge interne 6px) et éléments de
+ * menu (rayon 9px, 32px de haut, survol 7 %). */
+
+:where(
+	.popup_block, .popup_block_new, .popup_block_new .popup_body, .popup_body.popup_menu,
+	.popup_menu, .popup_menu_twocol, .responsive_slidedown, .supernav_content,
+	.submenu_store, .submenu_community, .submenu_username,
+	#search_suggestion_contents, .search_suggest, .dropcontainer ul, .dropdownmenu,
+	.popup_ctn, .group_dropdown,
+	div._2GxMhpm7OC2WWXN_wjgA78, div.SdFPqnbn0yI-       /* Suggestions de recherche (module / SSR) */
+)
+{
+	background: var(--adw-popover-bg) !important;
+	background-image: none !important;
+	color: var(--adw-popover-fg) !important;
+	border: none !important;
+	border-radius: var(--w-radius) !important;
+	box-shadow: var(--w-popover-shadow) !important;
+}
+
+:where(
+	.popup_block_new .popup_body, .popup_body.popup_menu, .popup_menu,
+	.submenu_store, .submenu_community, .submenu_username, .supernav_content,
+	.dropcontainer ul, div._2GxMhpm7OC2WWXN_wjgA78, div.SdFPqnbn0yI-
+)
+{
+	padding: 6px !important;
+}
+
+/* Les pointes des popups Steam n'existent pas dans Adwaita */
+:where(.popup_block_new .popup_body)::before,
+:where(.popup_menu_arrow, .supernav_container .arrow, .popup_block .arrow,
+       #global_hover .hover_arrow, #hover_app_ctn .hover_arrow, .hover_arrow_left, .hover_arrow_right)
+{
+	display: none !important;
+}
+
+/* Élément de menu */
+:where(
+	.popup_menu_item, .submenu_store a, .submenu_community a, .submenu_username a,
+	.supernav_content a.submenuitem, .dropcontainer ul li a, .dropdownmenu a, .search_suggest .match,
+	#search_suggestion_contents .match
+)
+{
+	display: flex !important;
+	align-items: center;
+	gap: 10px;
+	min-height: 32px;
+	padding: 0 12px !important;
+	line-height: normal !important;
+	background: transparent !important;
+	color: var(--adw-popover-fg) !important;
+	border: none !important;
+	border-radius: var(--w-radius-button) !important;
+	text-shadow: none !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+	font-size: var(--adw-text-menu-size) !important;
+	text-decoration: none !important;
+	transition: background-color var(--adw-transition);
+}
+
+:where(
+	.popup_menu_item, .submenu_store a, .submenu_community a, .submenu_username a,
+	.supernav_content a.submenuitem, .dropcontainer ul li a, .dropdownmenu a, .search_suggest .match,
+	#search_suggestion_contents .match
+):is(:hover, .focus, .highlighted)
+{
+	background: var(--w-hover) !important;
+}
+
+:where(.popup_menu_subheader, .popup_menu .hr, .popup_menu_separator)
+{
+	color: var(--w-dim) !important;
+	border-color: var(--w-border) !important;
+}
+
+/* Résultats de recherche instantanée : vignette + titre + prix */
+:where(#search_suggestion_contents .match, .search_suggest .match)
+{
+	min-height: 48px;
+	padding: 6px 12px !important;
+}
+
+:where(#search_suggestion_contents, .search_suggest) :where(.match_price, .match_subtitle)
+{
+	color: var(--w-dim) !important;
+}
+
+/* ═══ Composant : infobulle ════════════════════════════════════════════ */
+:where(
+	.tooltip:not(.copyright, .review_award_aggregated, .review_award, .general_btn),
+	.community_tooltip, .store_tooltip, .economy_item_popup, .miniprofile_hover,
+	#hover_app_ctn .hover_box, #global_hover .hover_box, .hover_box, .ui-tooltip
+)
+{
+	background: var(--w-tooltip-bg) !important;
+	background-image: none !important;
+	color: #ffffff !important;
+	border: none !important;
+	border-radius: var(--w-radius) !important;
+	box-shadow: none !important;
+}
+
+:where(.tooltip:not(.copyright, .review_award_aggregated, .review_award, .general_btn), .community_tooltip, .store_tooltip)
+{
+	padding: 6px 10px !important;
+	border-radius: var(--w-radius-button) !important;
+	font-size: 14px !important;
+}
+
+:where(#global_hover, #hover_app_ctn) .hover_body,
+:where(.hover_review_summary, .hover_details_block_full)
+{
+	background: transparent !important;
+	color: #ffffff !important;
+}
+
+/* ═══ Composant : dialogue ═════════════════════════════════════════════ */
+:where(.newmodal_background, .modal_background, #modalBG)
+{
+	background: var(--w-dimmer) !important;
+	opacity: 1 !important;
+}
+
+:where(.newmodal, .modal_box, .modalContent, .newmodal_content_border)
+{
+	background: var(--adw-dialog-bg) !important;
+	background-image: none !important;
+	color: var(--adw-dialog-fg) !important;
+	border: none !important;
+	border-radius: var(--w-radius-dialog) !important;
+	box-shadow: var(--w-dialog-shadow) !important;
+	overflow: hidden;
+}
+
+:where(.newmodal_header_border, .newmodal_header, .newmodal_content, .modal_top_bar)
+{
+	background: transparent !important;
+	background-image: none !important;
+	color: var(--adw-dialog-fg) !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+:where(.newmodal_header, .newmodal_header .title_text)
+{
+	text-transform: none !important;
+	letter-spacing: normal !important;
+	font-weight: 700 !important;
+	font-size: var(--adw-text-title4-size) !important;
+	text-align: center;
+}
+
+:where(.newmodal_buttons)
+{
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
+}
+
+/* Bouton de fermeture rond, comme les contrôles de fenêtre GNOME */
+:where(.newmodal_close)
+{
+	width: 24px !important;
+	height: 24px !important;
+	margin: 12px !important;
+	border-radius: 50% !important;
+	background: var(--w-button-bg) !important;
+	opacity: 1 !important;
+	transition: background-color var(--adw-transition);
+}
+
+:where(.newmodal_close)::before
+{
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: var(--adw-dialog-fg);
+	-webkit-mask: var(--w-icon-close) center / 16px no-repeat;
+}
+
+:where(.newmodal_close):hover
+{
+	background: var(--w-button-bg-hover) !important;
+}

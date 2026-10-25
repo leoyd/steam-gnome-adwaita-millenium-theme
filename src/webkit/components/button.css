@@ -1,0 +1,280 @@
+/* ═══ Composant : bouton ═══════════════════════════════════════════════
+ * Un seul style de bouton (libadwaita). Les variantes ne changent que des
+ * variables :
+ *   --btn-bg / --btn-bg-hover / --btn-bg-active   fond
+ *   --btn-fg                                      texte / icône
+ *   --btn-radius                                  9px, 9999px (pilule), 50% (rond)
+ *   --btn-height / --btn-pad / --btn-font         taille
+ * Les sélecteurs sont dans :where() (spécificité nulle) : une page peut
+ * toujours ajuster un bouton sans surenchère. Steam enveloppe souvent le
+ * libellé dans un <span> : il devient transparent et hérite. */
+
+:where(
+	.btn_grey_steamui, .btn_grey_black, .btn_grey_grey, .btn_grey_white_innerfade,
+	.btn_grey_grey_outer_bevel, .btn_darkblue_white_innerfade, .btn_black, .btn_white,
+	.btnv6_blue_hoverfade, .btnv6_grey_black, .btnv6_white_transparent, .btnv6_lightblue_blue,
+	.btn_profile_action, .btn_report, .btn_filter, .btn_border_2px, .btn_disabled,
+	.btn_plum, .btn_royal_blue, .btn_teal,
+	.btn_green_steamui, .btn_green_white_innerfade, .btn_green_black,
+	.btn_blue_steamui, .btn_blue_white_innerfade, .btn_blue_black,
+	.btnv6_green_white_innerfade, .btnv6_blue_blue_innerfade,
+	.btn_darkred_white_innerfade, .btn_red_white_innerfade, .btn_red_steamui, .btn_remove,
+	.queue_control_button, .queue_btn_inactive, .queue_btn_active, button.queue_menu_arrow,
+	.wishlist_btn, .add_to_wishlist, .market_commodity_buy_button,
+	.item_market_action_button, .market_search_advanced_button,
+	.game_page_autocollapse_readmore, .big_button, .home_page_content .big_buttons a,
+	.header_installsteam_btn, .store_header_btn_gray, .store_header_btn_green,
+	.general_btn, .general_btn.share, .general_btn.favorite, .general_btn.report,
+	.dselect_container .trigger, .DialogButton,
+	a._0BH1ydyFmSnUvoVK2hIc, button._0BH1ydyFmSnUvoVK2hIc,      /* Button (kit Valve) */
+	button.PzuczM6OUSY-, button.Vy3rNuKLunU-, button.p0Gsr94HawQ-, /* boutons liste de souhaits (SSR) */
+	a.inqz7Zdx9Xg-,                                              /* boutons panier (SSR) */
+	div._2gL71Yq-HzVI9oOGyWu3jH, div.AjHMNGqS56A5oRpfyYhEz, div.xqG5GdDEeYauX2ots2DLl, /* listes du kit Valve */
+	a._2f_EIAuOVG5ZIzYb1sXJlw, a._1wt5Ne6MrJfPVdFz5fGlop, a.home_gift_card_link,
+	a._2gXzKgnqPNSUzBWEYvQ4OP, div.nDye27oueac7bocDYPZ0V, button._131dBxXvyV0SDKXTx9Ad0n,
+	button.LrqeL6o22aQ-, button.YAnzAmuUUnI-,              /* S'abonner (Workshop SSR) */
+	button:not([class]), input[type="button"], input[type="submit"], input[type="reset"]
+)
+{
+	box-sizing: border-box !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	gap: 6px;
+	min-height: var(--btn-height, 34px) !important;
+	vertical-align: middle;
+	padding: var(--btn-pad, 0 16px) !important;
+	background: var(--btn-bg, var(--w-button-bg)) !important;
+	background-image: none !important;
+	color: var(--btn-fg, var(--adw-window-fg)) !important;
+	border: none !important;
+	border-radius: var(--btn-radius, var(--w-radius-button)) !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+	text-decoration: none !important;
+	font: var(--btn-font, 700 14px/1.2 var(--adw-text-font)) !important;
+	cursor: default;
+	transition: background-color var(--adw-transition), filter var(--adw-transition) !important;
+}
+
+:where(
+	.btn_grey_steamui, .btn_grey_black, .btn_grey_grey, .btn_grey_white_innerfade,
+	.btn_grey_grey_outer_bevel, .btn_darkblue_white_innerfade, .btn_black, .btn_white,
+	.btnv6_blue_hoverfade, .btnv6_grey_black, .btnv6_white_transparent, .btnv6_lightblue_blue,
+	.btn_profile_action, .btn_report, .btn_filter, .btn_border_2px,
+	.btn_blue_steamui, .btn_blue_white_innerfade, .btn_blue_black, .btnv6_blue_blue_innerfade,
+	.btn_darkred_white_innerfade, .btn_red_white_innerfade, .btn_red_steamui, .btn_remove,
+	.queue_control_button, .queue_btn_inactive, button.queue_menu_arrow,
+	.wishlist_btn, .add_to_wishlist, .market_search_advanced_button,
+	.game_page_autocollapse_readmore, .big_button, .home_page_content .big_buttons a,
+	.store_header_btn_gray, .general_btn, .dselect_container .trigger, .DialogButton,
+	a._0BH1ydyFmSnUvoVK2hIc, button._0BH1ydyFmSnUvoVK2hIc,
+	button.PzuczM6OUSY-, button.Vy3rNuKLunU-, button.p0Gsr94HawQ-, a.inqz7Zdx9Xg-,
+	div._2gL71Yq-HzVI9oOGyWu3jH, div.AjHMNGqS56A5oRpfyYhEz, div.xqG5GdDEeYauX2ots2DLl,
+	a._2f_EIAuOVG5ZIzYb1sXJlw, a._1wt5Ne6MrJfPVdFz5fGlop, a.home_gift_card_link,
+	a._2gXzKgnqPNSUzBWEYvQ4OP, div.nDye27oueac7bocDYPZ0V, button._131dBxXvyV0SDKXTx9Ad0n,
+	button:not([class]), input[type="button"], input[type="submit"], input[type="reset"]
+):hover
+{
+	background: var(--btn-bg-hover, var(--w-button-bg-hover)) !important;
+	text-decoration: none !important;
+}
+
+:where(
+	.btn_grey_steamui, .btn_grey_black, .btn_grey_white_innerfade, .btn_darkblue_white_innerfade,
+	.btnv6_blue_hoverfade, .btnv6_grey_black, .btn_profile_action, .queue_control_button,
+	.btn_filter, .dselect_container .trigger, .DialogButton,
+	a._0BH1ydyFmSnUvoVK2hIc, button._0BH1ydyFmSnUvoVK2hIc, button:not([class])
+):active
+{
+	background: var(--btn-bg-active, var(--w-button-bg-active)) !important;
+}
+
+/* Variante « suggérée » : action principale (acheter, ajouter, valider) */
+:where(
+	.btn_green_steamui, .btn_green_white_innerfade, .btn_green_black,
+	.btnv6_green_white_innerfade,
+	.queue_btn_active, .market_commodity_buy_button, .item_market_action_button,
+	.header_installsteam_btn, .store_header_btn_green, .DialogButton.Primary,
+	a.inqz7Zdx9Xg-.WPxeXV5lR1E-, button.LrqeL6o22aQ-, button.YAnzAmuUUnI-,
+	div._1NBFz9qQu7S4tSVNyypXBZ button._0BH1ydyFmSnUvoVK2hIc /* « Vendre » (inventaire) */
+)
+{
+	--btn-bg: var(--adw-accent-bg);
+	--btn-bg-hover: color-mix(in srgb, var(--adw-accent-bg), var(--adw-accent-fg) 10%);
+	--btn-bg-active: color-mix(in srgb, var(--adw-accent-bg), black 20%);
+	--btn-fg: var(--adw-accent-fg);
+}
+
+/* Variante « destructive » */
+:where(.btn_darkred_white_innerfade, .btn_red_white_innerfade, .btn_red_steamui, .btn_remove)
+{
+	--btn-fg: var(--adw-destructive);
+}
+
+/* Variante « plate » : pas de fond au repos */
+:where(.general_btn, .btn_report)
+{
+	--btn-bg: transparent;
+	--btn-bg-hover: var(--w-hover);
+}
+
+/* Tailles */
+:where(.btn_small, .btn_small_thin, .btn_small_tall, .general_btn)
+{
+	--btn-height: 28px;
+	--btn-pad: 0 12px;
+	--btn-font: 700 13px/1.2 var(--adw-text-font);
+}
+
+:where(.btn_large, .btn_xlarge, .btn_xxlarge)
+{
+	--btn-height: 42px;
+	--btn-pad: 0 20px;
+	--btn-font: 700 15px/1.2 var(--adw-text-font);
+}
+
+/* Libellé interne des boutons Steam */
+:where([class*="btn_"], [class*="btnv6_"], .queue_control_button, .btn_profile_action,
+       .dselect_container .trigger, .item_market_action_button) > span
+{
+	display: inline-flex !important;
+	align-items: center;
+	gap: 6px;
+	height: auto !important;
+	padding: 0 !important;
+	background: transparent !important;
+	background-image: none !important;
+	color: inherit !important;
+	border: none !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	line-height: inherit !important;
+	font: inherit !important;
+}
+
+/* Désactivé */
+:where(.btn_disabled, [class*="btn_"][disabled], button:disabled, input:disabled, .DialogButton:disabled)
+{
+	opacity: var(--adw-disabled-opacity) !important;
+	filter: none !important;
+	pointer-events: none;
+}
+
+/* ═══ Bouton OSD rond (flèches de carrousel, fermeture) ═══════════════
+ * Chevron Adwaita dessiné en ::after ; l'icône Steam d'origine est masquée. */
+:where(
+	.carousel_container .arrow, .store_horizontal_autoslider_ctn .arrow,
+	button.carousel__back-button, button.carousel__next-button,
+	div._2lIBEOcXRC3KKhDamcV9t,                         /* Arrow : défilement des captures */
+	.slider_left, .slider_right, #highlight_slider_left, #highlight_slider_right
+)
+{
+	--osd-size: 40px;
+	box-sizing: border-box !important;
+	width: var(--osd-size) !important;
+	height: var(--osd-size) !important;
+	min-width: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	transform: none !important;
+	background: var(--w-osd-bg) !important;
+	background-image: none !important;
+	border: none !important;
+	border-radius: 50% !important;
+	box-shadow: none !important;
+	color: #ffffff !important;
+	cursor: default;
+	transition: background-color var(--adw-transition), opacity var(--adw-transition) !important;
+}
+
+:where(
+	.carousel_container .arrow, .store_horizontal_autoslider_ctn .arrow,
+	button.carousel__back-button, button.carousel__next-button,
+	div._2lIBEOcXRC3KKhDamcV9t, .slider_left, .slider_right, #highlight_slider_left, #highlight_slider_right
+):hover
+{
+	background: var(--w-osd-bg-hover) !important;
+}
+
+:where(
+	.carousel_container .arrow, .store_horizontal_autoslider_ctn .arrow,
+	button.carousel__back-button, button.carousel__next-button,
+	div._2lIBEOcXRC3KKhDamcV9t, .slider_left, .slider_right, #highlight_slider_left, #highlight_slider_right
+) > *
+{
+	display: none !important;
+}
+
+:where(
+	.carousel_container .arrow, .store_horizontal_autoslider_ctn .arrow,
+	button.carousel__back-button, button.carousel__next-button,
+	div._2lIBEOcXRC3KKhDamcV9t, .slider_left, .slider_right, #highlight_slider_left, #highlight_slider_right
+)::after
+{
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: currentColor;
+	-webkit-mask: var(--w-icon-next) center / 16px no-repeat;
+}
+
+:where(
+	.carousel_container .arrow.left, .store_horizontal_autoslider_ctn .arrow.left,
+	button.carousel__back-button, div._2lIBEOcXRC3KKhDamcV9t:first-child,
+	.slider_left, #highlight_slider_left
+)::after
+{
+	-webkit-mask-image: var(--w-icon-prev);
+}
+
+:where(button.carousel__back-button, button.carousel__next-button):disabled
+{
+	opacity: 0 !important;
+	pointer-events: none !important;
+}
+
+/* Garde-fou : Steam impose la couleur de ses boutons avec !important et une
+ * spécificité de classe (jusqu'à :not()×4:hover). :where() (spécificité
+ * nulle) ne suffit pas ici : on rejoue uniquement la couleur avec la même
+ * forme de sélecteur que Steam, la variable --btn-fg restant la source. */
+:is(.btn_black, .btn_blue_white_innerfade, .btn_darkblue_white_innerfade, .btn_darkred_white_innerfade,
+    .btn_green_white_innerfade, .btn_grey_black, .btn_grey_grey, .btn_grey_grey_outer_bevel,
+    .btn_grey_white_innerfade, .btn_plum, .btn_profile_action, .btn_royal_blue, .btn_teal,
+    .btnv6_blue_blue_innerfade, .btnv6_blue_hoverfade, .btnv6_green_white_innerfade, .btnv6_grey_black,
+    .btnv6_lightblue_blue, .btnv6_white_transparent, .queue_menu_arrow),
+:is(.btn_black, .btn_blue_white_innerfade, .btn_darkblue_white_innerfade, .btn_darkred_white_innerfade,
+    .btn_green_white_innerfade, .btn_grey_black, .btn_grey_grey, .btn_grey_grey_outer_bevel,
+    .btn_grey_white_innerfade, .btn_plum, .btn_royal_blue, .btn_teal,
+    .btnv6_blue_blue_innerfade, .btnv6_blue_hoverfade, .btnv6_green_white_innerfade, .btnv6_grey_black,
+    .btnv6_lightblue_blue, .btnv6_white_transparent):not(.btn_disabled):not(:disabled):not(.btn_active):not(.active):hover,
+:is(.btn_darkblue_white_innerfade, .btn_darkred_white_innerfade, .btn_grey_black, .btn_plum, .btn_royal_blue,
+    .btn_teal, .btnv6_blue_hoverfade, .btnv6_grey_black):is(.btn_active, .active)
+{
+	color: var(--btn-fg, var(--adw-window-fg)) !important;
+}
+
+.btn_plum, .btn_royal_blue, .btn_teal
+{
+	--btn-bg: var(--w-button-bg);
+}
+
+/* Variante lecture : bouton OSD rond avec le triangle Adwaita, posé au
+ * centre d'une vignette vidéo / diffusion. Steam utilise une <img> : l'image
+ * d'origine est sortie du cadre (object-position) et le fond dessine le bouton. */
+:where(img.apphub_CardContentPlayVideoIcon)
+{
+	--osd-size: 56px;
+	position: absolute !important;
+	top: calc(50% - var(--osd-size) / 2) !important;
+	left: calc(50% - var(--osd-size) / 2) !important;
+	width: var(--osd-size) !important;
+	height: var(--osd-size) !important;
+	margin: 0 !important;
+	object-position: -999px 0;
+	background: var(--w-icon-play-white) 55% center / 22px no-repeat, var(--w-osd-bg) !important;
+	border-radius: 50% !important;
+	transition: background-color var(--adw-transition);
+}

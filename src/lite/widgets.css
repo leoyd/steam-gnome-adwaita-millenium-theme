@@ -1,0 +1,77 @@
+/* Client : spinner de chargement et avatars */
+
+@keyframes adw-lite-spin { to { transform: rotate(360deg); } }
+
+/* Throbber Steam (logo animé) → spinner Adwaita */
+div.lYUEjD8Qh3GM_ZrZeLwpI /* Throbber */
+{
+	position: relative !important;
+	min-width: 32px !important;
+	min-height: 32px !important;
+
+	& > *
+	{
+		opacity: 0 !important;
+	}
+
+	&::after
+	{
+		content: "";
+		position: absolute;
+		left: calc(50% - 16px);
+		top: calc(50% - 16px);
+		width: 32px;
+		height: 32px;
+		box-sizing: border-box;
+		border-radius: 50%;
+		border: 3px solid color-mix(in srgb, var(--adw-window-fg) 15%, transparent);
+		border-top-color: var(--adw-window-fg);
+		animation: adw-lite-spin 0.9s linear infinite;
+		/* pas de « visibility: visible » : un throbber que Steam masque
+		 * doit rester masqué, sinon l'animation tourne en permanence */
+	}
+
+	&._2zbyh5jEDlV5HVD3iUve-k::after /* throbber_small */
+	{
+		left: calc(50% - 8px);
+		top: calc(50% - 8px);
+		width: 16px;
+		height: 16px;
+		border-width: 2px;
+	}
+}
+
+/* Avatars : carrés, comme dans Steam, avec leur cadre de profil (objet de
+ * personnalisation du Points Shop) qu'Adwaita-for-Steam masquait.
+ * :is(…, #adw) donne le poids d'un identifiant : les règles d'Adwaita sont
+ * imbriquées dans des :not() très spécifiques. */
+:is(body.DesktopUI, html.client_chat_frame, #adw)
+{
+	div.nibodjvvrm86uCfnnAn4g,                          /* avatarHolder */
+	div.nibodjvvrm86uCfnnAn4g img.avatar,
+	div.nibodjvvrm86uCfnnAn4g::before,
+	div._224Jw0OwqNYu37mxX4-K79,                        /* FiltertagAvatarSpacer */
+	div._224Jw0OwqNYu37mxX4-K79 img,
+	div._3nhzM2H8Opkomzs5OG5oux img,                    /* avatar de connexion */
+	div.ChatRoomGroupAvatar,
+	div.ChatRoomGroupAvatar_initials
+	{
+		border-radius: 0 !important;
+	}
+
+	div.nibodjvvrm86uCfnnAn4g div.avatarFrame
+	{
+		display: block !important;
+		position: absolute !important;
+		inset: 0;
+		z-index: 3;
+		pointer-events: none;
+
+		img
+		{
+			width: 100% !important;
+			height: 100% !important;
+			border-radius: 0 !important;
+		}
+	}
+}
